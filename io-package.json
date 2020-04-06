@@ -1,0 +1,239 @@
+{
+    "common": {
+        "name": "logparser",
+        "version": "0.3.0",
+        "news": {
+            "0.3.0": {
+                "en": "initial public release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "Log Parser",
+        "titleLang": {
+            "en": "Log Parser",
+            "de": "Log Parser",
+            "ru": "Log Parser",
+            "pt": "Log Parser",
+            "nl": "Log Parser",
+            "fr": "Log Parser",
+            "it": "Log Parser",
+            "es": "Log Parser",
+            "pl": "Log Parser",
+            "zh-cn": "Log Parser"
+        },
+        "desc": {
+            "en": "Parsing (filtering) the ioBroker log",
+            "de": "Parsing (filtering) the ioBroker log",
+            "ru": "Parsing (filtering) the ioBroker log",
+            "pt": "Parsing (filtering) the ioBroker log",
+            "nl": "Parsing (filtering) the ioBroker log",
+            "fr": "Parsing (filtering) the ioBroker log",
+            "it": "Parsing (filtering) the ioBroker log",
+            "es": "Parsing (filtering) the ioBroker log",
+            "pl": "Parsing (filtering) the ioBroker log",
+            "zh-cn": "Parsing (filtering) the ioBroker log"
+        },
+        "authors": [
+            "Mic-M <iob.micm@gmail.com>"
+        ],
+        "keywords": [
+            "log",
+            "parser",
+            "filter"
+        ],
+        "license": "MIT",
+        "platform": "Javascript/Node.js",
+        "main": "main.js",
+        "icon": "logparser.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/Mic-M/ioBroker.logparser/master/admin/logparser.png",
+        "readme": "https://github.com/Mic-M/ioBroker.logparser/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "logic",
+        "compact": true,
+        "connectionType": "local",
+        "dataSource": "poll",
+        "materialize": true,
+        "materializeTab": true,
+        "adminTab": {
+            "singleton": true,
+            "name": {
+                "en": "Log Parser",
+                "de": "Log Parser",
+                "ru": "Log Parser",
+                "pt": "Log Parser",
+                "nl": "Log Parser",
+                "fr": "Log Parser",
+                "it": "Log Parser",
+                "es": "Log Parser",
+                "pl": "Log Parser",
+                "zh-cn": "Log Parser"
+            },
+            "link": "",
+            "fa-icon": "info"
+        },
+        "supportCustoms": true,
+        "dependencies": [
+            {
+                "js-controller": ">=1.4.2"
+            }
+        ],
+        "logTransporter": true
+    },
+    "native": {
+        "removePid": true,
+        "txtToday": "Heute",
+        "txtYesterday": "Gestern",
+        "txtMerge": "[# Einträge] ",
+        "jsonColumns": "date,severity,from,message",
+        "sortDescending": true,
+        "visTables": 1,
+        "updateInterval": 10,
+        "maxLogs": 100,
+        "globalBlacklist": [
+          {
+            "item": "<==Disconnect system.user.admin from ::ffff:",
+            "comment": "web.0 Adapter",
+            "active": true
+          },
+          {
+            "item": "/registered [0-9]+ subscriptions and [0-9]+ schedules/",
+            "comment": "Beispiel für Regex",
+            "active": true
+          },
+          {
+            "item": "/instance system\\.adapter\\.[^\\s]* terminated with code 0 \\((NO_ERROR|OK)\\)/",
+            "comment": "Weiteres Regex-Beispiel",
+            "active": true
+          },
+          {
+            "item": "/instance system\\.adapter\\.[^\\s]* started with pid [0-9]+/",
+            "comment": "Noch ein Regex",
+            "active": true
+          },
+          {
+            "item": "Start javascript script.js.",
+            "comment": "",
+            "active": false
+          },
+          {
+            "item": "Stop script script.js.",
+            "comment": "",
+            "active": false
+          },
+          {
+            "item": "bring.0 Cannot get translations: RequestError",
+            "comment": "",
+            "active": false
+          },
+          {
+            "item": " reconnected. Old secret ",
+            "comment": "Sonoff",
+            "active": false
+          },
+          {
+            "item": "Popup-News readed...",
+            "comment": "info.0 Adapter",
+            "active": false
+          },
+          {
+            "item": "[warn] Projects disabled : set editorTheme.projects.enabled=true to enable",
+            "comment": "see https://forum.iobroker.net/topic/12260/",
+            "active": false
+          },
+          {
+            "item": "[warn] Projects disabled : editorTheme.projects.enabled=false",
+            "comment": "",
+            "active": false
+          },
+          {
+            "item": "Update repository \"latest\" under",
+            "comment": "",
+            "active": false
+          }
+        ],
+        "parserRules": [
+          {
+            "active": true,
+            "name": "Info",
+            "whitelistAnd": "",
+            "whitelistOr": "",
+            "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+            "debug": false,
+            "info": true,
+            "warn": false,
+            "error": false,
+            "clean": "/script\\.js\\.[^:]*: /",
+            "merge": true,
+            "dateformat": "#DD.MM.# hh:mm"
+          },
+          {
+            "active": true,
+            "name": "Warn",
+            "whitelistAnd": "",
+            "whitelistOr": "",
+            "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+            "debug": false,
+            "info": false,
+            "warn": true,
+            "error": false,
+            "clean": "/script\\.js\\.[^:]*: /",
+            "merge": true,
+            "dateformat": "#DD.MM.# hh:mm"
+          },
+          {
+            "active": true,
+            "name": "Error",
+            "whitelistAnd": "",
+            "whitelistOr": "",
+            "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+            "debug": false,
+            "info": false,
+            "warn": false,
+            "error": true,
+            "clean": "/script\\.js\\.[^:]*: /",
+            "merge": true,
+            "dateformat": "#DD.MM.# hh:mm"
+          },
+          {
+            "active": true,
+            "name": "WarnAndError",
+            "whitelistAnd": "",
+            "whitelistOr": "",
+            "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+            "debug": false,
+            "info": false,
+            "warn": true,
+            "error": true,
+            "clean": "/script\\.js\\.[^:]*: /",
+            "merge": true,
+            "dateformat": "#DD.MM.# hh:mm"
+          },
+          {
+            "active": true,
+            "name": "Homematic",
+            "whitelistAnd": "/hm-(rpc|rega)\\.[0-9]/",
+            "whitelistOr": "",
+            "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+            "debug": false,
+            "info": true,
+            "warn": true,
+            "error": true,
+            "clean": "/script\\.js\\.[^:]*: /",
+            "merge": true,
+            "dateformat": "#DD.MM.# hh:mm"
+          }
+        ]
+    },
+    "objects": [],
+    "instanceObjects": []
+}
