@@ -10,7 +10,7 @@
 
 [![NPM](https://nodei.co/npm/iobroker.logparser.png?downloads=true)](https://nodei.co/npm/iobroker.logparser/)
 
-**Tests:**: [![Travis-CI](http://img.shields.io/travis/Mic-M/ioBroker.logparser/master.svg)](https://travis-ci.org/Mic-M/ioBroker.logparser)
+**Tests:** [![Travis-CI](http://img.shields.io/travis/Mic-M/ioBroker.logparser/master.svg)](https://travis-ci.org/Mic-M/ioBroker.logparser)
 
 ## logparser adapter for ioBroker
 
