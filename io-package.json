@@ -1,9 +1,12 @@
 {
     "common": {
         "name": "logparser",
-        "version": "0.3.0",
+        "version": "0.4.0",
         "news": {
-            "0.3.0": {
+          "0.4.0": {
+            "en": "Add new option 'maxLength' to limit the length of each log message"
+        },
+          "0.3.0": {
                 "en": "initial public release",
                 "de": "Erstveröffentlichung",
                 "ru": "Начальная версия",
@@ -172,6 +175,7 @@
             "info": true,
             "warn": false,
             "error": false,
+            "maxLength": 100,
             "clean": "/script\\.js\\.[^:]*: /",
             "merge": true,
             "dateformat": "#DD.MM.# hh:mm"
@@ -186,6 +190,7 @@
             "info": false,
             "warn": true,
             "error": false,
+            "maxLength": 100,
             "clean": "/script\\.js\\.[^:]*: /",
             "merge": true,
             "dateformat": "#DD.MM.# hh:mm"
@@ -200,6 +205,7 @@
             "info": false,
             "warn": false,
             "error": true,
+            "maxLength": 100,
             "clean": "/script\\.js\\.[^:]*: /",
             "merge": true,
             "dateformat": "#DD.MM.# hh:mm"
@@ -214,6 +220,7 @@
             "info": false,
             "warn": true,
             "error": true,
+            "maxLength": 100,
             "clean": "/script\\.js\\.[^:]*: /",
             "merge": true,
             "dateformat": "#DD.MM.# hh:mm"
@@ -228,6 +235,7 @@
             "info": true,
             "warn": true,
             "error": true,
+            "maxLength": 100,
             "clean": "/script\\.js\\.[^:]*: /",
             "merge": true,
             "dateformat": "#DD.MM.# hh:mm"

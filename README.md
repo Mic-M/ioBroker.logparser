@@ -25,6 +25,9 @@ For the meantime, please see [ioBroker-Log-Script](https://github.com/Mic-M/iobr
 
 ## Changelog
 
+### 0.4.0
+* (Mic-M) Add new option "maxLength" to limit the length of each log message
+
 ### 0.3.0
 * (Mic-M) initial public release
 

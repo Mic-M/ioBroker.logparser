@@ -462,6 +462,16 @@ function addNewLogToAllLogsVar(filterName, logObject, callback) {
         if (replacer['message'] != undefined)  logObject.message = replacer['message'];
     }
 
+    /**
+     * Apply Max Length
+     */    
+    if(!helper.isLikeEmpty(f.maxLength)) {
+        if (parseInt(f.maxLength) > 3) {
+            logObject.message = logObject.message.substr(0, parseInt(f.maxLength));
+        }
+    }    
+     
+
     // Merge
     // TODO: Bessere Konfiguration erlauben, also z.B. "(# Einträge)", wo dann # durch die Anzahl ersetzt wird.
     if (f.merge) {
