@@ -1,0 +1,7 @@
+{
+    "Newly arriving log entries are collected and regularly written to the data points. The default is 10 seconds.": "Les entrées de journal nouvellement arrivées sont collectées et régulièrement écrites dans les points de données. ",
+    "Note: The data points are only written if there has been a change. Nevertheless, from a performance point of view, it does not make sense to set an interval that is too short. Less than 2 seconds is not allowed.": "Remarque: Les points de données ne sont écrits qu'en cas de modification. ",
+    "Seconds": "Secondes",
+    "Update-Interval: Update data points": "Update-Interval: Mettre à jour les points de données",
+    "logparser adapter settings": "Paramètres d'adaptateur pour logparser"
+}

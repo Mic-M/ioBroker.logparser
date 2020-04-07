@@ -1,0 +1,7 @@
+{
+    "Newly arriving log entries are collected and regularly written to the data points. The default is 10 seconds.": "Вновь поступающие записи журнала собираются и регулярно записываются в точки данных. ",
+    "Note: The data points are only written if there has been a change. Nevertheless, from a performance point of view, it does not make sense to set an interval that is too short. Less than 2 seconds is not allowed.": "Примечание. Точки данных записываются только в том случае, если произошли изменения. ",
+    "Seconds": "секунд",
+    "Update-Interval: Update data points": "Интервал обновления: обновление точек данных",
+    "logparser adapter settings": "Настройки адаптера для logparser"
+}

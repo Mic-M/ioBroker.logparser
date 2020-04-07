@@ -2,40 +2,9 @@
 'use strict';
 
 systemDictionary = {
-    'logparser adapter settings': {
-        'en': 'Adapter settings for logparser',
-        'de': 'Adaptereinstellungen für logparser',
-        'ru': 'Настройки адаптера для logparser',
-        'pt': 'Configurações do adaptador para logparser',
-        'nl': 'Adapterinstellingen voor logparser',
-        'fr': "Paramètres d'adaptateur pour logparser",
-        'it': "Impostazioni dell'adattatore per logparser",
-        'es': 'Ajustes del adaptador para logparser',
-        'pl': 'Ustawienia adaptera dla logparser',
-        'zh-cn': 'logparser的适配器设置'
-    },
-    'option1': {
-        'en': 'option1',
-        'de': 'option1',
-        'ru': 'option1',
-        'pt': 'option1',
-        'nl': 'option1',
-        'fr': 'option1',
-        'it': 'option1',
-        'es': 'option1',
-        'pl': 'option1',
-        'zh-cn': 'option1'
-    },
-    'option2': {
-        'en': 'option2',
-        'de': 'option2',
-        'ru': 'option2',
-        'pt': 'option2',
-        'nl': 'option2',
-        'fr': 'option2',
-        'it': 'option2',
-        'es': 'option2',
-        'pl': 'option2',
-        'zh-cn': 'option2'
-    }
+    "logparser adapter settings": {                  "en": "Adapter settings for logparser",                  "de": "Adaptereinstellungen für logparser",              "ru": "Настройки адаптера для logparser",                "pt": "Configurações do adaptador para logparser",       "nl": "Adapterinstellingen voor logparser",              "fr": "Paramètres d'adaptateur pour logparser",          "it": "Impostazioni dell'adattatore per logparser",      "es": "Ajustes del adaptador para logparser",            "pl": "Ustawienia adaptera dla logparser",               "zh-cn": "logparser的适配器设置"},
+    "Update-Interval: Update data points": {         "en": "Update-Interval: Update data points",             "de": "Update-Intervall: Aktualisieren Sie Datenpunkte", "ru": "Интервал обновления: обновление точек данных",    "pt": "Intervalo de atualização: atualiza pontos de dados", "nl": "Update-interval: gegevenspunten bijwerken",       "fr": "Update-Interval: Mettre à jour les points de données", "it": "Update-Interval: aggiorna i punti dati",          "es": "Actualizar-Intervalo: actualizar puntos de datos", "pl": "Interwał aktualizacji: aktualizuj punkty danych", "zh-cn": "更新间隔：更新数据点"},
+    "Newly arriving log entries are collected and regularly written to the data points. The default is 10 seconds.": {"en": "Newly arriving log entries are collected and regularly written to the data points. The default is 10 seconds.", "de": "Neu ankommende Protokolleinträge werden gesammelt und regelmäßig in die Datenpunkte geschrieben. ", "ru": "Вновь поступающие записи журнала собираются и регулярно записываются в точки данных. ", "pt": "As entradas de log que chegam recentemente são coletadas e gravadas regularmente nos pontos de dados. ", "nl": "Nieuw binnengekomen logboekvermeldingen worden verzameld en regelmatig naar de gegevenspunten geschreven. ", "fr": "Les entrées de journal nouvellement arrivées sont collectées et régulièrement écrites dans les points de données. ", "it": "Le voci di registro appena arrivate vengono raccolte e scritte regolarmente nei punti dati. ", "es": "Las entradas de registro recién llegadas se recopilan y se escriben regularmente en los puntos de datos. ", "pl": "Nowo przybyłe wpisy dziennika są gromadzone i regularnie zapisywane w punktach danych. ", "zh-cn": "收集新到达的日志条目并将其定期写入数据点。"},
+    "Note: The data points are only written if there has been a change. Nevertheless, from a performance point of view, it does not make sense to set an interval that is too short. Less than 2 seconds is not allowed.": {"en": "Note: The data points are only written if there has been a change. Nevertheless, from a performance point of view, it does not make sense to set an interval that is too short. Less than 2 seconds is not allowed.", "de": "Hinweis: Die Datenpunkte werden nur geschrieben, wenn eine Änderung vorgenommen wurde. ", "ru": "Примечание. Точки данных записываются только в том случае, если произошли изменения. ", "pt": "Nota: Os pontos de dados são gravados apenas se houver uma alteração. ", "nl": "Opmerking: de gegevenspunten worden alleen geschreven als er een wijziging is aangebracht. ", "fr": "Remarque: Les points de données ne sont écrits qu'en cas de modification. ", "it": "Nota: i punti dati vengono scritti solo se è stata apportata una modifica. ", "es": "Nota: Los puntos de datos solo se escriben si ha habido un cambio. ", "pl": "Uwaga: Punkty danych są zapisywane tylko wtedy, gdy nastąpiła zmiana. ", "zh-cn": "注意：仅在发生更改时才写入数据点。"},
+    "Seconds": {                                     "en": "Seconds",                                         "de": "Sekunden",                                        "ru": "секунд",                                          "pt": "Segundos",                                        "nl": "Seconden",                                        "fr": "Secondes",                                        "it": "secondi",                                         "es": "Segundos",                                        "pl": "sekundy",                                         "zh-cn": "秒"},
 };
