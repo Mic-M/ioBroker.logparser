@@ -73,7 +73,7 @@
         /* Info text of each section */
         .info { margin-left: 1em; }
         /* Table header */
-        .table-values th { height: 2em; background-color:#2196F3; font-size:90%; }
+        .table-values th {line-height: 1em; word-break:break-all; height: 2em; background-color:#2196F3; font-size:90%; }
         /* Table: Add button */
         .table-button-add { margin: 0.3em 0 1em 0; }
         /* Intro */
@@ -175,7 +175,23 @@
                     <div class="col s12">
                         <p class="translate title">Filter-Regeln (Log Parser)</p>
                         <p class="translate info">Pro gesetztem Filter (Regel) werden jeweils Datenpunkte unterhalb von 'logparser.[instanz].filters' angelegt.</p>
-                        <p class="translate info" style="color:red">Info von Mic: Weitere Infos zum einstellen folgen alsbald!</p>
+                        <div class ="filterExpl">
+                            <ol>
+                                <li><strong><span class="translate">Active?</span>:</strong> <span class="translate">Filter aktivieren/deaktivieren</span></li> 
+                                <li><strong><span class="translate">Name</span>:</strong> <span class="translate">Beliebiger Name (Leerzeichen und Sonderzeichen werden automatisch entfernt), wird als Datenpunkt unter 'filters' verwendet</span></li>
+                                <li><strong><span class="translate">* Whitelist: UND</span>:</strong> <span class="translate">All diese Ausdrücke müssen vorkommen.</span></li> 
+                                <li><strong><span class="translate">* Whitelist: ODER</span>:</strong> <span class="translate">Mindestens einer dieser Ausdrücke muss vorkommen.</span></li> 
+                                <li><strong><span class="translate">* Blacklist</span>:</strong> <span class="translate">Sobald einer dieser Ausdrücke vorhanden, wird Log nicht übernommen, egal was sonst für Filter definiert sind.</span></li> 
+                                <li><strong><span class="translate">Debug/Info/Warn/Error</span>:</strong> <span class="translate">Welche Log-Level sollen berücksichtigt werden?</span></li> 
+                                <li><strong><span class="translate">* Bereinige Log Message</span>:</strong> <span class="translate">Ungewünschte Zeichenfolgen aus Logzeile entfernen.</span></li> 
+                                <li><strong><span class="translate">Max</span>:</strong> <span class="translate">Limitiere Anzahl Zeichen in der Logzeile. Leer lassen, falls nicht gebraucht.</span></li> 
+                                <li><strong><span class="translate">Merge</span>:</strong> <span class="translate">Hiermit werden Logeinträge mit gleichem Inhalt zusammengefasst und ein Zähler vorangestellt.</span></li> 
+                                <li><strong><span class="translate">Datumsformat</span>:</strong> <span class="translate">YYYY = Jahr 4stellig, MM = Jahr 2stellig, MM = Monat, DD = Tag, hh = Stunde, mm = Minute, ss = Sekunde. Teile innerhalb #-Zeichen werden durch "Heute" bzw. "Gestern" ersetzt.</span></li>
+                                <li><strong><span class="translate">Falls</span>*:</strong> <span class="translate">Sowohl normaler Text (String) als auch Regex erlaubt. Mehrere Ausdrücke mit Komma trennen. Falls String: es wird stets auf teilweise Übereinstimmung geprüft. Zum ignorieren/deaktivieren: leer lassen.</span></li>
+                            </ol>
+                        </div>
+
+
                         <!-- Start Options Table-->
                         <div class="col s12" id="parserRules">
                             <a class="btn-floating waves-effect waves-light blue table-button-add"><i class="material-icons">add</i></a>
@@ -183,20 +199,20 @@
                                 <table class="table-values">
                                     <thead>
                                         <tr>
-                                            <th class="header translate" data-name="active" data-type="checkbox">Active?</th>
+                                            <th style="width: 30px;" data-style="width: 30px"  class="header translate" data-name="active" data-type="checkbox">Active?</th>
                                             <th class="header translate" data-name="name">Name</th>
-                                            <th class="header translate" data-name="whitelistAnd">Whitelist 1: UND</th>
-                                            <th class="header translate" data-name="whitelistOr">Whitelist 2: ODER</th>
-                                            <th class="header translate" data-name="blacklist">Blacklist</th>
-                                            <th class="header translate" data-name="debug" style="text-align:center" data-type="checkbox">Debug</th>
-                                            <th class="header translate" data-name="info" data-type="checkbox">Info</th>
-                                            <th class="header translate" data-name="warn" data-type="checkbox">Warn</th>
-                                            <th class="header translate" data-name="error" data-type="checkbox">Error</th>
-                                            <th class="header translate" data-name="clean">Entferne Teile aus Logzeile</th>
-                                            <th class="header translate" data-name="maxLength">Max. Länge</th>
-                                            <th class="header translate" data-name="merge" data-type="checkbox">Logs zusammenfassen</th>
-                                            <th class="header translate" data-name="dateformat">Datumsformat</th>
-                                            <th class="header" data-buttons="up down copy delete"></th>
+                                            <th class="header translate" data-name="whitelistAnd">Whitelist 1: UND*</th>
+                                            <th class="header translate" data-name="whitelistOr">Whitelist 2: ODER*</th>
+                                            <th class="header translate" data-name="blacklist">Blacklist*</th>
+                                            <th style="width: 20px;" data-style="width: 20px"  class="header translate" data-name="debug" data-type="checkbox">Debug</th>
+                                            <th style="width: 50px;" data-style="width: 50px"  class="header translate" data-name="info" data-type="checkbox">Info</th>
+                                            <th style="width: 50px;" data-style="width: 50px"  class="header translate" data-name="warn" data-type="checkbox">Warn</th>
+                                            <th style="width: 50px;" data-style="width: 50px"  class="header translate" data-name="error" data-type="checkbox">Error</th>
+                                            <th class="header translate" data-name="clean">Bereinige Log Message*</th>
+                                            <th style="width: 40px;" data-style="width: 40px" class="header translate" data-name="maxLength">Max</th>
+                                            <th style="width: 50px;" data-style="width: 50px"  class="header translate" data-name="merge" data-type="checkbox">Merge</th>
+                                            <th style="width: 100px;" data-style="width: 100px"  class="header translate" data-name="dateformat">Datumsformat</th>
+                                            <th style="width: 50px;" data-style="width: 50px"  class="header" data-buttons="up down copy delete"></th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -227,8 +243,8 @@
                 <!-- Section "Merge Text" -->
                 <div class="row">
                     <div class="col s12">
-                        <p class="translate title">Text bei "Logs zusammenfassen"</p>
-                        <p class="translate info">Dieser Text wird jeder Logzeile vorangestellt, wenn "Logs zusammenfassen" aktiviert ist. Das #-Zeichen wird dabei dann durch die Anzahl der Logs mit dem gleichen Inhalt ersetzt.</p>
+                        <p class="translate title">Text für "Merge" (Logs zusammenfassen)</p>
+                        <p class="translate info">Dieser Text wird jeder Logzeile vorangestellt, wenn "Merge" aktiviert ist. Das #-Zeichen wird dabei dann durch die Anzahl der Logs mit dem gleichen Inhalt ersetzt.</p>
                         <p class="translate info">Sonderzeichen wie [](){}/\ etc. sind erlaubt. Vorschläge: (ohne Anführungszeichen): "[# Einträge] ", "(#) ", "# Einträge: "</p>
 
                         <div class="input-field col s12 m6">
