@@ -1,6 +1,6 @@
 {
   "name": "iobroker.logparser",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Parsing (filtering) the ioBroker log",
   "author": {
     "name": "Mic-M",

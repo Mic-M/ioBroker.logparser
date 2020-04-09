@@ -408,7 +408,7 @@ function addNewLogToAllLogsVar(filterName, logObject, callback) {
     const whiteListAnd = helper.stringConfigListToArray(f.whitelistAnd);
     const whiteListOr = helper.stringConfigListToArray(f.whitelistOr);
     const blacklist = helper.stringConfigListToArray(f.blacklist);
-    const removeList = helper.stringConfigListToArray(f.clean);
+    const removeList = helper.stringConfigListToArray(f.clean, true);
     
     // Check: if no match for filter name or if filter is not active.
     if (f == undefined || !f.active) return callback(false);

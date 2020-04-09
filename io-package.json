@@ -1,8 +1,11 @@
 {
     "common": {
         "name": "logparser",
-        "version": "0.4.2",
+        "version": "0.4.3",
         "news": {
+          "0.4.3": {
+            "en": "Fix multiple regex/string config values separated by comma."
+        },
           "0.4.2": {
             "en": "Fix issue #12, fix issue with visualization.tableX.json and .selection."
         },
