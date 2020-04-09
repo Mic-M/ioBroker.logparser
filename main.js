@@ -10,9 +10,6 @@
  */
 // Used VB Code Extensions: https://github.com/aaron-bond/better-comments
 
-// TODO: Log-Parser Adapter request updaten: https://github.com/ioBroker/AdapterRequests/issues/22
-// TODO: Last-Test: Viele Logs auf einmmal generieren und sehen, wie sich der Adapter verhält.
-// TODO: noch viele mehr ;
 
 /**
  * Global variables. We are using "g_" for ease of identification.
@@ -216,7 +213,8 @@ function stateChanges(statePath, obj) {
                     }
                 }
                 updateJsonStates(filterName, {updateFilters:true, tableNum:visTableNums});
-                adapter.setState(statePath, {ack:true}); // just send ack:true. We acknowledge the positive response
+                // Looks like it throws an error per issue #12: https://github.com/Mic-M/ioBroker.logparser/issues/12
+                // adapter.setState(statePath, {ack:true}); // Send ack:true to acknowledge the positive response
             }
             adapter.setState('lastTimeUpdated', {val:Date.now(), ack: true});
 
@@ -233,7 +231,8 @@ function stateChanges(statePath, obj) {
                     if(g_tableFilters != obj.val) { // continue only if new selection is different to old
                         g_tableFilters[number] = obj.val; // global variable
                         updateJsonStates(obj.val, {updateFilters:false, tableNum:[number]});
-                        adapter.setState(statePath, {ack:true}); // Send ack:true to acknowledge the positive response
+                        // Looks like it throws an error per issue #12: https://github.com/Mic-M/ioBroker.logparser/issues/12
+                        // adapter.setState(statePath, {ack:true}); // Send ack:true to acknowledge the positive response
                     }
                 }                
             }
@@ -366,15 +365,21 @@ function updateJsonStates(filterName, visualization = undefined) {
 
         // Prepare the visualization states.
         // We need these in an array.
-        const finalPaths = [];
+        const finalPaths = []; // all state paths, like logparser.0.visualization.table0, etc.
         if(!helper.isLikeEmpty(visualization.tableNum)) {
             for (const lpTableNum of visualization.tableNum) {
-                finalPaths.push('visualization.table' + lpTableNum);
+                if (g_tableFilters[lpTableNum] == filterName) {
+                    // The chosen filter in logparser.0.visualization.tableX matches with filterName
+                    finalPaths.push('visualization.table' + lpTableNum);
+                }
+                
             }
-            for (const lpPath of finalPaths) {
-                adapter.setState(lpPath + '.json', {val:JSON.stringify(helperArray), ack: true});
-                adapter.setState(lpPath + '.jsonCount', {val:helperArray.length, ack: true});
-                adapter.setState(lpPath + '.mostRecentLogTime', {val:mostRecentLogTime, ack: true});
+            if (!helper.isLikeEmpty(finalPaths)) {
+                for (const lpPath of finalPaths) {
+                    adapter.setState(lpPath + '.json', {val:JSON.stringify(helperArray), ack: true});
+                    adapter.setState(lpPath + '.jsonCount', {val:helperArray.length, ack: true});
+                    adapter.setState(lpPath + '.mostRecentLogTime', {val:mostRecentLogTime, ack: true});
+                }
             }
         }
     }

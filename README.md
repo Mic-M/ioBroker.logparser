@@ -25,6 +25,10 @@ For the meantime, please see [ioBroker-Log-Script](https://github.com/Mic-M/iobr
 
 ## Changelog
 
+### 0.4.2
+* (Mic-M) Fix issue #12 ('state is missing the required property val')
+* (Mic-M) Fix issue with visualization.tableX.json and .selection. See https://forum.iobroker.net/post/408513
+
 ### 0.4.1
 * (Mic-M) Fix 'Yesterday' for date, 2. Fix multiple filters, 3. Add description to settings page
 
