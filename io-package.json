@@ -3,19 +3,55 @@
         "name": "logparser",
         "version": "0.4.3",
         "news": {
-          "0.4.3": {
-            "en": "Fix multiple regex/string config values separated by comma."
-        },
-          "0.4.2": {
-            "en": "Fix issue #12, fix issue with visualization.tableX.json and .selection."
-        },
-          "0.4.1": {
-            "en": "1. Fix 'Yesterday' for date, 2. Fix multiple filters, 3. Add description to settings page"
-        },
-          "0.4.0": {
-            "en": "Add new option 'maxLength' to limit the length of each log message"
-        },
-          "0.3.0": {
+            "0.4.3": {
+                "en": "Fix multiple regex/string config values separated by comma.",
+                "de": "Korrigieren Sie mehrere durch Komma getrennte Regex / String-Konfigurationswerte.",
+                "ru": "Исправьте несколько значений конфигурации регулярных выражений / строк, разделенных запятой.",
+                "pt": "Corrija vários valores de configuração de regex / string separados por vírgula.",
+                "nl": "Herstel meerdere regex / string-configuratiewaarden gescheiden door komma's.",
+                "fr": "Correction de plusieurs valeurs de configuration regex / string séparées par une virgule.",
+                "it": "Correggi più valori di configurazione regex / string separati da virgola.",
+                "es": "Fijar múltiples valores de configuración de expresiones regulares / cadenas separadas por comas.",
+                "pl": "Napraw wiele wartości konfiguracji wyrażeń regularnych / ciągów oddzielonych przecinkami.",
+                "zh-cn": "修复多个用逗号分隔的正则表达式/字符串配置值。"
+            },
+            "0.4.2": {
+                "en": "Fix issue #12, fix issue with visualization.tableX.json and .selection.",
+                "de": "Beheben Sie das Problem Nr. 12, das Problem mit visualization.tableX.json und .selection.",
+                "ru": "Исправьте проблему # 12, исправьте проблему с visualization.tableX.json и .selection.",
+                "pt": "Corrija o problema nº 12, corrija o problema com visualization.tableX.json e .selection.",
+                "nl": "Probleem # 12 oplossen, probleem oplossen met visualization.tableX.json en .selection.",
+                "fr": "Correction du problème n ° 12, correction du problème avec visualization.tableX.json et .selection.",
+                "it": "Risolvi il problema n. 12, risolve il problema con visualization.tableX.json e .selection.",
+                "es": "Solucione el problema # 12, solucione el problema con visualization.tableX.json y .selection.",
+                "pl": "Napraw problem nr 12, napraw problem z visualization.tableX.json i .selection.",
+                "zh-cn": "修复问题＃12，修复了visualization.tableX.json和.selection的问题。"
+            },
+            "0.4.1": {
+                "en": "1. Fix 'Yesterday' for date, 2. Fix multiple filters, 3. Add description to settings page",
+                "de": "1. Korrigieren Sie 'Gestern' für das Datum, 2. Korrigieren Sie mehrere Filter, 3. Fügen Sie der Einstellungsseite eine Beschreibung hinzu",
+                "ru": "1. Исправить «Вчера» для даты, 2. Исправить несколько фильтров, 3. Добавить описание на страницу настроек",
+                "pt": "1. Corrija 'Ontem' para a data, 2. Corrija vários filtros, 3. Adicione uma descrição à página de configurações",
+                "nl": "1. Fix 'Yesterday' voor datum, 2. Fix meerdere filters, 3. Voeg beschrijving toe aan instellingenpagina",
+                "fr": "1. Fixez «Hier» pour la date, 2. Corrigez plusieurs filtres, 3. Ajoutez une description à la page des paramètres",
+                "it": "1. Correggi 'Ieri' per data, 2. Correggi più filtri, 3. Aggiungi descrizione alla pagina delle impostazioni",
+                "es": "1. Arreglar 'Ayer' para la fecha, 2. Arreglar múltiples filtros, 3. Agregar descripción a la página de configuración",
+                "pl": "1. Napraw „Wczoraj” dla daty, 2. Napraw wiele filtrów, 3. Dodaj opis do strony ustawień",
+                "zh-cn": "1.修正“昨天”作为日期，2.修正多个过滤器，3.将描述添加到设置页面"
+            },
+            "0.4.0": {
+                "en": "Add new option 'maxLength' to limit the length of each log message",
+                "de": "Fügen Sie die neue Option 'maxLength' hinzu, um die Länge jeder Protokollnachricht zu begrenzen",
+                "ru": "Добавьте новую опцию 'maxLength', чтобы ограничить длину каждого сообщения журнала",
+                "pt": "Adicione nova opção 'maxLength' para limitar o tamanho de cada mensagem de log",
+                "nl": "Voeg een nieuwe optie 'maxLength' toe om de lengte van elk logbericht te beperken",
+                "fr": "Ajouter une nouvelle option «maxLength» pour limiter la longueur de chaque message de journal",
+                "it": "Aggiungi la nuova opzione 'maxLength' per limitare la lunghezza di ciascun messaggio di registro",
+                "es": "Agregue la nueva opción 'maxLength' para limitar la longitud de cada mensaje de registro",
+                "pl": "Dodaj nową opcję „maxLength”, aby ograniczyć długość każdego komunikatu dziennika",
+                "zh-cn": "添加新选项“ maxLength”以限制每个日志消息的长度"
+            },
+            "0.3.0": {
                 "en": "initial public release",
                 "de": "Erstveröffentlichung",
                 "ru": "Начальная версия",
@@ -112,143 +148,143 @@
         "updateInterval": 10,
         "maxLogs": 100,
         "globalBlacklist": [
-          {
-            "item": "<==Disconnect system.user.admin from ::ffff:",
-            "comment": "web.0 Adapter",
-            "active": true
-          },
-          {
-            "item": "/registered [0-9]+ subscriptions and [0-9]+ schedules/",
-            "comment": "Beispiel für Regex",
-            "active": true
-          },
-          {
-            "item": "/instance system\\.adapter\\.[^\\s]* terminated with code 0 \\((NO_ERROR|OK)\\)/",
-            "comment": "Weiteres Regex-Beispiel",
-            "active": true
-          },
-          {
-            "item": "/instance system\\.adapter\\.[^\\s]* started with pid [0-9]+/",
-            "comment": "Noch ein Regex",
-            "active": true
-          },
-          {
-            "item": "Start javascript script.js.",
-            "comment": "",
-            "active": false
-          },
-          {
-            "item": "Stop script script.js.",
-            "comment": "",
-            "active": false
-          },
-          {
-            "item": "bring.0 Cannot get translations: RequestError",
-            "comment": "",
-            "active": false
-          },
-          {
-            "item": " reconnected. Old secret ",
-            "comment": "Sonoff",
-            "active": false
-          },
-          {
-            "item": "Popup-News readed...",
-            "comment": "info.0 Adapter",
-            "active": false
-          },
-          {
-            "item": "[warn] Projects disabled : set editorTheme.projects.enabled=true to enable",
-            "comment": "see https://forum.iobroker.net/topic/12260/",
-            "active": false
-          },
-          {
-            "item": "[warn] Projects disabled : editorTheme.projects.enabled=false",
-            "comment": "",
-            "active": false
-          },
-          {
-            "item": "Update repository \"latest\" under",
-            "comment": "",
-            "active": false
-          }
+            {
+                "item": "<==Disconnect system.user.admin from ::ffff:",
+                "comment": "web.0 Adapter",
+                "active": true
+            },
+            {
+                "item": "/registered [0-9]+ subscriptions and [0-9]+ schedules/",
+                "comment": "Beispiel für Regex",
+                "active": true
+            },
+            {
+                "item": "/instance system\\.adapter\\.[^\\s]* terminated with code 0 \\((NO_ERROR|OK)\\)/",
+                "comment": "Weiteres Regex-Beispiel",
+                "active": true
+            },
+            {
+                "item": "/instance system\\.adapter\\.[^\\s]* started with pid [0-9]+/",
+                "comment": "Noch ein Regex",
+                "active": true
+            },
+            {
+                "item": "Start javascript script.js.",
+                "comment": "",
+                "active": false
+            },
+            {
+                "item": "Stop script script.js.",
+                "comment": "",
+                "active": false
+            },
+            {
+                "item": "bring.0 Cannot get translations: RequestError",
+                "comment": "",
+                "active": false
+            },
+            {
+                "item": " reconnected. Old secret ",
+                "comment": "Sonoff",
+                "active": false
+            },
+            {
+                "item": "Popup-News readed...",
+                "comment": "info.0 Adapter",
+                "active": false
+            },
+            {
+                "item": "[warn] Projects disabled : set editorTheme.projects.enabled=true to enable",
+                "comment": "see https://forum.iobroker.net/topic/12260/",
+                "active": false
+            },
+            {
+                "item": "[warn] Projects disabled : editorTheme.projects.enabled=false",
+                "comment": "",
+                "active": false
+            },
+            {
+                "item": "Update repository \"latest\" under",
+                "comment": "",
+                "active": false
+            }
         ],
         "parserRules": [
-          {
-            "active": true,
-            "name": "Info",
-            "whitelistAnd": "",
-            "whitelistOr": "",
-            "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
-            "debug": false,
-            "info": true,
-            "warn": false,
-            "error": false,
-            "maxLength": 100,
-            "clean": "/script\\.js\\.[^:]*: /",
-            "merge": true,
-            "dateformat": "#DD.MM.# hh:mm"
-          },
-          {
-            "active": true,
-            "name": "Warn",
-            "whitelistAnd": "",
-            "whitelistOr": "",
-            "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
-            "debug": false,
-            "info": false,
-            "warn": true,
-            "error": false,
-            "maxLength": 100,
-            "clean": "/script\\.js\\.[^:]*: /",
-            "merge": true,
-            "dateformat": "#DD.MM.# hh:mm"
-          },
-          {
-            "active": true,
-            "name": "Error",
-            "whitelistAnd": "",
-            "whitelistOr": "",
-            "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
-            "debug": false,
-            "info": false,
-            "warn": false,
-            "error": true,
-            "maxLength": 100,
-            "clean": "/script\\.js\\.[^:]*: /",
-            "merge": true,
-            "dateformat": "#DD.MM.# hh:mm"
-          },
-          {
-            "active": true,
-            "name": "WarnAndError",
-            "whitelistAnd": "",
-            "whitelistOr": "",
-            "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
-            "debug": false,
-            "info": false,
-            "warn": true,
-            "error": true,
-            "maxLength": 100,
-            "clean": "/script\\.js\\.[^:]*: /",
-            "merge": true,
-            "dateformat": "#DD.MM.# hh:mm"
-          },
-          {
-            "active": true,
-            "name": "Homematic",
-            "whitelistAnd": "/hm-(rpc|rega)\\.[0-9]/",
-            "whitelistOr": "",
-            "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
-            "debug": false,
-            "info": true,
-            "warn": true,
-            "error": true,
-            "maxLength": 100,
-            "clean": "/script\\.js\\.[^:]*: /",
-            "merge": true,
-            "dateformat": "#DD.MM.# hh:mm"
-          }
+            {
+                "active": true,
+                "name": "Info",
+                "whitelistAnd": "",
+                "whitelistOr": "",
+                "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+                "debug": false,
+                "info": true,
+                "warn": false,
+                "error": false,
+                "maxLength": 100,
+                "clean": "/script\\.js\\.[^:]*: /",
+                "merge": true,
+                "dateformat": "#DD.MM.# hh:mm"
+            },
+            {
+                "active": true,
+                "name": "Warn",
+                "whitelistAnd": "",
+                "whitelistOr": "",
+                "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+                "debug": false,
+                "info": false,
+                "warn": true,
+                "error": false,
+                "maxLength": 100,
+                "clean": "/script\\.js\\.[^:]*: /",
+                "merge": true,
+                "dateformat": "#DD.MM.# hh:mm"
+            },
+            {
+                "active": true,
+                "name": "Error",
+                "whitelistAnd": "",
+                "whitelistOr": "",
+                "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+                "debug": false,
+                "info": false,
+                "warn": false,
+                "error": true,
+                "maxLength": 100,
+                "clean": "/script\\.js\\.[^:]*: /",
+                "merge": true,
+                "dateformat": "#DD.MM.# hh:mm"
+            },
+            {
+                "active": true,
+                "name": "WarnAndError",
+                "whitelistAnd": "",
+                "whitelistOr": "",
+                "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+                "debug": false,
+                "info": false,
+                "warn": true,
+                "error": true,
+                "maxLength": 100,
+                "clean": "/script\\.js\\.[^:]*: /",
+                "merge": true,
+                "dateformat": "#DD.MM.# hh:mm"
+            },
+            {
+                "active": true,
+                "name": "Homematic",
+                "whitelistAnd": "/hm-(rpc|rega)\\.[0-9]/",
+                "whitelistOr": "",
+                "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+                "debug": false,
+                "info": true,
+                "warn": true,
+                "error": true,
+                "maxLength": 100,
+                "clean": "/script\\.js\\.[^:]*: /",
+                "merge": true,
+                "dateformat": "#DD.MM.# hh:mm"
+            }
         ]
     },
     "objects": [],

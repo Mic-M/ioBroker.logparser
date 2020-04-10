@@ -35,11 +35,11 @@ For each set filter (rule), states are created under `logparser.[instance].filte
 | Debug/Info/Warn/Error | Which log levels should be considered? |
 | Clean            | Remove unwanted strings from log line. |
 | Max                   | Maximum number of characters of the log line, everything longer than this will be truncated. Leave empty if not used. |
-| Merge                 | This merges log entries with the same content and precedes them with a counter.<br>Without Merge:<br>`2019-08-17 20:00:00 - Retrieve weather data.`<br>`2019-08-17 20:15:00 - Retrieve weather data.`<br>`2019-08-17 20:30:00 - Retrieve weather data.`<br>Mit Merge:<br>`2019-08-17 20:30:00 - [3 Entries] Retrieve weather data.` |
+| Merge                 | This merges log entries with the same content and precedes them with a counter.<br>Without Merge:<br>`2019-08-17 20:00:00 - Retrieve weather data.`<br>`2019-08-17 20:15:00 - Retrieve weather data.`<br>`2019-08-17 20:30:00 - Retrieve weather data.`<br>Merge activated:<br>`2019-08-17 20:30:00 - [3 Entries] Retrieve weather data.` |
 | Date format          | `YYYY` = year 4-digit, `YY` = year 2-digit, `MM` = month, `DD` = day, `hh` = hour, `mm` = minute, `ss` = second. Parts within `#` characters are replaced by "Today" or "Yesterday". |
 
 #### String / Regex
-In the columns *Whitelist AND*, *Whitelist OR*, *Blacklist*, and *Cleanup*, both normal text (string) and regex are allowed. Separate multiple expressions with commas. Please place regex between `/` and `/`, so that the adapter recognizes if it is a regexp. If String: it is always checked for partial matches. To ignore/disable: leave empty.
+In the columns *Whitelist AND*, *Whitelist OR*, *Blacklist*, and *Clean*, both normal text (string) and regex are allowed. Separate multiple expressions with commas. Please place regex between `/` and `/`, so that the adapter recognizes if it is a regexp. If String: it is always checked for partial matches. To ignore/disable: leave empty.
 
 
 ### Further Options:

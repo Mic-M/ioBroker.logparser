@@ -77,10 +77,9 @@
         /* Table: Add button */
         .table-button-add { margin: 0.3em 0 1em 0; }
         /* Intro */
-        .intro {font-size: 16px;}
-        .intro p {margin-bottom: 0.5em !important; padding-bottom: 0 !important;}
-        .intro ul { margin-top: 0 !important }
-        .intro li { font-size: 16px; list-style: disc outside none !important;  display: list-item !important; margin-left: 2em !important; margin-bottom: 0.5em !important; }
+        .intro, .intro span  {font-size: 1.0em;}
+        /* Filter Info */
+        .docuLinks, .docuLinks span  {font-size: 1.0em;}
     </style>
 
 </head>
@@ -94,11 +93,10 @@
             <!-- Define all Tabs -->
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3"><a href="#tab-main" class="translate">Allgemein</a></li> <!-- Tab 1 -->
-                    <li class="tab col s3"><a href="#tab-filter" class="translate">Parser-Regeln (Filter)</a></li> <!-- Tab 2 -->
+                    <li class="tab col s3"><a href="#tab-main" class="translate">General</a></li> <!-- Tab 1 -->
+                    <li class="tab col s3"><a href="#tab-filter" class="translate">Parser Rules (Filter)</a></li> <!-- Tab 2 -->
                     <li class="tab col s3"><a href="#tab-blacklist" class="translate">Global Blacklist</a></li> <!-- Tab 3 -->
-                    <!-- Erweiterte Einstellungen = Advanced Settings -->
-                    <li class="tab col s3"><a href="#tab-advanced" class="translate">Erweiterte Einstellungen</a></li> <!-- Tab 4 -->
+                    <li class="tab col s3"><a href="#tab-advanced" class="translate">Advanced Settings</a></li> <!-- Tab 4 -->
                 </ul>
             </div>
 
@@ -117,42 +115,38 @@
                 <div class="row">
                     <div class="col s12 intro">
                         <h5 class="translate">Adapter: Log Parser</h5>
-                        <p><span class="translate">Mit diesem Adapter können die Log-Ausgaben aller Adapter (inkl. der Scripts des JS-Adapters) geparst werden.</span>
-                           <span class="translate">Dazu einfach hier in den Einstellungen im Reiter <strong>Parser-Regeln (Filter)</strong> die entsprechenden Regeln hinterlegen. Bei Installation werden bereits mehrere Regeln als Beispiel gesetzt.</span>
+                        <p><span class="translate">IntroTxt1</span>
+                           <span class="translate">IntroTxt2</span>
                         </p>
-                        <ul>
-                            <li><strong><a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/en/logparser.md" target="_blank"><span>English Instructions</span></a></strong></li>
-                            <li><strong><a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/de/logparser.md" target="_blank"><span>Deutsche Anleitung</span></a></strong></li>
-                        </ul>
+                        <p><span class="translate">Instructions</span>: 
+                            <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/en/logparser.md#table-for-the-filter-rules" target="_blank"><span class="translate">English</span></a>
+                            | <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/de/logparser.md#tabelle-f%C3%BCr-die-filter-regeln" target="_blank"><span class="translate">German</span></a>
+                        </p>
                     </div>
                 </div>
 
-                <!-- Section "PID entfernen" -->
+                <!-- Section "Remove PID" -->
                 <div class="row">
                     <div class="col s12">
-                        <p class="translate title">PID entfernen</p>
-                        <p class="translate info">Der js-Controller Version 2.0 oder größer fügt Logs teils vorne die PID in Klammern hinzu, also z.B. "(12234) Terminated: Without reason". Mit dieser Option lassen sich die PIDs inkl. Klammern, wie z.B. "(1234)", aus den Logzeilen entfernen.</p>
+                        <p class="translate title">Remove PID</p>
+                        <p class="translate info">RemovePidTxt</p>
                         <div class="input-field col s12 m6">
                             <input type="checkbox" class="value" id="removePid" />
-                            <label for="removePid" class="translate">PID entfernen</label>
+                            <label for="removePid" class="translate">Remove PID</label>
                         </div>
                     </div>
                 </div>
 
-                <!-- Section "Anzahl verwendeter JSON-Tabellen in VIS" -->
+                <!-- Section "Number of JSON tables used in VIS" -->
                 <div class="row">
                     <div class="col s12">
-                        <p class="translate title">Anzahl verwendeter JSON-Tabellen in VIS</p>
-                        <p class="translate info">Hiermit können zusätzliche Datenpunkte für die Ausgabe als JSON-Tabelle in VIS erzeugt werden, 
-                            mit denen es möglich ist, in einer VIS-Tabelle zwischen den einzelnen Filtern umzuschalten 
-                            (z.B. 'Homematic', 'Warnungen', 'Fehler' usw.), die dann dynamisch jeweils in dieser einen Tabelle ausgegeben werden.</p>
-                        <p class="translate info">Hier die Anzahl der unterschiedlichen JSON-Tabellen angeben, in denen du das brauchst.
-                            Diese werden angelegt unter 'visualization.table1', 'visualization.table2', usw.
-                            Zum deaktivieren: 0 eintragen (dann werden diese zusätzlichen Datenpunkte nicht erstellt)</p>
+                        <p class="translate title">Number of JSON tables used in VIS</p>
+                        <p class="translate info">NumJsonTablesTxt1</p>
+                        <p class="translate info">NumJsonTablesTxt2</p>
                         <div class="input-field col s12 m6">
                             <input class="value validate" placeholder="1" id="visTables" type="number" min="0" max="50">
-                            <label for="visTables" class="translate">Für wie viele unterschiedliche JSON-Tabellen benötigst du das?</label>
-                            <span class="helper-text translate">Anzahl (0 = deaktiviert)</span>
+                            <label for="visTables" class="translate">NumJsonTablesTxtLabel</label>
+                            <span class="helper-text translate">Number (0 = deactivated)</span>
                         </div>
                     </div>
                 </div>
@@ -165,14 +159,12 @@
             <div id="tab-filter" class="col s12 page">            
 
                 <div class="row">
-                    <div class="col s12 m4 l2">
-                        <img alt="Adapter Logo" src="logparser.png" class="logo">
-                    </div>
-                </div>
-
-                <div class="row">
                     <div class="col s12">
-                        <!-- <p class="translate title">Filter-Regeln (Log Parser)</p> -->
+                        <!-- <p class="translate title">Filter Rules (Log Parser)</p> -->
+                        <p class="info docuLinks"><span class="translate">Instructions</span>: 
+                            <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/en/logparser.md#table-for-the-filter-rules" target="_blank"><span class="translate">English</span></a>
+                            | <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/de/logparser.md#tabelle-f%C3%BCr-die-filter-regeln" target="_blank"><span class="translate">German</span></a>
+                        </p>
                         <!-- Start Options Table-->
                         <div class="col s12" id="parserRules">
                             <a class="btn-floating waves-effect waves-light blue table-button-add"><i class="material-icons">add</i></a>
@@ -180,16 +172,16 @@
                                 <table class="table-values">
                                     <thead>
                                         <tr>
-                                            <th style="width: 30px;" data-style="width: 30px"  class="header translate" data-name="active" data-type="checkbox">Activ</th>
+                                            <th style="width: 30px;" data-style="width: 30px"  class="header translate" data-name="active" data-type="checkbox">Active</th>
                                             <th class="header translate" data-name="name">Name</th>
-                                            <th class="header translate" data-name="whitelistAnd">Whitelist UND</th>
-                                            <th class="header translate" data-name="whitelistOr">Whitelist ODER</th>
+                                            <th class="header translate" data-name="whitelistAnd">Whitelist AND</th>
+                                            <th class="header translate" data-name="whitelistOr">Whitelist OR</th>
                                             <th class="header translate" data-name="blacklist">Blacklist</th>
-                                            <th style="width: 20px;" data-style="width: 20px"  class="header translate" data-name="debug" data-type="checkbox">Debug</th>
-                                            <th style="width: 50px;" data-style="width: 50px"  class="header translate" data-name="info" data-type="checkbox">Info</th>
-                                            <th style="width: 50px;" data-style="width: 50px"  class="header translate" data-name="warn" data-type="checkbox">Warn</th>
-                                            <th style="width: 50px;" data-style="width: 50px"  class="header translate" data-name="error" data-type="checkbox">Error</th>
-                                            <th class="header translate" data-name="clean">Bereinigen</th>
+                                            <th style="width: 20px;" data-style="width: 20px"  class="header" data-name="debug" data-type="checkbox">Debug</th>
+                                            <th style="width: 50px;" data-style="width: 50px"  class="header" data-name="info" data-type="checkbox">Info</th>
+                                            <th style="width: 50px;" data-style="width: 50px"  class="header" data-name="warn" data-type="checkbox">Warn</th>
+                                            <th style="width: 50px;" data-style="width: 50px"  class="header" data-name="error" data-type="checkbox">Error</th>
+                                            <th class="header translate" data-name="clean">Clean</th>
                                             <th style="width: 40px;" data-style="width: 40px" class="header translate" data-name="maxLength">Max</th>
                                             <th style="width: 50px;" data-style="width: 50px"  class="header translate" data-name="merge" data-type="checkbox">Merge</th>
                                             <th style="width: 100px;" data-style="width: 100px"  class="header translate" data-name="dateformat">Datumsformat</th>
@@ -203,20 +195,20 @@
                     </div>
                 </div>
 
-                <!-- Section "Datum durch Heute/Gestern ersetzen" -->
+                <!-- Section "Replace date with "today" / "yesterday"" -->
                 <div class="row">
                     <div class="col s12">
-                        <p class="translate title">Datum durch "Heute" / "Gestern" ersetzen</p>
-                        <p class="translate info">In den Filtern kann beim Datumsformat für mittels Hash-Zeichen (#) das heutige bzw. gestrige Datum durch 'Heute' bzw. 'Gestern' ersetzt werden. Hier können andere Begriffe statt "Heute"/"Gestern" definiert werden.</p>
+                        <p class="translate title">Replace date with 'Today' / 'Yesterday'</p>
+                        <p class="translate info">ReplaceDateTxt</p>
                         <div class="input-field col s12 m6">
                             <input type="text" class="value" id="txtToday" />
-                            <label for="txtToday" class="translate">Text für Heute</label>
-                            <span class="helper-text translate">Ausgabe für "Heute"</span>
+                            <label for="txtToday" class="translate">Text for Today</label>
+                            <span class="helper-text translate">Output for 'Today'</span>
                         </div>
                         <div class="input-field col s12 m6">
                             <input type="text" class="value" id="txtYesterday" />
-                            <label for="txtYesterday" class="translate">Text für Gestern</label>
-                            <span class="helper-text translate">Ausgabe für "Gestern"</span>
+                            <label for="txtYesterday" class="translate">Text for Yesterday</label>
+                            <span class="helper-text translate">Output for 'Yesterday'</span>
                         </div>
                     </div>
                 </div>
@@ -224,12 +216,12 @@
                 <!-- Section "Merge Text" -->
                 <div class="row">
                     <div class="col s12">
-                        <p class="translate title">Text für "Merge" (Logs zusammenfassen)</p>
-                        <p class="translate info">Dieser Text wird jeder Logzeile vorangestellt, wenn "Merge" aktiviert ist. Das #-Zeichen wird dabei dann durch die Anzahl der Logs mit dem gleichen Inhalt ersetzt.</p>
+                        <p class="translate title">Text for 'Merge' Logs</p>
+                        <p class="translate info">MergeTxt</p>
                         <div class="input-field col s12 m6">
                             <input type="text" class="value" id="txtMerge" />
                             <label for="txtMerge" class="translate">Text</label>
-                            <span class="helper-text translate">Vorangestellter Text (# wird durch Anzahl ersetzt)</span>
+                            <span class="helper-text translate">Prepended text (# is replaced by number)</span>
                         </div>
                     </div>
                 </div>    
@@ -242,15 +234,12 @@
             <div id="tab-blacklist" class="col s12 page">            
 
                 <div class="row">
-                    <div class="col s12 m4 l2">
-                        <img alt="Adapter Logo" src="logparser.png" class="logo">
-                    </div>
-                </div>
-
-                <div class="row">
                     <div class="col s12">
-                        <!-- <p class="translate title">Globale Blacklist</p> -->
-                        <p class="translate info">Falls einer dieser Satzteile/Begriffe in einer Logzeile enthalten ist, dann wird der Log-Eintrag von diesem Adapter ignoriert, auch unabhängig davon, was in den Parser-Regeln (Filter) eingestellt ist. Es ist sowohl String als auch Regex erlaubt. Falls String: es wird auf teilweise Übereinstimmung geprüft, d.h. wenn du z.B. „echo“ einträgst, dann wird jede Logzeile, die „echo“ enthält, ausgefiltert, also auch z.B. „Command sent to echo in kitchen.“</p>
+                        <!-- <p class="translate title">Global Blacklist</p> -->
+                        <p class="info docuLinks"><span class="translate">Instructions</span>: 
+                            <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/en/logparser.md#tab-global-blacklist" target="_blank"><span class="translate">English</span></a>
+                            | <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/de/logparser.md#registerkarte-globale-blacklist" target="_blank"><span class="translate">German</span></a>
+                        </p>
                        
                         <!-- Start Options Table-->
                         <div class="col s12" id="globalBlacklist">
@@ -260,8 +249,8 @@
                                     <thead>
                                         <tr>
                                             <th class="header translate" data-name="active" data-type="checkbox">Active</th>
-                                            <th class="header translate" data-name="item">Blacklist Item</th>
-                                            <th class="header translate" data-name="comment">Kommentar</th>
+                                            <th class="header translate" data-name="item">Blacklist Expressions</th>
+                                            <th class="header translate" data-name="comment">Comment</th>
                                             <th class="header" data-buttons="up down copy delete"></th>
                                         </tr>
                                     </thead>
@@ -277,18 +266,11 @@
             <!-- Tab4 Advanced-->
             <div id="tab-advanced" class="col s12 page">            
 
-                <div class="row">
-                    <div class="col s12 m4 l2">
-                        <img alt="Adapter Logo" src="logparser.png" class="logo">
-                    </div>
-                </div>
-
                 <!-- Section "Update Interval" -->
                 <div class="row">
                     <div class="col s12">
-                        <p class="translate title">Update-Interval: Update data points</p>
-                        <p class="translate info">Newly arriving log entries are collected and regularly written to the data points. The default is 10 seconds.</p>
-                        <p class="translate info">Note: The data points are only written if there has been a change. Nevertheless, from a performance point of view, it does not make sense to set an interval that is too short. Less than 2 seconds is not allowed.</p>
+                        <p class="translate title">Interval for updating states</p>
+                        <p class="translate info">updateIntTxt</p>
                         <div class="input-field col s12 m6">
                             <input class="value validate" placeholder="10" id="updateInterval" type="number" min="2" max="10000">
                             <label for="updateInterval" class="translate">Update Interval</label>
@@ -302,12 +284,12 @@
                 <!-- Section "Max Log Entries" -->
                 <div class="row">
                     <div class="col s12">
-                        <p class="translate title">Maximale Anzahl Logeinträge</p>
-                        <p class="translate info">Die maximale Anzahl an Logeinträgen, die in den Datenpunkten behalten werden (ältere werden entfernt). Bitte keine zu hohe Anzahl, je größer, desto mehr Auslastung für den Adapter und damit deinen ioBroker-Server. Eine Zahl von 100 hat sich gut bewährt.</p>
+                        <p class="translate title">Maximum number of log entries</p>
+                        <p class="translate info">MaxTxt</p>
                         <div class="input-field col s12 m6">
                             <input class="value validate" placeholder="100" id="maxLogs" type="number" min="1" max="1000">
-                            <label for="maxLogs" class="translate">Maximale Anzahl Logeinträge</label>
-                            <span class="helper-text translate">Anzahl</span>
+                            <label for="maxLogs" class="translate">Maximum number of log entries</label>
+                            <span class="helper-text translate">Number</span>
                         </div>
                     </div>
                 </div>
@@ -315,8 +297,8 @@
                 <!-- Section "JSON Table Columns" -->
                 <div class="row">
                     <div class="col s12">
-                        <p class="translate title">Spalten-Reihenfolge für JSON-Tabelle</p>
-                        <p class="translate info">Hier kann die Reihenfolge der einzelnen Spalten verändert werden. Als zusätzliche Spalte wird immer ts (timestamp) hinzugefügt. In VIS usw. bei Bedarf einfach ausblenden.</p>
+                        <p class="translate title">Column order for JSON table</p>
+                        <p class="translate info">OrderTxt</p>
                         <div class="input-field col s12 m6">
                             <select id="jsonColumns" class="value">
                                 <option value="date,severity,from,message">date, severity, from, message</option>
@@ -344,8 +326,8 @@
                                 <option value="severity,message,date,from">severity, message, date, from</option>
                                 <option value="severity,message,from,date">severity, message, from, date</option>
                             </select>
-                            <label for="jsonColumns" class="translate">Spalten für JSON-Tabelle</label>
-                            <span class="helper-text translate">Entsprechend auswählen</span>
+                            <label for="jsonColumns" class="translate">Columns for JSON table</label>
+                            <span class="helper-text translate">Select accordingly</span>
                         </div>
                     </div>
                 </div>
@@ -353,11 +335,11 @@
                 <!-- Section "Sort Descending" -->
                 <div class="row">
                     <div class="col s12">
-                        <p class="translate title">Sortierung</p>
-                        <p class="translate info">Wenn aktiviert: sortiert die Logeinträge absteigend, also neuester oben. Wenn deaktiviert: Sortiert die Logeinträge aufsteigend, also ältester oben.</p>
+                        <p class="translate title">Sorting</p>
+                        <p class="translate info">SortTxt</p>
                         <div class="input-field col s12 m6">
                             <input type="checkbox" class="value" id="sortDescending" />
-                            <label for="sortDescending" class="translate">Absteigend sortieren (neuester oben)</label>
+                            <label for="sortDescending" class="translate">Sort descending (newest on top)</label>
                         </div>
                     </div>
                 </div>
