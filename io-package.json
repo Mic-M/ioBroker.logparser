@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "logparser",
-        "version": "0.4.3",
+        "version": "0.4.4",
         "news": {
+            "0.4.4": {
+                "en": "Translations added, adapter instructions added, optimized admin interface",
+                "de": "Übersetzungen hinzugefügt, Adapter-Anleitung erstellt, optimiertes Admin-Interface",
+                "ru": "Перевод добавил, инструкции адаптер добавил, оптимизированный интерфейс администратора ",
+                "pt": "Traduções adicionadas, adaptador de instruções adicionado, otimizado interface de administração",
+                "nl": "Vertalingen toegevoegd, adapter instructies toegevoegd, geoptimaliseerd admin interface",
+                "fr": "Traductions ajoutées, adaptateur d'ajouter des instructions, optimisation de l'interface d'administration",
+                "it": "Traduzioni aggiunto, scheda di istruzioni aggiunto, ottimizzato l'interfaccia di amministrazione",
+                "es": "Traducciones añadido, adaptador de instrucciones añadido, optimizado la interfaz de administración",
+                "pl": "Tłumaczenie dodał, instrukcje, zasilacz dodał, zoptymalizowany interfejs administratora ",
+                "zh-cn": "翻译加入、接指令加入，优化管理界面"
+            },
             "0.4.3": {
                 "en": "Fix multiple regex/string config values separated by comma.",
                 "de": "Korrigieren Sie mehrere durch Komma getrennte Regex / String-Konfigurationswerte.",

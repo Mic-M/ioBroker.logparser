@@ -25,6 +25,9 @@ Parsing (filtering) the ioBroker log.
 
 ## Changelog
 
+### 0.4.4
+* (Mic-M) Translations added, adapter instructions added, optimized admin interface
+
 ### 0.4.3
 * (Mic-M) Fix multiple regex/string config values separated by comma
 

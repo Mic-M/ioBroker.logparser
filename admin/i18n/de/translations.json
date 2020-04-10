@@ -58,4 +58,5 @@
     "blacklistText": "",
     "logparser adapter settings": "Adaptereinstellungen für logparser",
     "updateIntTxt": "Neu reinkommende Logeinträge werden gesammelt und regelmäßig in die Datenpunkte geschrieben. Hiermit kann das Intervall definiert werden. Hinweis: Die Datenpunkte werden nur geschrieben, falls es eine Änderung gab. Dennoch ist es aus Performance-Sicht nicht sinnvoll, hier ein zu kurzes Intervall einzustellen. Kleiner als 2 Sekunden ist nicht erlaubt.",
+    "xMaximum number of log entries": "Maximale Anzahl der log-Einträge"
 }
