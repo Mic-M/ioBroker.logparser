@@ -14,13 +14,13 @@
 
 ## logparser adapter for ioBroker
 
-Parsing (filtering) log
+Parsing (filtering) the ioBroker log.
 
-## Please note
+## Instructions
 
-Detailed documentation will be following very soon.
-For the meantime, please see [ioBroker-Log-Script](https://github.com/Mic-M/iobroker.logfile-script/blob/master/README.md). This Log Parser adapter replaces my log script entirely, and several options are similiar.
+* **[English Instructions](docs/en/logparser.md)**
 
+* **[Deutsche Anleitung](docs/de/logparser.md)**
 
 
 ## Changelog
