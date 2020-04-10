@@ -286,13 +286,13 @@
                 <!-- Section "Update Interval" -->
                 <div class="row">
                     <div class="col s12">
-                        <p class="translate title">Update-Intervall: Datenpunkte aktualisieren</p>
-                        <p class="translate info">Neu reinkommende Logeinträge werden gesammelt und regelmäßig in die Datenpunkte geschrieben. Default ist 10 Sekunden.</p>
-                        <p class="translate info">Hinweis: Die Datenpunkte werden nur geschrieben, falls es eine Änderung gab. Dennoch ist es aus Performance-Sicht nicht sinnvoll, hier ein zu kurzes Intervall einzustellen. Kleiner als 2 Sekunden ist nicht erlaubt.</p>
+                        <p class="translate title">Update-Interval: Update data points</p>
+                        <p class="translate info">Newly arriving log entries are collected and regularly written to the data points. The default is 10 seconds.</p>
+                        <p class="translate info">Note: The data points are only written if there has been a change. Nevertheless, from a performance point of view, it does not make sense to set an interval that is too short. Less than 2 seconds is not allowed.</p>
                         <div class="input-field col s12 m6">
                             <input class="value validate" placeholder="10" id="updateInterval" type="number" min="2" max="10000">
                             <label for="updateInterval" class="translate">Update Interval</label>
-                            <span class="helper-text translate">Sekunden</span>
+                            <span class="helper-text translate">Seconds</span>
                         </div>
 
 

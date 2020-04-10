@@ -1,0 +1,7 @@
+{
+    "Newly arriving log entries are collected and regularly written to the data points. The default is 10 seconds.": "收集新到达的日志条目并将其定期写入数据点。",
+    "Note: The data points are only written if there has been a change. Nevertheless, from a performance point of view, it does not make sense to set an interval that is too short. Less than 2 seconds is not allowed.": "注意：仅在发生更改时才写入数据点。",
+    "Seconds": "秒",
+    "Update-Interval: Update data points": "更新间隔：更新数据点",
+    "logparser adapter settings": "logparser的适配器设置"
+}
