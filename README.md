@@ -12,10 +12,13 @@
 
 **Tests:** [![Travis-CI](http://img.shields.io/travis/Mic-M/ioBroker.logparser/master.svg)](https://travis-ci.org/Mic-M/ioBroker.logparser)
 
-## logparser adapter for ioBroker
+## Log Parser for all ioBroker adapters
 
-With this adapter the ioBroker logs of all adapters can be parsed, i.e. filtered, accordingly.
-The parsed results are then available in states as JSON. 
+This adapter parses (filters) all logs of ioBroker adapters and provides the results as JSON in states for each filter as configured in the settings.
+Resulting JSON can then be used in VIS for visualization. States for emptying (clearing) old logs are provided as well (like `logparser.0.filters.Homematic.emptyJson` or `logparser.0.emptyAllJson` to empty all.)
+
+![States](docs/en/img/states.png)
+
 
 ## Instructions
 
