@@ -15,7 +15,7 @@ Danach eine [Instanz hinzufügen](https://www.iobroker.net/docu/index-23.htm?pag
 **PID entfernen**: Der js-Controller Version 2.0 oder größer fügt Logs teils vorne die PID in Klammern hinzu, also z.B. `(12234) Terminated: Without reason`. Mit dieser Option lassen sich die PIDs inkl. Klammern, wie z.B. `(1234)`, aus den Logzeilen entfernen.
 
 **Anzahl verwendeter JSON-Tabellen in VIS**: 
-Hiermit können zusätzliche Datenpunkte für die Ausgabe als JSON-Tabelle in VIS erzeugt werden, mit denen es möglich ist, in einer VIS-Tabelle zwischen den einzelnen Filtern umzuschalten (z.B. 'Homematic', 'Warnungen', 'Fehler' usw.), die dann dynamisch jeweils in dieser einen Tabelle ausgegeben werden.
+Hiermit werden zusätzliche Datenpunkte für die Ausgabe als JSON-Tabelle in VIS erzeugt. Damit ist es möglich, in einer VIS-Tabelle zwischen den einzelnen Filtern umzuschalten (z.B. 'Homematic', 'Warnungen', 'Fehler' usw.), die dann dynamisch jeweils in nur einer Tabelle ausgegeben werden.
 
 Hier die Anzahl der unterschiedlichen JSON-Tabellen angeben, in denen du das brauchst. Diese werden angelegt unter 'visualization.table1', 'visualization.table2', usw. Zum deaktivieren: 0 eintragen (dann werden diese zusätzlichen Datenpunkte nicht erstellt)
 

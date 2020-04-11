@@ -10,12 +10,12 @@ The adapter is not yet in the "latest repository". So please [Install adapter fr
 
 ## Tab "General"
 
-**Remove PID**: The js controller version 2.0 or higher adds the PID in brackets to the front of logs, e.g. `(12234) Terminated: Without reason`. With this option the PIDs including brackets, like (1234), can be removed from the log lines.
+**Remove PID**: JS controller version 2.0 or greater adds the PID in brackets to the front of logs, e.g. `(12234) Terminated: Without reason`. If activated, the PIDs including brackets, like (1234), are removed from the log lines.
 
 **Number of JSON tables used in VIS**: 
-With this option, additional states can be created for output as JSON tables in VIS. These allow to switch between the individual filters in a VIS table (e.g. 'Homematic', 'Warnings', 'Errors' etc.), which are then dynamically output in this one table.
+This option adds additional states for better Visualization in VIS. You will then be able to select certain filters, which are then shown accordingly in the JSON table (e.g. 'Homematic', 'Warnings', 'Errors' etc.).
 
-Specify here the number of different JSON tables where you need this. These are created under 'visualization.table1', 'visualization.table2', etc. To deactivate: Enter 0 (then these additional states are not created)
+Specify the number of different JSON tables you need. The states of these are being created under 'visualization.table0', 'visualization.table1', etc. Enter 0 to deactivate.
 
 
 ## Tab "Parser Rules (Filter)"
@@ -27,7 +27,7 @@ For each set filter (rule), states are created under `logparser.[instance].filte
 
 | **Column**            | **Description** |
 |-----------------------|-----------------------------------------------------------------------|
-| Aktive                | Activate/deactivate filters |
+| Active                | Activate/deactivate filters |
 | Name                  | Any name (spaces and special characters are automatically removed), used as state under 'filters' |
 | Whitelist: AND        | All these expressions must be present. If you enter wildcard `*`, or leave it empty, this rule is being skipped. |
 | Whitelist: OR       | At least one of these expressions must occur. If you enter wildcard `*`, or leave it empty, this rule is being skipped. |
