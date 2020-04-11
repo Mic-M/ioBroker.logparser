@@ -23,6 +23,8 @@ The parsed results are then available in states as JSON.
 
 * **[Deutsche Anleitung](docs/de/logparser.md)**
 
+## Visualization Example (animated gif)
+
 ![Vis](docs/de/img/visintro.gif)
 
 ## Changelog
