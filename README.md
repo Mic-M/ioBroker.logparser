@@ -14,7 +14,8 @@
 
 ## logparser adapter for ioBroker
 
-Parsing (filtering) the ioBroker log.
+With this adapter the ioBroker logs of all adapters can be parsed, i.e. filtered, accordingly.
+The parsed results are then available in states as JSON. 
 
 ## Instructions
 
@@ -22,6 +23,8 @@ Parsing (filtering) the ioBroker log.
 
 * **[Deutsche Anleitung](docs/de/logparser.md)**
 
+<br>
+![visintro.jpg](docs/de/img/visintro.gif)
 
 ## Changelog
 
