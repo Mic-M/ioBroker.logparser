@@ -69,6 +69,12 @@ In der Spalte "Kommentar" kannst du beliebig den jeweiligen Eintrag kommentieren
 * **Spalten-Reihenfolge für JSON-Tabelle**: Hier kann die Reihenfolge der einzelnen Spalten verändert werden. Als zusätzliche Spalte wird immer ts (timestamp) hinzugefügt. In VIS usw. bei Bedarf einfach ausblenden.<br>Falls du weniger als 4 Spalten brauchst: Wähle einfach einen Eintrag der ersten Spalten aus, die du brauchst, und blende den Rest dann mit dem VIS JSON-Table-Widget (o.ä.) aus.
 * **Sortierung**: Wenn aktiviert: sortiert die Logeinträge absteigend, also neuester oben. Wenn deaktiviert: Sortiert die Logeinträge aufsteigend, also ältester oben. Empfohlen ist absteigende Sortierung, also diese Option aktivieren.
 
+# Visualisierung (Log-Ausgaben im VIS darstellen)
+
+Hier ist ein VIS-Beispielprojekt, welches in VIS importiert werden kann: [vis-project-ex_logparser-adapter.zip](https://github.com/Mic-M/ioBroker.logparser/blob/master/accessories/vis/vis-project-ex_logparser-adapter.zip). Hierfür diese zip-Datei herunterladen, und in VIS im Menü `Setup > Projekt-Export/Import > Import` auswählen, um dann entsprechend das Projekt zu importieren. Hierf+r werden die [Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign) benötigt.
+
+![main.jpg](img/visintro.gif)
+
 
 # Weitere Funktionen
 
