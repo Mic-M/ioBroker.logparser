@@ -64,6 +64,16 @@ In the column "Comment" you can comment/explain the respective entry as you like
 If you need less than 4 columns: Simply select one entry of the first columns you need and then hide the rest with the VIS JSON table widget (or similar).
 * **Sorting**: If activated: sorts the log entries in descending order, newest at the top. If deactivated: Sorts the log entries in ascending order, i.e. oldest on top. Sorting in descending order is recommended, so activate this option.
 
+
+# Visualization (Showing logs in VIS)
+
+This is an example of a VIS project, which you can import in VIS: [vis-project-ex_logparser-adapter.zip](https://github.com/Mic-M/ioBroker.logparser/blob/master/accessories/vis/vis-project-ex_logparser-adapter.zip). 
+Just download this zip file. Then, in VIS, navigate to menu `Setup > Projekt-Export/Import > Import` and select this zip file accordingly.
+Please note that you will also need the Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign) to use this project.
+
+![main.jpg](img/visintro.gif)
+
+
 # Further functions
 
 ## Manipulation of the JSON column contents by log
