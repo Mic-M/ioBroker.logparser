@@ -29,8 +29,8 @@ For each set filter (rule), states are created under `logparser.[instance].filte
 |-----------------------|-----------------------------------------------------------------------|
 | Aktive                | Activate/deactivate filters |
 | Name                  | Any name (spaces and special characters are automatically removed), used as state under 'filters' |
-| Whitelist: AND        | All these expressions must be present. Leaving empty is like *, i.e. everything is taken over. |
-| Whitelist: OR       | At least one of these expressions must occur. Leaving empty is like *, i.e. everything is taken over. |
+| Whitelist: AND        | All these expressions must be present. If you enter wildcard `*`, or leave it empty, this rule is being skipped. |
+| Whitelist: OR       | At least one of these expressions must occur. If you enter wildcard `*`, or leave it empty, this rule is being skipped. |
 | Blacklist             |  As soon as one of these expressions is present, the log is not taken over, no matter what other filters are defined. |
 | Debug/Info/Warn/Error | Which log levels should be considered? |
 | Clean            | Remove unwanted strings from log line. |

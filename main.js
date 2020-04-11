@@ -403,6 +403,9 @@ function updateJsonStates(filterName, visualization = undefined) {
  */
 function addNewLogToAllLogsVar(filterName, logObject, callback) {
 
+    //const newLogObject = {...logObject} 
+    const newLogObject = Object.assign({}, logObject); // to not alter the logObject itself. https://stackoverflow.com/questions/6089058/
+
     // Prepare variables
     const f = helper.objArrayGetObjByVal(adapter.config.parserRules, 'name', filterName); // the filter object
     const whiteListAnd = helper.stringConfigListToArray(f.whitelistAnd);
@@ -410,30 +413,35 @@ function addNewLogToAllLogsVar(filterName, logObject, callback) {
     const blacklist = helper.stringConfigListToArray(f.blacklist);
     const removeList = helper.stringConfigListToArray(f.clean, true);
     
+    
     // Check: if no match for filter name or if filter is not active.
     if (f == undefined || !f.active) return callback(false);
 
     // Check: if severity is matching or not
-    if(!f[logObject.severity]) return callback(false);
+    if(!f[newLogObject.severity]) return callback(false);
 
     // Check: WhitelistAnd.
-    // If white list is empty, we treat as *
+    // If white list is empty, we treat as *. 
     if(!helper.isLikeEmpty(whiteListAnd)) {
-        if (!helper.stringMatchesList(logObject.message, whiteListAnd, true)) {
+        if (whiteListAnd.length == 1 && whiteListAnd[0].source.replace(/[//\\]/g, '') == '*') { // Need to remove regex chars '/' and '\' since it will be a regex string
+            // User entered *, so we continue.
+        } else if (!helper.stringMatchesList(newLogObject.message, whiteListAnd, true)) {
             return callback(false); // No hit, so we go out.
         }
     }
     // Check: WhitelistOr.
     // If white list is empty, we treat as *
     if(!helper.isLikeEmpty(whiteListOr)) {
-        if (!helper.stringMatchesList(logObject.message, whiteListOr, false)) {
+        if (whiteListOr.length == 1  && whiteListOr[0].source.replace(/[//\\]/g, '') == '*') { // Need to remove regex chars '/' and '\' since it will be a regex string
+            // User entered *, so we continue.
+        } else if (!helper.stringMatchesList(newLogObject.message, whiteListOr, false)) {
             return callback(false); // No hit, so we go out.
         }
     }
 
     // Check: Blacklist
     if(!helper.isLikeEmpty(blacklist)) {
-        if (helper.stringMatchesList(logObject.message, blacklist, false)) {
+        if (helper.stringMatchesList(newLogObject.message, blacklist, false)) {
             return callback(false); // We have a hit, so we go out.
         }
     }
@@ -441,30 +449,30 @@ function addNewLogToAllLogsVar(filterName, logObject, callback) {
     // Clean: remove string portions from log message
     if(!helper.isLikeEmpty(removeList)) {
         for (const lpListItem of removeList) {
-            logObject.message = logObject.message.replace(lpListItem, '');
+            newLogObject.message = newLogObject.message.replace(lpListItem, '');
         }
     }
 
     // Remove adapter instance from log message, like: 'test.0 adapter disabled' -> 'adapter disabled'
-    if (logObject.message.startsWith(logObject.from)) {
-        logObject.message = logObject.message.substring(logObject.from.length + 1);
+    if (newLogObject.message.startsWith(newLogObject.from)) {
+        newLogObject.message = newLogObject.message.substring(newLogObject.from.length + 1);
     }
 
-    // Add new key "date" to logObject
-    logObject.date = helper.tsToDateString(logObject.ts, f.dateformat, adapter.config.txtToday, adapter.config.txtYesterday);
+    // Add new key "date" to newLogObject
+    newLogObject.date = helper.tsToDateString(newLogObject.ts, f.dateformat, adapter.config.txtToday, adapter.config.txtYesterday);
 
 
     /**
      * Support individual items in column provided through log
      * Syntax: 'This is a log message ##{"message":"Individual msg", "from":"other source"}##'
      */
-    const regexArr = logObject.message.match(/##(\{\s?".*"\s?\})##/);
+    const regexArr = newLogObject.message.match(/##(\{\s?".*"\s?\})##/);
     if (regexArr != null && regexArr[1] != undefined) {
         const replacer = JSON.parse(regexArr[1]);
-        if (replacer['date'] != undefined)     logObject.date = replacer['date'];
-        if (replacer['severity'] != undefined) logObject.severity = replacer['severity'];
-        if (replacer['from'] != undefined)     logObject.from = replacer['from'];
-        if (replacer['message'] != undefined)  logObject.message = replacer['message'];
+        if (replacer['date'] != undefined)     newLogObject.date = replacer['date'];
+        if (replacer['severity'] != undefined) newLogObject.severity = replacer['severity'];
+        if (replacer['from'] != undefined)     newLogObject.from = replacer['from'];
+        if (replacer['message'] != undefined)  newLogObject.message = replacer['message'];
     }
 
     /**
@@ -472,16 +480,15 @@ function addNewLogToAllLogsVar(filterName, logObject, callback) {
      */    
     if(!helper.isLikeEmpty(f.maxLength)) {
         if (parseInt(f.maxLength) > 3) {
-            logObject.message = logObject.message.substr(0, parseInt(f.maxLength));
+            newLogObject.message = newLogObject.message.substr(0, parseInt(f.maxLength));
         }
     }    
      
 
     // Merge
-    // TODO: Bessere Konfiguration erlauben, also z.B. "(# Einträge)", wo dann # durch die Anzahl ersetzt wird.
     if (f.merge) {
-        // Returns the position where the element was found, or -1 if not found -- https://javascript.info/array-methods#filter
-        const foundPosition = g_allLogs[filterName].findIndex(item => item.message.indexOf(logObject.message) >=0);
+        // Returns the position where the first former element was found, or -1 if not found -- https://javascript.info/array-methods#filter
+        const foundPosition = g_allLogs[filterName].findIndex(item => item.message.indexOf(newLogObject.message) >=0);
         if (foundPosition >= 0) {
             const foundMsg = g_allLogs[filterName][foundPosition].message;
             let mergeNum = getMergeNumber(foundMsg); //number of '[xxx Entries]'
@@ -494,7 +501,7 @@ function addNewLogToAllLogsVar(filterName, logObject, callback) {
             }
             // Add merge number to log message
             const mergeText = adapter.config.txtMerge.replace('#', mergeNum);
-            logObject.message = mergeText + logObject.message;
+            newLogObject.message = mergeText + newLogObject.message;
             // remove old log objects
             g_allLogs[filterName].splice(foundPosition, 1);
         }
@@ -503,14 +510,14 @@ function addNewLogToAllLogsVar(filterName, logObject, callback) {
     // Rebuilding per keys and sort order of g_jsonKeys per adapter admin settings, like ['date', 'from', 'severity', 'message']
     const logObjJson = {};
     for (const lpKey of g_jsonKeys) {
-        logObjJson[lpKey] = logObject[lpKey];
+        logObjJson[lpKey] = newLogObject[lpKey];
     }
-    logObjJson.ts = logObject.ts; // Always add timestamp as last key (which will also end up in the last column of JSON table)
+    logObjJson.ts = newLogObject.ts; // Always add timestamp as last key (which will also end up in the last column of JSON table)
 
-    // Add CSS to logObject.severity, like <span class='logWarn'>warn</span>
-    logObjJson.severity = "<span class='log" + logObject.severity.charAt(0).toUpperCase() + logObject.severity.slice(1) + "'>" + logObject.severity + '</span>';
+    // Add CSS to newLogObject.severity, like <span class='logWarn'>warn</span>
+    logObjJson.severity = "<span class='log" + newLogObject.severity.charAt(0).toUpperCase() + newLogObject.severity.slice(1) + "'>" + newLogObject.severity + '</span>';
 
-    // Finally: add logObject to g_allLogs
+    // Finally: add newLogObject to g_allLogs
     g_allLogs[filterName].unshift(logObjJson);  // add element at beginning
     g_allLogs[filterName] = g_allLogs[filterName].slice(0, parseInt(adapter.config.maxLogs)); // limit number of items
 

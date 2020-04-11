@@ -29,8 +29,8 @@ Pro gesetztem Filter (Regel) werden jeweils Datenpunkte unterhalb von `logparser
 |-----------------------|-----------------------------------------------------------------------|
 | Aktiv                 | Filter aktivieren/deaktivieren |
 | Name                  | Beliebiger Name (Leerzeichen und Sonderzeichen werden automatisch entfernt), wird als Datenpunkt unter 'filters' verwendet |
-| Whitelist: UND        | All diese Ausdrücke müssen vorkommen. Leer lassen entspricht einem `*`, d.h. es wird alles übernommen. |
-| Whitelist: ODER       | Mindestens einer dieser Ausdrücke muss vorkommen. Leer lassen entspricht einem `*`, d.h. es wird alles übernommen. |
+| Whitelist: UND        | All diese Ausdrücke müssen vorkommen. Um diese Regel zu überspringen, einfach `*` eintragen oder leer lassen. |
+| Whitelist: ODER       | Mindestens einer dieser Ausdrücke muss vorkommen. Um diese Regel zu überspringen, einfach `*` eintragen oder leer lassen. |
 | Blacklist             | Sobald einer dieser Ausdrücke vorhanden ist, wird das Log nicht übernommen, egal was sonst für Filter definiert sind. |
 | Debug/Info/Warn/Error | Welche Log-Level sollen berücksichtigt werden? |
 | Bereinigen            | Ungewünschte Zeichenfolgen aus Logzeile entfernen. |

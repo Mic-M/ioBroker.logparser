@@ -25,6 +25,10 @@ Parsing (filtering) the ioBroker log.
 
 ## Changelog
 
+### 0.4.5
+* (Mic-M) Fixed issue with merge option and other filter settings by now cloning input logObject prior to handling
+* (Mic-M) Allow wildcard * for 'Whitelist AND' and 'Whitelist OR' to indicate matching all
+
 ### 0.4.4
 * (Mic-M) Translations added, adapter instructions added, optimized admin interface
 

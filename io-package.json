@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "logparser",
-        "version": "0.4.4",
+        "version": "0.4.5",
         "news": {
+            "0.4.5": {
+                "en": "Fixed issue with merge option and other filter settings, Allow wildcard * for 'Whitelist AND' and 'Whitelist OR' to indicate matching all",
+                "de": "Problem mit Merge und anderen Filtereinstellungen behoben. Platzhalter * für 'Whitelist AND' und 'Whitelist OR' zulassen",
+                "ru": "Исправлена ​​проблема с опцией слияния и другими настройками фильтра. Разрешить подстановочный знак * для «Белого списка И» и «Белого списка ИЛИ», чтобы указать совпадение всех",
+                "pt": "Corrigido o problema com a opção de mesclagem e outras configurações de filtro. Permitir curinga * para 'Lista de permissões AND' e 'Lista de permissões OR' para indicar a correspondência de todas",
+                "nl": "Probleem opgelost met merge-optie en andere filterinstellingen, Wildcard * toestaan ​​voor 'Witte lijst EN' en 'Witte lijst OR' om aan te geven dat ze allemaal overeenkomen",
+                "fr": "Correction d'un problème avec l'option de fusion et d'autres paramètres de filtre, Autoriser le caractère générique * pour 'Liste blanche ET' et 'Liste blanche OU' pour indiquer la correspondance de tous",
+                "it": "Risolto il problema con l'opzione di unione e altre impostazioni del filtro, Consenti carattere jolly * per \"Lista bianca AND\" e \"Lista bianca OR\" per indicare la corrispondenza di tutti",
+                "es": "Se corrigió el problema con la opción de combinación y otras configuraciones de filtro, Permitir comodín * para 'Lista blanca Y' y 'Lista blanca OR' para indicar que coinciden todos",
+                "pl": "Naprawiono problem z opcją scalania i innymi ustawieniami filtrów, Zezwalaj na symbole wieloznaczne * dla „Białej listy ORAZ” i „Białej listy LUB”, aby wskazać dopasowanie wszystkich",
+                "zh-cn": "解决了合并选项和其他过滤器设置的问题，“白名单AND”和“白名单OR”允许使用通配符*表示所有匹配项"
+            },
             "0.4.4": {
                 "en": "Translations added, adapter instructions added, optimized admin interface",
                 "de": "Übersetzungen hinzugefügt, Adapter-Anleitung erstellt, optimiertes Admin-Interface",
@@ -225,8 +237,8 @@
             {
                 "active": true,
                 "name": "Info",
-                "whitelistAnd": "",
-                "whitelistOr": "",
+                "whitelistAnd": "*",
+                "whitelistOr": "*",
                 "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
                 "debug": false,
                 "info": true,
@@ -240,8 +252,8 @@
             {
                 "active": true,
                 "name": "Warn",
-                "whitelistAnd": "",
-                "whitelistOr": "",
+                "whitelistAnd": "*",
+                "whitelistOr": "*",
                 "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
                 "debug": false,
                 "info": false,
@@ -255,8 +267,8 @@
             {
                 "active": true,
                 "name": "Error",
-                "whitelistAnd": "",
-                "whitelistOr": "",
+                "whitelistAnd": "*",
+                "whitelistOr": "*",
                 "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
                 "debug": false,
                 "info": false,
@@ -270,8 +282,8 @@
             {
                 "active": true,
                 "name": "WarnAndError",
-                "whitelistAnd": "",
-                "whitelistOr": "",
+                "whitelistAnd": "*",
+                "whitelistOr": "*",
                 "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
                 "debug": false,
                 "info": false,
@@ -286,7 +298,7 @@
                 "active": true,
                 "name": "Homematic",
                 "whitelistAnd": "/hm-(rpc|rega)\\.[0-9]/",
-                "whitelistOr": "",
+                "whitelistOr": "*",
                 "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
                 "debug": false,
                 "info": true,
