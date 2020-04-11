@@ -29,7 +29,7 @@
             },
             "0.4.3": {
                 "en": "Fix multiple regex/string config values separated by comma.",
-                "de": "Korrigieren Sie mehrere durch Komma getrennte Regex / String-Konfigurationswerte.",
+                "de": "Problem mit mehreren durch Komma getrennte Regex/String-Konfigurationswerten behoben.",
                 "ru": "Исправьте несколько значений конфигурации регулярных выражений / строк, разделенных запятой.",
                 "pt": "Corrija vários valores de configuração de regex / string separados por vírgula.",
                 "nl": "Herstel meerdere regex / string-configuratiewaarden gescheiden door komma's.",
@@ -41,7 +41,7 @@
             },
             "0.4.2": {
                 "en": "Fix issue #12, fix issue with visualization.tableX.json and .selection.",
-                "de": "Beheben Sie das Problem Nr. 12, das Problem mit visualization.tableX.json und .selection.",
+                "de": "Issue #12 behoben, Problem mit visualization.tableX.json und .selection behoben.",
                 "ru": "Исправьте проблему # 12, исправьте проблему с visualization.tableX.json и .selection.",
                 "pt": "Corrija o problema nº 12, corrija o problema com visualization.tableX.json e .selection.",
                 "nl": "Probleem # 12 oplossen, probleem oplossen met visualization.tableX.json en .selection.",
@@ -53,7 +53,7 @@
             },
             "0.4.1": {
                 "en": "1. Fix 'Yesterday' for date, 2. Fix multiple filters, 3. Add description to settings page",
-                "de": "1. Korrigieren Sie 'Gestern' für das Datum, 2. Korrigieren Sie mehrere Filter, 3. Fügen Sie der Einstellungsseite eine Beschreibung hinzu",
+                "de": "1. 'Gestern' für Datum korrigiert, 2. Mehrere Filter korrigiert, 3. Beschreibung zu Adapter-Einstellungen hinzugefügt",
                 "ru": "1. Исправить «Вчера» для даты, 2. Исправить несколько фильтров, 3. Добавить описание на страницу настроек",
                 "pt": "1. Corrija 'Ontem' para a data, 2. Corrija vários filtros, 3. Adicione uma descrição à página de configurações",
                 "nl": "1. Fix 'Yesterday' voor datum, 2. Fix meerdere filters, 3. Voeg beschrijving toe aan instellingenpagina",
@@ -65,7 +65,7 @@
             },
             "0.4.0": {
                 "en": "Add new option 'maxLength' to limit the length of each log message",
-                "de": "Fügen Sie die neue Option 'maxLength' hinzu, um die Länge jeder Protokollnachricht zu begrenzen",
+                "de": "Neue Option 'maxLength', um die Länge jedes Logs zu begrenzen",
                 "ru": "Добавьте новую опцию 'maxLength', чтобы ограничить длину каждого сообщения журнала",
                 "pt": "Adicione nova opção 'maxLength' para limitar o tamanho de cada mensagem de log",
                 "nl": "Voeg een nieuwe optie 'maxLength' toe om de lengte van elk logbericht te beperken",
@@ -103,15 +103,15 @@
         },
         "desc": {
             "en": "Parsing (filtering) the ioBroker log",
-            "de": "Parsing (filtering) the ioBroker log",
-            "ru": "Parsing (filtering) the ioBroker log",
-            "pt": "Parsing (filtering) the ioBroker log",
-            "nl": "Parsing (filtering) the ioBroker log",
-            "fr": "Parsing (filtering) the ioBroker log",
-            "it": "Parsing (filtering) the ioBroker log",
-            "es": "Parsing (filtering) the ioBroker log",
-            "pl": "Parsing (filtering) the ioBroker log",
-            "zh-cn": "Parsing (filtering) the ioBroker log"
+            "de": "ioBroker-Logs aller Adapter parsen (filtern)",
+            "ru": "Парсинг (фильтрация) журнала ioBroker",
+            "pt": "Analisando (filtrando) o log do ioBroker",
+            "nl": "Het ioBroker-logboek parseren (filteren)",
+            "fr": "Analyse (filtrage) du journal ioBroker",
+            "it": "Analisi (filtro) del registro ioBroker",
+            "es": "Analizar (filtrar) el registro de ioBroker",
+            "pl": "Parsowanie (filtrowanie) dziennika ioBroker",
+            "zh-cn": "解析（过滤）ioBroker日志"
         },
         "authors": [
             "Mic-M <iob.micm@gmail.com>"
