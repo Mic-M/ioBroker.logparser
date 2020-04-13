@@ -213,7 +213,7 @@ function stateChanges(statePath, obj) {
                 }
                 updateJsonStates(filterName, {updateFilters:true, tableNum:visTableNums});
                 // Looks like it throws an error per issue #12: https://github.com/Mic-M/ioBroker.logparser/issues/12
-                // adapter.setState(statePath, {ack:true}); // Send ack:true to acknowledge the positive response
+                adapter.setState(statePath, {val:false, ack:true}); // Acknowledge the positive response
             }
             adapter.setState('lastTimeUpdated', {val:Date.now(), ack: true});
             
@@ -230,8 +230,6 @@ function stateChanges(statePath, obj) {
                     if(g_tableFilters != obj.val) { // continue only if new selection is different to old
                         g_tableFilters[number] = obj.val; // global variable
                         updateJsonStates(obj.val, {updateFilters:false, tableNum:[number]});
-                        // Looks like it throws an error per issue #12: https://github.com/Mic-M/ioBroker.logparser/issues/12
-                        // adapter.setState(statePath, {ack:true}); // Send ack:true to acknowledge the positive response
                     }
                 }                
             }
@@ -244,7 +242,7 @@ function stateChanges(statePath, obj) {
                 if (!err && state && !helper.isLikeEmpty(state.val)) {            
                     if (g_activeFilters.indexOf(state.val) != -1) {
                         emptyJson(state.val);
-                        adapter.setState(statePath, {val:true, ack:true}); // Send ack:true to acknowledge the positive response
+                        adapter.setState(statePath, {val:false, ack:true}); // Acknowledge the positive response
                     }
                 }
             });
@@ -272,7 +270,7 @@ function stateChanges(statePath, obj) {
                 }
             }
         }
-        adapter.setState(statePath, {ack:true}); // just send ack:true. We acknowledge the positive response
+        adapter.setState(statePath, {val:false, ack:true}); // Acknowledge the positive response
     }
 
 }
