@@ -71,7 +71,7 @@ In der Spalte "Kommentar" kannst du beliebig den jeweiligen Eintrag kommentieren
 
 # Visualisierung (Log-Ausgaben im VIS darstellen)
 
-Hier ist ein VIS-Beispielprojekt, welches in VIS importiert werden kann: [vis-project-ex_logparser-adapter.zip](https://github.com/Mic-M/ioBroker.logparser/blob/master/accessories/vis/vis-project-ex_logparser-adapter.zip). Diese zip-Datei einfach herunterladen, und in VIS im Menü `Setup > Projekt-Export/Import > Import` auswählen, um dann entsprechend als Projekt zu importieren. Bitte beachte, dass du die [Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign) benötigt, denn sonst wird das nicht richtig dargestellt.
+Hier ist ein VIS-Beispielprojekt, welches in VIS importiert werden kann: [vis-project-ex_logparser-adapter.zip](https://github.com/Mic-M/ioBroker.logparser/raw/master/accessories/vis/vis-project-ex_logparser-adapter.zip). Diese zip-Datei einfach herunterladen, und in VIS im Menü `Setup > Projekt-Export/Import > Import` auswählen, um dann entsprechend als Projekt zu importieren. Bitte beachte, dass du die [Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign) benötigt, denn sonst wird das nicht richtig dargestellt.
 
 ![main.jpg](img/visintro.gif)
 
