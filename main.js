@@ -19,7 +19,6 @@ const g_ioBrokerUtils = require('@iobroker/adapter-core'); // The adapter-core m
 const g_path = require('path'); const helper = require(g_path.join(__dirname, 'lib', 'mic-functions.js'));// Helper Functions
 const g_forbiddenCharsA = /[\][*,;'"`<>\\?]/g;    // Several chars but allows spaces
 const g_forbiddenCharsB = /[\][*,;'"`<>\\\s?]/g; // Several chars and no spaces allowed
-const g_ignore = '[LOG_IGNORE]'; // Specific log string portion to ignore a certain log. Used for debugging to avoid endless loop.
 const g_globalBlacklist = [];  // the global blacklist (per admin settings. either type RegExp or string)
 const g_activeFilters = []; // the names of all filters activated per admin settings
 const g_allLogs = {}; // All logs which were coming in, prepared for JSON output to states
@@ -217,7 +216,7 @@ function stateChanges(statePath, obj) {
                 // adapter.setState(statePath, {ack:true}); // Send ack:true to acknowledge the positive response
             }
             adapter.setState('lastTimeUpdated', {val:Date.now(), ack: true});
-
+            
         // Visualization: Changed selection
         } else if (fromEnd3 == 'visualization' && fromEnd1 == 'selection' && obj.val && !obj.ack) {
 
@@ -245,7 +244,7 @@ function stateChanges(statePath, obj) {
                 if (!err && state && !helper.isLikeEmpty(state.val)) {            
                     if (g_activeFilters.indexOf(state.val) != -1) {
                         emptyJson(state.val);
-                        adapter.setState(statePath, {ack:true}); // just send ack:true. We acknowledge the positive response
+                        adapter.setState(statePath, {val:true, ack:true}); // Send ack:true to acknowledge the positive response
                     }
                 }
             });
@@ -408,10 +407,10 @@ function addNewLogToAllLogsVar(filterName, logObject, callback) {
 
     // Prepare variables
     const f = helper.objArrayGetObjByVal(adapter.config.parserRules, 'name', filterName); // the filter object
-    const whiteListAnd = helper.stringConfigListToArray(f.whitelistAnd);
-    const whiteListOr = helper.stringConfigListToArray(f.whitelistOr);
-    const blacklist = helper.stringConfigListToArray(f.blacklist);
-    const removeList = helper.stringConfigListToArray(f.clean, true);
+    const whiteListAnd = helper.stringConfigListToArray(adapter, filterName, 'Whitelist AND', f.whitelistAnd);
+    const whiteListOr  = helper.stringConfigListToArray(adapter, filterName, 'Whitelist OR', f.whitelistOr);
+    const blacklist    = helper.stringConfigListToArray(adapter, filterName, 'Blacklist', f.blacklist);
+    const removeList   = helper.stringConfigListToArray(adapter, filterName, 'Clean', f.clean, true);
     
     
     // Check: if no match for filter name or if filter is not active.
@@ -549,11 +548,15 @@ function getMergeNumber(strInput) {
  **/
 function prepareNewLogObject(logObject) {
 
-    // Verify message, also if globally blacklisted
+    // Prepare message
     let msg = (helper.isLikeEmpty(logObject.message)) ? '' : logObject.message;  // set empty string if no message 
     msg = msg.replace(/\s+/g, ' '); // Remove multiple white-spaces, tabs and new line from log message
-    if (helper.stringMatchesList(msg, g_globalBlacklist, false))  msg = '';   // If message is blacklisted, we set an empty string.
-    if (msg.includes(g_ignore)) msg = ''; // Ignore msg per the g_ignore string
+
+    // Never handle logs of this adapter to make sure not having endless loops.
+    if (logObject.from == adapter.namespace) msg = '';
+
+    // Check if globally blacklisted
+    if (msg != '' && helper.stringMatchesList(msg, g_globalBlacklist, false))  msg = '';   // If message is blacklisted, we set an empty string.
 
     // Verify log level (severity)
     if (msg != '' && helper.isLikeEmpty(logObject.severity)) {

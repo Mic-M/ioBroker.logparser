@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "logparser",
-        "version": "0.4.5",
+        "version": "0.4.6",
         "news": {
+            "0.4.6": {
+                "en": "Added error handling for invalid regex provided by user, a few other fixes",
+                "de": "Fehlerbehandlung für ungültigen regulären Ausdruck vom Benutzer bereitgestellt, einige andere Korrekturen hinzugefügt",
+                "ru": "Добавлена ​​обработка ошибок для неверного регулярного выражения, предоставленного пользователем, несколько других исправлений",
+                "pt": "Adicionado tratamento de erros para regex inválido fornecido pelo usuário, algumas outras correções",
+                "nl": "Foutafhandeling toegevoegd voor ongeldige regex geleverd door gebruiker, een paar andere oplossingen",
+                "fr": "Ajout de la gestion des erreurs pour les expressions rationnelles invalides fournies par l'utilisateur, quelques autres correctifs",
+                "it": "Aggiunta la gestione degli errori per regex non valido fornita dall'utente, alcune altre correzioni",
+                "es": "Se agregó manejo de errores para expresiones regulares no válidas proporcionadas por el usuario, algunas otras correcciones",
+                "pl": "Dodano obsługę błędów nieprawidłowych wyrażeń regularnych dostarczonych przez użytkownika, kilka innych poprawek",
+                "zh-cn": "添加了对用户提供的无效正则表达式的错误处理，以及其他一些修复程序"
+            },
             "0.4.5": {
                 "en": "Fixed issue with merge option and other filter settings, Allow wildcard * for 'Whitelist AND' and 'Whitelist OR' to indicate matching all",
                 "de": "Problem mit Merge und anderen Filtereinstellungen behoben. Platzhalter * für 'Whitelist AND' und 'Whitelist OR' zulassen",

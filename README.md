@@ -32,6 +32,10 @@ Resulting JSON can then be used in VIS for visualization. States for emptying (c
 
 ## Changelog
 
+### 0.4.6
+* (Mic-M) Added error handling for invalid regex provided by user
+* (Mic-M) A few other fixes/improvements under the hood
+
 ### 0.4.5
 * (Mic-M) Fixed issue with merge option and other filter settings by now cloning input logObject prior to handling
 * (Mic-M) Allow wildcard * for 'Whitelist AND' and 'Whitelist OR' to indicate matching all
