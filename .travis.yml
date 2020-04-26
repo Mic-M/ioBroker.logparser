@@ -6,7 +6,7 @@ os:
 language: node_js
 node_js:
   - '10'
-  - '10'
+  - '12'
   - '14'
 
 env:
