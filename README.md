@@ -32,6 +32,9 @@ Resulting JSON can then be used in VIS for visualization. States for emptying (c
 
 ## Changelog
 
+### 0.4.9
+* (Mic-M) Add option to remove script.js.Script_Name, update documentation
+
 ### 0.4.8
 * (Mic-M) Fixed npm issue
 

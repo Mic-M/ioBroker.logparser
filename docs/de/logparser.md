@@ -40,6 +40,8 @@ Beispiele für Einträge unter "Bereinigen":
 
 * **PID entfernen**: Der js-Controller Version 2.0 oder größer fügt Logs teils vorne die PID in Klammern hinzu, also z.B. `(12234) Terminated: Without reason`. Mit dieser Option lassen sich die PIDs inkl. Klammern, wie z.B. `(1234)`, aus den Logzeilen entfernen.
 
+* **Entferne script.js.Script_Name:**: Vom JavaScript-Adapter generierte Logs beginnen mit `script.js.<Script_Name>:`. Wenn diese Option aktiviert ist, werden diese automatisch aus der Logzeile immer entfernt.
+
 * **Datum durch "Heute" / "Gestern" ersetzen**: In den Filtern kann beim Datumsformat für mittels Hash-Zeichen (#) das heutige bzw. gestrige Datum durch 'Heute' bzw. 'Gestern' ersetzt werden. Hier können andere Begriffe statt "Heute"/"Gestern" definiert werden.
 
 * **Text für "Merge" (Logs zusammenfassen)** Dieser Text wird jeder Logzeile vorangestellt, wenn *Merge* aktiviert ist. Das `#`-Zeichen wird dabei dann durch die Anzahl der Logs mit dem gleichen Inhalt ersetzt. Sonderzeichen wie `[](){}/\` etc. sind erlaubt. Beispiele (ohne Anführungszeichen): "`[# Einträge] `", "`(#) `", "`# Einträge: `"
@@ -82,15 +84,51 @@ Hier ist ein VIS-Beispielprojekt, welches in VIS importiert werden kann: [vis-pr
 
 Es gibt die Möglichkeit, über JavaScript, Blockly, etc. Logs abzusetzen und dabei zu beeinflussen, welcher Inhalt in die Spalten 'date','severity','from','message' der JSON-Tabellen gesetzt wird.
 
-**Beispiel:**
+### Beispiel
 Folgender Befehl wird in einem JavaScript ausgeführt:
 `log('[Alexa-Log-Script] ##{"message":"' + 'Befehl [Musik an].' + '", "from":"' + 'Alexa Flur' + '"}##');`
 
 Damit wird nun der Teil `##{"message":"' + 'Befehl [Musik an].' + '", "from":"' + 'Alexa Flur' + '"}##` genommen, als Log-Text 'Befehl [Musik an].' (anstatt der Logzeile) angezeigt, und als Quelle wird 'Alexa Flur' (anstatt javascript.0) angezeigt.
 
-**Syntax:**
+### Syntax
+
 In die Logzeile folgendes aufnehmen: `##{"date":"", "severity":"", "from":"", "message":""}##`
 Dabei können einzelne Werte entfernt werden, also z.B. nur um den Logtext (message) zu ändern, nimmt man `##{"message":"hier der Text."}##`
 
-**Use Cases:**
+### Use Cases
 Da der Adapter umfangreiche Filter bietet, von denen beliebig viele angelegt werden können und dann in Datenpunkten verfügbar sind, können mit dieser Funktion einfach per [log()](https://github.com/ioBroker/ioBroker.javascript/blob/master/docs/en/javascript.md#log---gives-out-the-message-into-log) entsprechend Tabellen gefüllt werden.
+
+### Script-Beispiel (für JavaScript-Adapter): Alexa History - alle Sprach-Kommandos im VIS ausgeben
+
+Hier ist ein [Beispiel-Script](https://github.com/Mic-M/ioBroker.logparser/blob/master/accessories/alexa-history.js) für den JavaScript-Adapter. 
+
+**Installation:**
+1. [Script-Code](https://raw.githubusercontent.com/Mic-M/iobroker.logfile-script/master/accessories/alexa-history.js) öffnen.
+2. Alles kopieren (Strg + a)
+3. Zur ioBroker-Administration wechseln und dort im linken Menü "Skripte" auswählen.
+4. Mit dem "+"-Menüpunkt ein neues Script hinzufügen, dann "Javascript" auswählen, und einen Namen vergeben (z.B. "Alexa-History") und speichern.
+5. Dieses neue Script öffnen (ist jetzt natürlich noch leer), den zuvor kopierten Code mit Strg+v einfügen und Speichern.
+
+**Wie funktioniert das Script?**
+
+1. Sobald ein Kommando an ein Alexa-Gerät gesprochen wird, wird der Datenpunkt `alexa2.x.History.json` entprechend gefüllt und enthält das Kommando, das an das Alexa-Gerät gesprochen wurde. Dieses Script wandelt diese Sprachkommandos in ein durch diesen Adapter verstandene Syntax um (siehe oben unter Beispiel).
+
+2. Der Adapter erhält dann z.B. folgendes Log: `javascript.0 (12345) script.js.Alexa: [Alexa-Log-Script] ##{"msg":"Licht An", "source":"Sonos Küche"}##`
+
+3. Dies wandelt der Adapter um in: `Licht An`, und als Quelle wird nicht mehr `javascript.0` angezeigt, sondern `Sonos Küche`.
+
+**Einrichtung**
+
+Sobald das Script läuft, in den Admin-Einstellungen des Adapters einen neuen Filter erstellen:
+![main.jpg](img/alexa-log-filter.png)
+
+Dabei darauf achten, dass in der Spalte "Whitelist UND" `[Alexa-Log-Script]` steht. 
+
+**Ergebnis**
+
+Damit werden dann nur die Logs vom Alexa-Script in diesem Filter angezeigt.
+
+![main.jpg](img/alexa-log-filter.vis.png)
+
+Wie zu sehen wird damit also "Quelle" (wäre hier normalerweise `javascript.0`) durch das Alexa-Gerät (hier: `Sonos Küche`) ersetzt. Außerdem wird die Message durch den gesprochenen Befehl (hier: `Licht An`) ersetzt. Genauso können auch noch das Datum (`date`) und das Log-Level (`level`) ersetzt werden.
+

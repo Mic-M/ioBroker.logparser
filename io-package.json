@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "logparser",
-        "version": "0.4.8",
+        "version": "0.4.9",
         "news": {
+            "0.4.9": {
+                "en": "Add option to remove script.js.Script_Name, update documentation",
+                "de": "Option zum Entfernen von script.js.Script_Name hinzugefügt, Dokumentation aktualisiert",
+                "ru": "Добавить опцию для удаления script.js.Script_Name, обновления документации",
+                "pt": "Adicionar opção para remover script.js.Script_Name, atualizar documentação",
+                "nl": "Optie toevoegen om script.js.Script_Name te verwijderen, documentatie bijwerken",
+                "fr": "Ajouter une option pour supprimer script.js.Script_Name, mettre à jour la documentation",
+                "it": "Aggiungi l'opzione per rimuovere script.js.Script_Name, aggiorna la documentazione",
+                "es": "Agregar opción para eliminar script.js.Script_Name, actualizar documentación",
+                "pl": "Dodaj opcję, aby usunąć skrypt.js.Script_Name, zaktualizuj dokumentację",
+                "zh-cn": "添加选项以删除script.js.Script_Name，更新文档"
+            },
             "0.4.8": {
                 "en": "Fixed npm issue",
                 "de": "npm Problem behoben",
@@ -203,6 +215,7 @@
         "txtMerge": "[# Einträge] ",
         "jsonColumns": "date,severity,from,message",
         "sortDescending": true,
+        "removeScriptJs": true,
         "visTables": 1,
         "updateInterval": 10,
         "maxLogs": 100,
@@ -230,42 +243,42 @@
             {
                 "item": "Start javascript script.js.",
                 "comment": "",
-                "active": false
+                "active": true
             },
             {
                 "item": "Stop script script.js.",
                 "comment": "",
-                "active": false
+                "active": true
             },
             {
                 "item": "bring.0 Cannot get translations: RequestError",
                 "comment": "",
-                "active": false
+                "active": true
             },
             {
                 "item": " reconnected. Old secret ",
                 "comment": "Sonoff",
-                "active": false
+                "active": true
             },
             {
                 "item": "Popup-News readed...",
                 "comment": "info.0 Adapter",
-                "active": false
+                "active": true
             },
             {
                 "item": "[warn] Projects disabled : set editorTheme.projects.enabled=true to enable",
                 "comment": "see https://forum.iobroker.net/topic/12260/",
-                "active": false
+                "active": true
             },
             {
                 "item": "[warn] Projects disabled : editorTheme.projects.enabled=false",
                 "comment": "",
-                "active": false
+                "active": true
             },
             {
                 "item": "Update repository \"latest\" under",
                 "comment": "",
-                "active": false
+                "active": true
             }
         ],
         "parserRules": [
@@ -274,13 +287,13 @@
                 "name": "Info",
                 "whitelistAnd": "*",
                 "whitelistOr": "*",
-                "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+                "blacklist": "",
                 "debug": false,
                 "info": true,
                 "warn": false,
                 "error": false,
                 "maxLength": 100,
-                "clean": "/script\\.js\\.[^:]*: /",
+                "clean": "",
                 "merge": true,
                 "dateformat": "#DD.MM.# hh:mm"
             },
@@ -289,13 +302,13 @@
                 "name": "Warn",
                 "whitelistAnd": "*",
                 "whitelistOr": "*",
-                "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+                "blacklist": "",
                 "debug": false,
                 "info": false,
                 "warn": true,
                 "error": false,
                 "maxLength": 100,
-                "clean": "/script\\.js\\.[^:]*: /",
+                "clean": "",
                 "merge": true,
                 "dateformat": "#DD.MM.# hh:mm"
             },
@@ -304,13 +317,13 @@
                 "name": "Error",
                 "whitelistAnd": "*",
                 "whitelistOr": "*",
-                "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+                "blacklist": "",
                 "debug": false,
                 "info": false,
                 "warn": false,
                 "error": true,
                 "maxLength": 100,
-                "clean": "/script\\.js\\.[^:]*: /",
+                "clean": "",
                 "merge": true,
                 "dateformat": "#DD.MM.# hh:mm"
             },
@@ -319,13 +332,13 @@
                 "name": "WarnAndError",
                 "whitelistAnd": "*",
                 "whitelistOr": "*",
-                "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+                "blacklist": "",
                 "debug": false,
                 "info": false,
                 "warn": true,
                 "error": true,
                 "maxLength": 100,
-                "clean": "/script\\.js\\.[^:]*: /",
+                "clean": "",
                 "merge": true,
                 "dateformat": "#DD.MM.# hh:mm"
             },
@@ -334,13 +347,13 @@
                 "name": "Homematic",
                 "whitelistAnd": "/hm-(rpc|rega)\\.[0-9]/",
                 "whitelistOr": "*",
-                "blacklist": "/##\\{\\s?\\\".*\\\"\\s?\\}##/",
+                "blacklist": "",
                 "debug": false,
                 "info": true,
                 "warn": true,
                 "error": true,
                 "maxLength": 100,
-                "clean": "/script\\.js\\.[^:]*: /",
+                "clean": "",
                 "merge": true,
                 "dateformat": "#DD.MM.# hh:mm"
             }

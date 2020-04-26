@@ -561,6 +561,9 @@ function prepareNewLogObject(logObject) {
     // Remove PID
     if (msg != '' && adapter.config.removePid) msg = helper.removePid(msg);
 
+    // Remove 'script.js.Script_Name: '
+    if (msg != '' && adapter.config.removeScriptJs) msg = msg.replace(/script\.js\.[^:]*: /, '');
+
     // Verify source
     if (msg != '' && helper.isLikeEmpty(logObject.from)) msg = '';
 
