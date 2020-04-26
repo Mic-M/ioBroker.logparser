@@ -32,6 +32,9 @@ Resulting JSON can then be used in VIS for visualization. States for emptying (c
 
 ## Changelog
 
+### 0.4.8
+* (Mic-M) Fixed npm issue
+
 ### 0.4.7
 * (Mic-M) Fixed translations, disabled 'supportCustoms', improved admin settings
 

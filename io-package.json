@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "logparser",
-        "version": "0.4.7",
+        "version": "0.4.8",
         "news": {
+            "0.4.8": {
+                "en": "Fixed npm issue",
+                "de": "npm Problem behoben",
+                "ru": "Исправлена ​​проблема с npm",
+                "pt": "Fixed npm issue",
+                "nl": "NPM-probleem opgelost",
+                "fr": "Problème de npm fixe",
+                "it": "Risolto problema npm",
+                "es": "Problema solucionado de npm",
+                "pl": "Naprawiono problem npm",
+                "zh-cn": "修复npm问题"
+            },
             "0.4.7": {
                 "en": "Fixed translations, disabled 'supportCustoms', improved admin settings",
                 "de": "Übersetzungs-Issue behoben, 'supportCustoms' deaktiviert, verbesserte Admin-Einstellungen",
