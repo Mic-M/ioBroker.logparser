@@ -103,7 +103,7 @@ Da der Adapter umfangreiche Filter bietet, von denen beliebig viele angelegt wer
 Hier ist ein [Beispiel-Script](https://github.com/Mic-M/ioBroker.logparser/blob/master/accessories/alexa-history.js) für den JavaScript-Adapter. 
 
 **Installation:**
-1. [Script-Code](https://raw.githubusercontent.com/Mic-M/iobroker.logfile-script/master/accessories/alexa-history.js) öffnen.
+1. [Script-Code](https://raw.githubusercontent.com/Mic-M/ioBroker.logparser/master/accessories/alexa-history.js) öffnen.
 2. Alles kopieren (Strg + a)
 3. Zur ioBroker-Administration wechseln und dort im linken Menü "Skripte" auswählen.
 4. Mit dem "+"-Menüpunkt ein neues Script hinzufügen, dann "Javascript" auswählen, und einen Namen vergeben (z.B. "Alexa-History") und speichern.
