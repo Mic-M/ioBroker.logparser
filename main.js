@@ -23,8 +23,8 @@ const g_globalBlacklist = [];  // the global blacklist (per admin settings. eith
 const g_activeFilters = []; // the names of all filters activated per admin settings
 const g_allLogs = {}; // All logs which were coming in, prepared for JSON output to states
 const g_changeIndicator = {};
-const g_intervalTimers = []; // All adapter setInterval timers come into this array for ease of use.
-let   g_midnightTimeoutTimer = null; // setInterval timer for callAtMidnight()
+let   g_timerUpdateStates = null; // Update states interval timer
+let   g_timerMidnight = null; // setInterval timer for callAtMidnight()
 let   g_jsonKeys = []; // keys for JSON as array. From adapter admin settings, like: "date,severity,from,message". ts is always added.
 const g_tableFilters = []; // for each logparser.0.visualization.tableX, we hold the selection state here. So table0 = array index 0, etc.
 const g_minUpdateInterval = 2; // Minimum update interval in seconds.
@@ -35,9 +35,6 @@ const g_defaultUpdateInterval = 10; // Default update interval in seconds.
  * Called once the adapter is initialized.
  */
 function main() {
-
-    // ? This will - most likely - never being needed at this point.
-    helper.killIntervalTimers(g_intervalTimers); // Kill all existing timers, just in case.
 
     // Verify and get adapter settings
     initializeConfigValues( (passedInit) => {
@@ -60,7 +57,7 @@ function main() {
                 adapter.log.debug('Subscribing to new logs coming in from all adapters.');
 
                 // Timer for updating states
-                g_intervalTimers.push(setInterval(scheduleUpdateStates, parseInt(adapter.config.updateInterval) * 1000));
+                g_timerUpdateStates = setInterval(scheduleUpdateStates, parseInt(adapter.config.updateInterval) * 1000);
                 adapter.log.debug('State updates scheduled... Interval: ' + adapter.config.updateInterval + ' seconds.');
 
                 // Subscribe to certain adapter states
@@ -95,9 +92,7 @@ function main() {
             });
 
         });
-
     });
-
 }
 
 
@@ -139,8 +134,8 @@ function getJsonStates(callback) {
  * @param {object}  func   function to call at midnight
  */
 function callAtMidnight(func) {
-    if (g_midnightTimeoutTimer) clearTimeout(g_midnightTimeoutTimer);
-    g_midnightTimeoutTimer = null;
+    if (g_timerMidnight) clearTimeout(g_timerMidnight);
+    g_timerMidnight = null;
     const now = new Date();
     const night = new Date(
         now.getFullYear(),
@@ -150,7 +145,7 @@ function callAtMidnight(func) {
     );
     const offset = 1000; // we add one additional second, just in case.
     const msToMidnight = night.getTime() - now.getTime() + offset;
-    g_midnightTimeoutTimer = setTimeout(function() {
+    g_timerMidnight = setTimeout(function() {
         func();              //      <-- This is the function being called at midnight.
         callAtMidnight(func);    //      Then, reset again next midnight.
     }, msToMidnight);
@@ -800,13 +795,11 @@ function prepareAdapterObjects() {
 }
 
 
-
-
 /**************************************************************************************************************************************
  * DONE. Here comes all the rest needed for an adapter.
  * This is basically from the adapter creator. Our modifications/additions:
  *  - rename utils to g_ioBrokerUtils
- *  - add killIntervalTimers() and clearTimeout for g_midnightTimeoutTimer
+ *  - add clearInterval and clearTimeout
  *  - add call of stateChanges() function
  *  - changed logs from info to debug severity
  **************************************************************************************************************************************/
@@ -826,9 +819,10 @@ function startAdapter(options) {
 
         // is called when adapter shuts down - callback has to be called under any circumstances!
         unload: (callback) => {
-            helper.killIntervalTimers(g_intervalTimers); // Ending all interval timers...
-            if (g_midnightTimeoutTimer) clearTimeout(g_midnightTimeoutTimer);
-            g_midnightTimeoutTimer = null;
+            if (g_timerUpdateStates) clearInterval(g_timerUpdateStates);
+            g_timerUpdateStates = null;
+            if (g_timerMidnight) clearTimeout(g_timerMidnight);
+            g_timerMidnight = null;
             try {
                 adapter.log.info('cleaned everything up...');
                 callback();

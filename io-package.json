@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "logparser",
-        "version": "0.4.6",
+        "version": "0.4.7",
         "news": {
+            "0.4.7": {
+                "en": "Fixed translations, disabled 'supportCustoms', improved admin settings",
+                "de": "Übersetzungs-Issue behoben, 'supportCustoms' deaktiviert, verbesserte Admin-Einstellungen",
+                "ru": "Исправлен перевод, с ограниченными возможностями supportCustoms', улучшенные настройки администратора ",
+                "pt": "Fixo traduções, disabled 'supportCustoms', a melhoria de configurações do administrador",
+                "nl": "Vaste vertalingen, gehandicapten 'supportCustoms', verbeterde admin instellingen",
+                "fr": "Correction de traductions, handicapées \"supportCustoms', l'amélioration des paramètres administrateur",
+                "it": "Fissa, traduzioni, disabili 'supportCustoms', il miglioramento delle impostazioni di amministrazione",
+                "es": "Fijo traducciones, discapacitados 'supportCustoms', la mejora de configuración de administrador",
+                "pl": "Poprawiono tłumaczenie, niepełnosprawnych supportCustoms', ulepszone ustawienia administratora ",
+                "zh-cn": "固定的翻译、残疾'supportCustoms'，改进管理的设置"
+            },
             "0.4.6": {
                 "en": "Added error handling for invalid regex provided by user, a few other fixes",
                 "de": "Fehlerbehandlung für ungültigen regulären Ausdruck vom Benutzer bereitgestellt, einige andere Korrekturen hinzugefügt",
@@ -165,7 +177,6 @@
             "link": "",
             "fa-icon": "info"
         },
-        "supportCustoms": true,
         "dependencies": [
             {
                 "js-controller": ">=1.4.2"

@@ -32,6 +32,9 @@ Resulting JSON can then be used in VIS for visualization. States for emptying (c
 
 ## Changelog
 
+### 0.4.7
+* (Mic-M) Fixed translations, disabled 'supportCustoms', improved admin settings
+
 ### 0.4.6
 * (Mic-M) Added error handling for invalid regex provided by user
 * (Mic-M) A few other fixes/improvements under the hood

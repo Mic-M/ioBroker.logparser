@@ -10,20 +10,9 @@ Danach eine [Instanz hinzufügen](https://www.iobroker.net/docu/index-23.htm?pag
 
 # Konfiguration
 
-## Registerkarte "Allgemein"
-
-**PID entfernen**: Der js-Controller Version 2.0 oder größer fügt Logs teils vorne die PID in Klammern hinzu, also z.B. `(12234) Terminated: Without reason`. Mit dieser Option lassen sich die PIDs inkl. Klammern, wie z.B. `(1234)`, aus den Logzeilen entfernen.
-
-**Anzahl verwendeter JSON-Tabellen in VIS**: 
-Hiermit werden zusätzliche Datenpunkte für die Ausgabe als JSON-Tabelle in VIS erzeugt. Damit ist es möglich, in einer VIS-Tabelle zwischen den einzelnen Filtern umzuschalten (z.B. 'Homematic', 'Warnungen', 'Fehler' usw.), die dann dynamisch jeweils in nur einer Tabelle ausgegeben werden.
-
-Hier die Anzahl der unterschiedlichen JSON-Tabellen angeben, in denen du das brauchst. Diese werden angelegt unter 'visualization.table1', 'visualization.table2', usw. Zum deaktivieren: 0 eintragen (dann werden diese zusätzlichen Datenpunkte nicht erstellt)
-
 ## Registerkarte "Parser Regeln (Filter)"
 
-### Tabelle für die Filter-Regeln
-
-Pro gesetztem Filter (Regel) werden jeweils Datenpunkte unterhalb von `logparser.[instanz].filters` angelegt.
+Für jeden gesetzten Filter Filter (Regel) werden jeweils Datenpunkte unterhalb von `logparser.[instanz].filters` angelegt.
 
 | **Spalte**            | **Erklärung** |
 |-----------------------|-----------------------------------------------------------------------|
@@ -47,11 +36,22 @@ Beispiele für Einträge unter "Bereinigen":
 | `/script\.js\.[^:]*: /, +++, !!!!` | Entfernen der Zeichenfolgen "script.js.xxxx:" (per Regex), sowie aller Vorkommnisse von "+++" und "!!!!" |
 | `+++, !!!!` | Entfernen aller Vorkommnisse von "+++" und "!!!!" |
 
+## Registerkarte "Weitere Einstellungen"
 
-### Weitere Optionen:
+* **PID entfernen**: Der js-Controller Version 2.0 oder größer fügt Logs teils vorne die PID in Klammern hinzu, also z.B. `(12234) Terminated: Without reason`. Mit dieser Option lassen sich die PIDs inkl. Klammern, wie z.B. `(1234)`, aus den Logzeilen entfernen.
 
 * **Datum durch "Heute" / "Gestern" ersetzen**: In den Filtern kann beim Datumsformat für mittels Hash-Zeichen (#) das heutige bzw. gestrige Datum durch 'Heute' bzw. 'Gestern' ersetzt werden. Hier können andere Begriffe statt "Heute"/"Gestern" definiert werden.
+
 * **Text für "Merge" (Logs zusammenfassen)** Dieser Text wird jeder Logzeile vorangestellt, wenn *Merge* aktiviert ist. Das `#`-Zeichen wird dabei dann durch die Anzahl der Logs mit dem gleichen Inhalt ersetzt. Sonderzeichen wie `[](){}/\` etc. sind erlaubt. Beispiele (ohne Anführungszeichen): "`[# Einträge] `", "`(#) `", "`# Einträge: `"
+
+## Registerkarte "Visualisierung"
+
+* **Anzahl verwendeter JSON-Tabellen in VIS**: Hiermit werden zusätzliche Datenpunkte für die Ausgabe als JSON-Tabelle in VIS erzeugt. Damit ist es möglich, in einer VIS-Tabelle zwischen den einzelnen Filtern umzuschalten (z.B. 'Homematic', 'Warnungen', 'Fehler' usw.), die dann dynamisch jeweils in nur einer Tabelle ausgegeben werden.
+<br>Hier die Anzahl der unterschiedlichen JSON-Tabellen angeben, in denen du das brauchst. Diese werden angelegt unter 'visualization.table1', 'visualization.table2', usw. Zum deaktivieren: 0 eintragen (dann werden diese zusätzlichen Datenpunkte nicht erstellt)
+
+* **Spalten-Reihenfolge für JSON-Tabelle**: Hier kann die Reihenfolge der einzelnen Spalten verändert werden. Als zusätzliche Spalte wird immer ts (timestamp) hinzugefügt. In VIS usw. bei Bedarf einfach ausblenden.<br>Falls du weniger als 4 Spalten brauchst: Wähle einfach einen Eintrag der ersten Spalten aus, die du brauchst, und blende den Rest dann mit dem VIS JSON-Table-Widget (o.ä.) aus.
+
+* **Sortierung**: Wenn aktiviert: sortiert die Logeinträge absteigend, also neuester oben. Wenn deaktiviert: Sortiert die Logeinträge aufsteigend, also ältester oben. Empfohlen ist absteigende Sortierung, also diese Option aktivieren.
 
 
 ## Registerkarte "Globale Blacklist"
@@ -62,12 +62,12 @@ Regex bitte zwischen `/` und `/` setzen, damit erkennt der Adapter, ob es sich u
 
 In der Spalte "Kommentar" kannst du beliebig den jeweiligen Eintrag kommentieren/erklären, etwa damit du später nachvollziehen kannst, warum du diesen Blacklist-Eintrag gesetzt hast.
 
-## Registerkarte "Erweiterte Einstellungen"
+## Registerkarte "Experten-Einstellungen"
 
 * **Update-Intervall: Datenpunkte aktualisieren**: Neu reinkommende Logeinträge werden gesammelt und regelmäßig in die Datenpunkte geschrieben. Hiermit kann das Intervall definiert werden.<br>*Hinweis*: Die Datenpunkte werden nur geschrieben, falls es eine Änderung gab. Dennoch ist es aus Performance-Sicht nicht sinnvoll, hier ein zu kurzes Intervall einzustellen. Kleiner als 2 Sekunden ist nicht erlaubt.
 * **Maximale Anzahl Logeinträge**: Die maximale Anzahl an Logeinträgen, die in den Datenpunkten behalten werden (ältere werden entfernt). Bitte keine zu hohe Anzahl, je größer, desto mehr Auslastung für den Adapter und damit deinen ioBroker-Server. Eine Zahl von 100 hat sich gut bewährt.
-* **Spalten-Reihenfolge für JSON-Tabelle**: Hier kann die Reihenfolge der einzelnen Spalten verändert werden. Als zusätzliche Spalte wird immer ts (timestamp) hinzugefügt. In VIS usw. bei Bedarf einfach ausblenden.<br>Falls du weniger als 4 Spalten brauchst: Wähle einfach einen Eintrag der ersten Spalten aus, die du brauchst, und blende den Rest dann mit dem VIS JSON-Table-Widget (o.ä.) aus.
-* **Sortierung**: Wenn aktiviert: sortiert die Logeinträge absteigend, also neuester oben. Wenn deaktiviert: Sortiert die Logeinträge aufsteigend, also ältester oben. Empfohlen ist absteigende Sortierung, also diese Option aktivieren.
+
+
 
 # Visualisierung (Log-Ausgaben im VIS darstellen)
 

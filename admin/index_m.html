@@ -18,6 +18,7 @@
     <script type="text/javascript" src="words.js"></script>
 
     <script type="text/javascript">
+
         // This will be called by the admin adapter when the settings page loads
         let globalBlacklist = [];   // For table "globalBlacklist"
         let parserRules = [];   // For table "parserRules"
@@ -65,13 +66,14 @@
             obj.parserRules = table2values('parserRules');    // For table "parserRules"
             callback(obj);
         }
+
     </script>
 
     <style>
         /* Title of each section */
         .title { font-weight: bold; }
         /* Info text of each section */
-        .info { margin-left: 1em; }
+        /* .info { margin-left: 1em; } */
         /* Table header */
         .table-values th {line-height: 1em; word-break:break-all; height: 2em; background-color:#2196F3; font-size:90%; }
         /* Table: Add button */
@@ -93,17 +95,21 @@
             <!-- Define all Tabs -->
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3"><a href="#tab-main" class="translate">General</a></li>
-                    <li class="tab col s3"><a href="#tab-filter" class="translate">Parser Rules (Filter)</a></li>
-                    <li class="tab col s3"><a href="#tab-blacklist" class="translate">Global Blacklist</a></li>
-                    <li class="tab col s3"><a href="#tab-advanced" class="translate">Advanced Settings</a></li>
+                    <!-- see description: https://materializecss.com/grid.html -->
+                    <li class="tab col s4 l2"><a href="#tab-filter" class="translate">Parser Rules (Filter)</a></li>
+                    <li class="tab col s4 l2"><a href="#tab-further" class="translate">Further Settings</a></li>
+                    <li class="tab col s4 l2"><a href="#tab-visualization" class="translate">Visualization</a></li>
+                    <li class="tab col s4 l2"><a href="#tab-blacklist" class="translate">Global Blacklist</a></li>
+                    <li class="tab col s4 l2"><a href="#tab-expert" class="translate">Expert Settings</a></li>
                 </ul>
             </div>
 
             <!-- Content of the tabs from here -->
 
-            <!-- Tab1 Main-->
-            <div id="tab-main" class="col s12 page">            
+            <!-----------------------------------------------------------
+                Tab1: Parser Rules
+              ----------------------------------------------------------->
+            <div id="tab-filter" class="col s12 page">            
 
                 <div class="row">
                     <div class="col s12 m4 l2">
@@ -118,50 +124,19 @@
                         <p><span class="translate">IntroTxt1</span>
                            <span class="translate">IntroTxt2</span>
                         </p>
-                        <p><span class="translate">Instructions</span>: 
+                        <p><span class="translate">Adapter Instructions</span>: 
                             <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/en/logparser.md#table-for-the-filter-rules" target="_blank"><span class="translate">English</span></a>
                             | <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/de/logparser.md#tabelle-f%C3%BCr-die-filter-regeln" target="_blank"><span class="translate">German</span></a>
                         </p>
                     </div>
                 </div>
 
-                <!-- Section "Remove PID" -->
+                <!-- Section "Filter Rules" -->
                 <div class="row">
                     <div class="col s12">
-                        <p class="translate title">Remove PID</p>
-                        <p class="translate info">RemovePidTxt</p>
-                        <div class="input-field col s12 m6">
-                            <input type="checkbox" class="value" id="removePid" />
-                            <label for="removePid" class="translate">Remove PID</label>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Section "Number of JSON tables used in VIS" -->
-                <div class="row">
-                    <div class="col s12">
-                        <p class="translate title">Number of JSON tables used in VIS</p>
-                        <p class="translate info">NumJsonTablesTxt1</p>
-                        <p class="translate info">NumJsonTablesTxt2</p>
-                        <div class="input-field col s12 m6">
-                            <input class="value validate" placeholder="1" id="visTables" type="number" min="0" max="50">
-                            <label for="visTables" class="translate">NumJsonTablesTxtLabel</label>
-                            <span class="helper-text translate">Number (0 = deactivated)</span>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div> <!-- end of tab 1-->
-
-
-            <!-- Tab2 Filter-->
-            <div id="tab-filter" class="col s12 page">            
-
-                <div class="row">
-                    <div class="col s12">
-                        <!-- <p class="translate title">Filter Rules (Log Parser)</p> -->
-                        <p class="info docuLinks"><span class="translate">Instructions</span>: 
+                        <p class="translate title">Filter/Parser Rules</p>
+                        <p class="translate info">For each set filter (rule), states are created under 'logparser.[instance].filters'.</p>
+                        <p class="info docuLinks"><span class="translate">Detailed filter instructions</span>: 
                             <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/en/logparser.md#table-for-the-filter-rules" target="_blank"><span class="translate">English</span></a>
                             | <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/de/logparser.md#tabelle-f%C3%BCr-die-filter-regeln" target="_blank"><span class="translate">German</span></a>
                         </p>
@@ -184,7 +159,7 @@
                                             <th class="header translate" data-name="clean">Clean</th>
                                             <th style="width: 40px;" data-style="width: 40px" class="header translate" data-name="maxLength">Max</th>
                                             <th style="width: 50px;" data-style="width: 50px"  class="header translate" data-name="merge" data-type="checkbox">Merge</th>
-                                            <th style="width: 100px;" data-style="width: 100px"  class="header translate" data-name="dateformat">Datumsformat</th>
+                                            <th style="width: 100px;" data-style="width: 100px"  class="header translate" data-name="dateformat">Date format</th>
                                             <th style="width: 50px;" data-style="width: 50px"  class="header" data-buttons="up down copy delete"></th>
                                         </tr>
                                     </thead>
@@ -192,6 +167,26 @@
                             </div>
                         </div>                        
                         <!-- End Options Table-->
+                    </div>
+                </div>
+
+
+            </div> <!-- end of tab 1-->
+
+            <!-----------------------------------------------------------
+                Tab 2: Further Settings
+              ----------------------------------------------------------->
+            <div id="tab-further" class="col s12 page">            
+
+                <!-- Section "Remove PID" -->                
+                <div class="row">
+                    <div class="col s12">
+                        <p class="translate title">Remove PID</p>
+                        <p class="translate info">RemovePidTxt</p>
+                        <div class="input-field col s12 m6">
+                            <input type="checkbox" class="value" id="removePid" />
+                            <label for="removePid" class="translate">Remove PID</label>
+                        </div>
                     </div>
                 </div>
 
@@ -224,75 +219,30 @@
                             <span class="helper-text translate">Prepended text (# is replaced by number)</span>
                         </div>
                     </div>
-                </div>    
+                </div>  
 
 
             </div> <!-- end of tab 2-->
 
+            <!-----------------------------------------------------------
+                Tab 3: Visualization
+              ----------------------------------------------------------->
+            <div id="tab-visualization" class="col s12 page">            
 
-            <!-- Tab3 Blacklist -->
-            <div id="tab-blacklist" class="col s12 page">            
-
+                <!-- Section "Number of JSON tables used in VIS" -->
                 <div class="row">
                     <div class="col s12">
-                        <!-- <p class="translate title">Global Blacklist</p> -->
-                        <p class="info docuLinks"><span class="translate">Instructions</span>: 
-                            <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/en/logparser.md#tab-global-blacklist" target="_blank"><span class="translate">English</span></a>
-                            | <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/de/logparser.md#registerkarte-globale-blacklist" target="_blank"><span class="translate">German</span></a>
-                        </p>
-                       
-                        <!-- Start Options Table-->
-                        <div class="col s12" id="globalBlacklist">
-                            <a class="btn-floating waves-effect waves-light blue table-button-add"><i class="material-icons">add</i></a>
-                            <div class="table-values-div">
-                                <table class="table-values">
-                                    <thead>
-                                        <tr>
-                                            <th class="header translate" data-name="active" data-type="checkbox">Active</th>
-                                            <th class="header translate" data-name="item">Blacklist Expressions</th>
-                                            <th class="header translate" data-name="comment">Comment</th>
-                                            <th class="header" data-buttons="up down copy delete"></th>
-                                        </tr>
-                                    </thead>
-                                </table>
-                            </div>
-                        </div>                        
-                        <!-- End Options Table-->
-                    </div>
-                </div>
-
-            </div> <!-- end of tab 3-->
-
-            <!-- Tab4 Advanced-->
-            <div id="tab-advanced" class="col s12 page">            
-
-                <!-- Section "Update Interval" -->
-                <div class="row">
-                    <div class="col s12">
-                        <p class="translate title">Interval for updating states</p>
-                        <p class="translate info">updateIntTxt</p>
+                        <p class="translate title">Number of JSON tables used in VIS</p>
+                        <p class="translate info">NumJsonTablesTxt1</p>
+                        <p class="translate info">NumJsonTablesTxt2</p>
                         <div class="input-field col s12 m6">
-                            <input class="value validate" placeholder="10" id="updateInterval" type="number" min="2" max="10000">
-                            <label for="updateInterval" class="translate">Update Interval</label>
-                            <span class="helper-text translate">Seconds</span>
-                        </div>
-
-
-                    </div>
-                </div>
-
-                <!-- Section "Max Log Entries" -->
-                <div class="row">
-                    <div class="col s12">
-                        <p class="translate title">Maximum number of log entries</p>
-                        <p class="translate info">MaxTxt</p>
-                        <div class="input-field col s12 m6">
-                            <input class="value validate" placeholder="100" id="maxLogs" type="number" min="1" max="1000">
-                            <label for="maxLogs" class="translate">Maximum number of log entries</label>
-                            <span class="helper-text translate">Number</span>
+                            <input class="value validate" placeholder="1" id="visTables" type="number" min="0" max="50">
+                            <label for="visTables" class="translate">NumJsonTablesTxtLabel</label>
+                            <span class="helper-text translate">Number (0 = deactivated)</span>
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Section "JSON Table Columns" -->
                 <div class="row">
@@ -344,7 +294,75 @@
                     </div>
                 </div>
 
-            </div> <!-- end of tab 4-->            
+            </div> <!-- end of tab 3-->            
+
+            <!-----------------------------------------------------------
+                Tab 4: Blacklist
+              ----------------------------------------------------------->            
+            <div id="tab-blacklist" class="col s12 page">            
+
+                <div class="row">
+                    <div class="col s12">
+                        <!-- <p class="translate title">Global Blacklist</p> -->
+                        <p class="info docuLinks"><span class="translate">Blacklist Instructions</span>: 
+                            <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/en/logparser.md#tab-global-blacklist" target="_blank"><span class="translate">English</span></a>
+                            | <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/de/logparser.md#registerkarte-globale-blacklist" target="_blank"><span class="translate">German</span></a>
+                        </p>
+                       
+                        <!-- Start Options Table-->
+                        <div class="col s12" id="globalBlacklist">
+                            <a class="btn-floating waves-effect waves-light blue table-button-add"><i class="material-icons">add</i></a>
+                            <div class="table-values-div">
+                                <table class="table-values">
+                                    <thead>
+                                        <tr>
+                                            <th class="header translate" data-name="active" data-type="checkbox">Active</th>
+                                            <th class="header translate" data-name="item">Blacklist Expressions</th>
+                                            <th class="header translate" data-name="comment">Comment</th>
+                                            <th class="header" data-buttons="up down copy delete"></th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>                        
+                        <!-- End Options Table-->
+                    </div>
+                </div>
+
+            </div> <!-- end of tab 4-->
+
+            <!-----------------------------------------------------------
+                Tab 5: Expert Settings
+              -----------------------------------------------------------> 
+            <div id="tab-expert" class="col s12 page">            
+
+                <!-- Section "Update Interval" -->
+                <div class="row">
+                    <div class="col s12">
+                        <p class="translate title">Interval for updating states</p>
+                        <p class="translate info">updateIntTxt</p>
+                        <div class="input-field col s12 m6">
+                            <input class="value validate" placeholder="10" id="updateInterval" type="number" min="2" max="10000">
+                            <label for="updateInterval" class="translate">Update Interval</label>
+                            <span class="helper-text translate">Seconds</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section "Max Log Entries" -->
+                <div class="row">
+                    <div class="col s12">
+                        <p class="translate title">Maximum number of log entries</p>
+                        <p class="translate info">MaxTxt</p>
+                        <div class="input-field col s12 m6">
+                            <input class="value validate" placeholder="100" id="maxLogs" type="number" min="1" max="1000">
+                            <label for="maxLogs" class="translate">Maximum number of log entries</label>
+                            <span class="helper-text translate">Number</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div> <!-- end of tab 5-->
 
         </div> <!-- class "row" -->
 
