@@ -26,7 +26,7 @@
     "IntroTxt2": "Basta definir as regras correspondentes aqui nas configurações da guia 'Regras do analisador (filtro)'. ",
     "Max": "Máx.",
     "MaxTxt": "O número máximo de entradas de log que são mantidas nos estados (as entradas mais antigas são removidas). ",
-    "Maximum number of log entries": "",
+    "Maximum number of log entries": "Número máximo de entradas de log",
     "Merge": "Mesclar",
     "MergeTxt": "Este texto é colocado na frente de cada linha de log se a mesclagem estiver ativada. ",
     "Name": "Nome",

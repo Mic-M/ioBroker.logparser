@@ -26,7 +26,7 @@
     "IntroTxt2": "Definisci semplicemente le regole corrispondenti qui nelle impostazioni nella scheda \"Regole di analisi (filtro)\". ",
     "Max": "Max",
     "MaxTxt": "Il numero massimo di voci di registro che vengono conservate negli stati (le voci precedenti vengono rimosse). ",
-    "Maximum number of log entries": "",
+    "Maximum number of log entries": "Numero massimo di voci di registro",
     "Merge": "Merge",
     "MergeTxt": "Questo testo viene posizionato davanti a ciascuna riga del registro se l'opzione Unisci è attivata. ",
     "Name": "Nome",

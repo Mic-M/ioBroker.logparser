@@ -26,7 +26,7 @@
     "IntroTxt2": "Po prostu określamy według zasad tutaj w ustawieniach na zasady analizatora składni (filtra) na karcie\". Podczas instalacji, niektóre zasady są już zainstalowane jako przykładów.",
     "Max": "Max",
     "MaxTxt": "Maksymalna liczba wpisów do dziennika, które przechowywane są w stanach Zjednoczonych (stare wpisy są usuwane). Proszę nie umieszczać zbyt dużej liczby, im większa liczba, tym większe obciążenie zasilacza i w ten sposób serwer ioBroker. Liczba 100 okazała się bardzo dobra.",
-    "Maximum number of log entries": "",
+    "Maximum number of log entries": "Maksymalna liczba wpisów w dzienniku ",
     "Merge": "Korespondencji seryjnej",
     "MergeTxt": "Ten tekst umieszczony w przedniej części każdego wiersza dziennika, jeśli połączenie jest aktywowane. Symbol # zamiana liczba czasopism o tej samej treści.",
     "Name": "Nazwa",

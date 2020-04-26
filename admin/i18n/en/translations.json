@@ -26,7 +26,7 @@
     "IntroTxt2": "Simply define the according rules here in the settings on the 'Parser rules (filter)' tab. During installation, several rules are already set as examples.",
     "Max": "Max",
     "MaxTxt": "The maximum number of log entries that are retained in the states (older entries are removed). Please do not set a too large number, the larger the number, the more load for the adapter and thus your ioBroker server. A number of 100 has proven to be good.",
-    "Maximum number of log entries": "",
+    "Maximum number of log entries": "Maximum number of log entries",
     "Merge": "Merge",
     "MergeTxt": "This text is placed in front of each log line if Merge is activated. The # character is then replaced by the number of logs with the same content.",
     "Name": "Name",

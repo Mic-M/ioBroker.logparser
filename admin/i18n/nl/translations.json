@@ -26,7 +26,7 @@
     "IntroTxt2": "Definieer eenvoudig de regels hier in de instellingen op het tabblad 'Parser-regels (filter)'. ",
     "Max": "Max",
     "MaxTxt": "Het maximale aantal logboekvermeldingen dat in de staten wordt bewaard (oudere vermeldingen worden verwijderd). ",
-    "Maximum number of log entries": "",
+    "Maximum number of log entries": "Maximaal aantal log-entries",
     "Merge": "Samenvoegen",
     "MergeTxt": "Deze tekst wordt voor elke logregel geplaatst als Samenvoegen is geactiveerd. ",
     "Name": "Naam",

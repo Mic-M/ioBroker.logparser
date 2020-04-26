@@ -26,7 +26,7 @@
     "IntroTxt2": "Simplemente defina las reglas correspondientes aquí en la configuración de la pestaña 'Reglas del analizador (filtro)'. ",
     "Max": "Max",
     "MaxTxt": "El número máximo de entradas de registro que se retienen en los estados (se eliminan las entradas más antiguas). ",
-    "Maximum number of log entries": "",
+    "Maximum number of log entries": "Número máximo de entradas en el registro",
     "Merge": "Unir",
     "MergeTxt": "Este texto se coloca delante de cada línea de registro si se activa Fusionar. ",
     "Name": "Nombre",
