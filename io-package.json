@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "logparser",
-        "version": "0.4.9",
+        "version": "0.4.10",
         "news": {
+            "0.4.10": {
+                "en": "Fixed reference to 'visualization.table' for adapter instances other than instance 0.",
+                "de": "Verweis auf 'visualization.table' für andere Adapterinstanzen als Instanz 0 behoben.",
+                "ru": "Исправлена ​​ссылка на «visualization.table» для экземпляров адаптера, отличных от экземпляра 0.",
+                "pt": "Corrigida a referência a 'visualization.table' para instâncias do adaptador diferentes da instância 0.",
+                "nl": "Vaste verwijzing naar 'visualization.table' voor andere adapterinstanties dan instantie 0.",
+                "fr": "Correction de la référence à «visualization.table» pour les instances d'adaptateur autres que l'instance 0.",
+                "it": "Risolto il problema con \"visualization.table\" per le istanze dell'adattatore diverse dall'istanza 0.",
+                "es": "Se corrigió la referencia a 'visualización.table' para instancias de adaptador que no sean la instancia 0.",
+                "pl": "Naprawiono odniesienie do „wizualizacji.tabela” dla instancji adaptera innych niż instancja 0.",
+                "zh-cn": "固定引用了实例0以外的适配器实例的“ visualization.table”。"
+            },
             "0.4.9": {
                 "en": "Add option to remove script.js.Script_Name, update documentation",
                 "de": "Option zum Entfernen von script.js.Script_Name hinzugefügt, Dokumentation aktualisiert",

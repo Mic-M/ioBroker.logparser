@@ -8,7 +8,6 @@
  * 
  *     License: MIT
  */
-// Used VB Code Extensions: https://github.com/aaron-bond/better-comments
 
 
 /**
@@ -22,7 +21,6 @@ const g_forbiddenCharsB = /[\][*,;'"`<>\\\s?]/g; // Several chars and no spaces 
 const g_globalBlacklist = [];  // the global blacklist (per admin settings. either type RegExp or string)
 const g_activeFilters = []; // the names of all filters activated per admin settings
 const g_allLogs = {}; // All logs which were coming in, prepared for JSON output to states
-const g_changeIndicator = {};
 let   g_timerUpdateStates = null; // Update states interval timer
 let   g_timerMidnight = null; // setInterval timer for callAtMidnight()
 let   g_jsonKeys = []; // keys for JSON as array. From adapter admin settings, like: "date,severity,from,message". ts is always added.
@@ -80,7 +78,7 @@ function main() {
 
                 // Initially get visualization selection state values
                 for(let i = 0; i < adapter.config.visTables; i++) {
-                    adapter.getState('logparser.0.visualization.table' + i + '.selection', function (err, state) {
+                    adapter.getState('visualization.table' + i + '.selection', function (err, state) {
                         if (!err && state && !helper.isLikeEmpty(state.val)) {
                             g_tableFilters[i] = state.val;
                         } else {
@@ -627,7 +625,6 @@ function initializeConfigValues(callback) {
                     adapter.config.parserRules[i].name = name;
                     g_activeFilters.push(name); // All active filters go here
                     g_allLogs[name] = [];   // Prepare g_allLogs variable;
-                    g_changeIndicator[name] = false; // Prepare change indicator variable
                 } else {
                     errorMsg.push('Removed forbidden chars of filter name, and name now results in length = 0.');
                 }
