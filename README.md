@@ -32,6 +32,11 @@ Resulting JSON can then be used in VIS for visualization. States for emptying (c
 
 ## Changelog
 
+### 0.4.11
+* (Mic-M) Adapter is now in latest repository.
+* (Mic-M) Removed unused adapter features 'extra tab' and 'custom state options'
+* (Mic-M) Removed unused subscription to object changes
+
 ### 0.4.10
 * (Mic-M) Fixed reference to 'visualization.table' for adapter instances other than instance 0.
 * (Mic-M) Cleanup code.

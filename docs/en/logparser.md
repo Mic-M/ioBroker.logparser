@@ -2,10 +2,6 @@
 
 With this adapter the ioBroker logs of all adapters can be parsed, i.e. filtered, accordingly.
 
-# Installation
-The adapter is not yet in the "latest repository". So please [Install adapter from own URL](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/admin/adapter.md). Then add an adapter instance.
-
-
 # Configuration
 
 ## Tab "Parser Rules (Filter)"

@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "logparser",
-        "version": "0.4.10",
+        "version": "0.4.11",
         "news": {
+            "0.4.11": {
+                "en": "Removed unused adapter features 'extra tab' and 'custom state options', removed unused subscription to object changes",
+                "de": "Nicht verwendete Adapterfunktionen 'extra tab' und 'custom state options' entfernt, nicht verwendete Subscriptions für Objektänderungen entfernt",
+                "ru": "Удалены неиспользуемые функции адаптера «дополнительная вкладка» и «пользовательские параметры состояния», удалена неиспользуемая подписка на изменения объекта",
+                "pt": "Recursos do adaptador não utilizados removidos 'guia extra' e 'opções de estado personalizadas', assinatura não utilizada removida para alterações de objetos",
+                "nl": "Verwijderde ongebruikte adapter met 'extra tabblad' en 'aangepaste statusopties', verwijderd ongebruikt abonnement op objectwijzigingen",
+                "fr": "Suppression de l'onglet supplémentaire et des options d'état personnalisé des fonctionnalités inutilisées de l'adaptateur, suppression de l'abonnement inutilisé aux modifications d'objet",
+                "it": "La scheda rimossa non utilizzata presenta \"scheda aggiuntiva\" e \"opzioni di stato personalizzate\", rimossa la sottoscrizione non utilizzata per le modifiche agli oggetti",
+                "es": "El adaptador no utilizado elimina las 'pestañas adicionales' y 'opciones de estado personalizadas', elimina la suscripción no utilizada a los cambios de objetos",
+                "pl": "Usunięto nieużywane funkcje karty „dodatkowa karta” i „opcje stanu niestandardowego”, usunięto nieużywaną subskrypcję zmian obiektu",
+                "zh-cn": "删除了未使用的适配器功能“额外选项卡”和“自定义状态选项”，删除了未使用的对象更改订阅"
+            },
             "0.4.10": {
                 "en": "Fixed reference to 'visualization.table' for adapter instances other than instance 0.",
                 "de": "Verweis auf 'visualization.table' für andere Adapterinstanzen als Instanz 0 behoben.",
@@ -195,24 +207,6 @@
         "connectionType": "local",
         "dataSource": "poll",
         "materialize": true,
-        "materializeTab": true,
-        "adminTab": {
-            "singleton": true,
-            "name": {
-                "en": "Log Parser",
-                "de": "Log Parser",
-                "ru": "Log Parser",
-                "pt": "Log Parser",
-                "nl": "Log Parser",
-                "fr": "Log Parser",
-                "it": "Log Parser",
-                "es": "Log Parser",
-                "pl": "Log Parser",
-                "zh-cn": "Log Parser"
-            },
-            "link": "",
-            "fa-icon": "info"
-        },
         "dependencies": [
             {
                 "js-controller": ">=1.4.2"

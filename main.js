@@ -831,6 +831,7 @@ function startAdapter(options) {
             }
         },
 
+        /* -- https://github.com/ioBroker/ioBroker.repositories/pull/741#issuecomment-642248790
         // is called if a subscribed object changes
         objectChange: (id, obj) => {
             if (obj) {
@@ -841,6 +842,7 @@ function startAdapter(options) {
                 adapter.log.debug(`object ${id} deleted`);
             }
         },
+        */
 
         // is called if a subscribed state changes
         stateChange: (id, state) => {
