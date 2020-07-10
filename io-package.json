@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "logparser",
-        "version": "0.4.11",
+        "version": "1.0.0",
         "news": {
+            "1.0.0": {
+                "en": "No changes - just prepare versioning to add adapter to stable repository",
+                "de": "Keinerlei Änderungen - Adapter lediglich für das 'Stable Repository' vorbereitet.",
+                "ru": "Без изменений - просто подготовьте управление версиями, чтобы добавить адаптер в стабильный репозиторий",
+                "pt": "Sem alterações - basta preparar o controle de versão para adicionar o adaptador ao repositório estável",
+                "nl": "Geen wijzigingen - bereid gewoon versiebeheer voor om een adapter toe te voegen aan een stabiele repository",
+                "fr": "Aucune modification - il suffit de préparer le versionnement pour ajouter l'adaptateur au référentiel stable",
+                "it": "Nessuna modifica: basta preparare il controllo delle versioni per aggiungere l'adattatore al repository stabile",
+                "es": "Sin cambios: solo prepare el versionado para agregar el adaptador al repositorio estable",
+                "pl": "Bez zmian - po prostu przygotuj wersję, aby dodać adapter do stabilnego repozytorium",
+                "zh-cn": "无需更改-只需准备版本控制即可将适配器添加到稳定的存储库"
+            },
             "0.4.11": {
                 "en": "Removed unused adapter features 'extra tab' and 'custom state options', removed unused subscription to object changes",
                 "de": "Nicht verwendete Adapterfunktionen 'extra tab' und 'custom state options' entfernt, nicht verwendete Subscriptions für Objektänderungen entfernt",
