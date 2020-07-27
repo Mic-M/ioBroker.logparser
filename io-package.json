@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "logparser",
-        "version": "1.0.0",
+        "version": "1.0.1",
         "news": {
+            "1.0.1": {
+                "en": "Updated lodash dependency from 4.17.15 to 4.17.19",
+                "de": "lodash aktualisiert von 4.17.15 auf 4.17.19",
+                "ru": "Обновлена зависимость от lodash с 4.17.15 до 4.17.19",
+                "pt": "Dependência do lodash atualizada de 4.17.15 para 4.17.19",
+                "nl": "Lodash-afhankelijkheid bijgewerkt van 4.17.15 tot 4.17.19",
+                "fr": "Dépendance de lodash mise à jour de 4.17.15 à 4.17.19",
+                "it": "Dipendenza lodash aggiornata dal 4.17.15 al 4.17.19",
+                "es": "Dependencia lodash actualizada de 4.17.15 a 4.17.19",
+                "pl": "Zaktualizowano zależność lodash z 4.17.15 do 4.17.19",
+                "zh-cn": "将lodash依赖性从4.17.15更新为4.17.19"
+            },
             "1.0.0": {
                 "en": "No changes - just prepare versioning to add adapter to stable repository",
                 "de": "Keinerlei Änderungen - Adapter lediglich für das 'Stable Repository' vorbereitet.",
