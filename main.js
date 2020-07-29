@@ -143,9 +143,11 @@ function callAtMidnight(func) {
     );
     const offset = 1000; // we add one additional second, just in case.
     const msToMidnight = night.getTime() - now.getTime() + offset;
+    adapter.log.debug(`callAtMidnight() called, provided function: '${func.name}'. Timeout at 00:00:01, which is in ${msToMidnight}ms.`);
     g_timerMidnight = setTimeout(function() {
-        func();              //      <-- This is the function being called at midnight.
-        callAtMidnight(func);    //      Then, reset again next midnight.
+        adapter.log.debug(`callAtMidnight() : timer reached timeout, so we execute function '${func.name}'`);
+        func();               // This is the function being called at midnight.
+        callAtMidnight(func); // Set again next midnight.
     }, msToMidnight);
 }
 
@@ -155,14 +157,16 @@ function callAtMidnight(func) {
  * Typically called every midnight.
  */
 function updateTodayYesterday() {
-    adapter.log.debug('updateTodayYesterday() called.');
     for (const lpFilterName of g_activeFilters) {
         const lpLogObjects = g_allLogs[lpFilterName];
+        let counter = 0;
         for (let i = 0; i < lpLogObjects.length; i++) {
+            counter++;
             const lpLogObject = lpLogObjects[i];
             const f = helper.objArrayGetObjByVal(adapter.config.parserRules, 'name', lpFilterName); // the filter object
             g_allLogs[lpFilterName][i].date = helper.tsToDateString(lpLogObject.ts, f.dateformat, adapter.config.txtToday, adapter.config.txtYesterday);
         }
+        adapter.log.debug(`updateTodayYesterday() : Filter '${lpFilterName}', updated ${counter} logs.`);
     }
 }
 

@@ -32,6 +32,9 @@ Resulting JSON can then be used in VIS for visualization. States for emptying (c
 
 ## Changelog
 
+### 1.0.2
+* (Mic-M) Added debug logging for callAtMidnight() and updateTodayYesterday()
+
 ### 1.0.1
 * (Mic-M) Updated lodash dependency from 4.17.15 to 4.17.19
 

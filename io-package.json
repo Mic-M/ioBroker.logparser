@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "logparser",
-        "version": "1.0.1",
+        "version": "1.0.2",
         "news": {
+            "1.0.2": {
+                "en": "Added debug logging for 'callAtMidnight()' and 'updateTodayYesterday()'",
+                "de": "Debug-Logging für 'callAtMidnight ()' und 'updateTodayYesterday ()' hinzugefügt",
+                "ru": "Добавлено ведение журнала отладки для callAtMidnight () и updateTodayYesterday ()",
+                "pt": "Adicionado log de depuração para 'callAtMidnight ()' e 'updateTodayYesterday ()'",
+                "nl": "Logboekregistratie voor debuggen toegevoegd voor 'callAtMidnight ()' en 'updateTodayYesterday ()'",
+                "fr": "Ajout de la journalisation du débogage pour 'callAtMidnight ()' et 'updateTodayYesterday ()'",
+                "it": "Aggiunta registrazione debug per 'callAtMidnight ()' e 'updateTodayYesterday ()'",
+                "es": "Se agregó el registro de depuración para 'callAtMidnight ()' y 'updateTodayYesterday ()'",
+                "pl": "Dodano rejestrowanie debugowania dla „callAtMidnight ()” i „updateTodayYesterday ()”",
+                "zh-cn": "为“ callAtMidnight（）”和“ updateTodayYesterday（）”添加了调试日志"
+            },
             "1.0.1": {
                 "en": "Updated lodash dependency from 4.17.15 to 4.17.19",
                 "de": "lodash aktualisiert von 4.17.15 auf 4.17.19",
