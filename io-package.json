@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "logparser",
-        "version": "1.0.2",
+        "version": "1.0.3",
         "news": {
+            "1.0.3": {
+                "en": "Added Sentry support.",
+                "de": "Sentry-Unterstützung hinzugefügt.",
+                "ru": "Добавлена поддержка Sentry.",
+                "pt": "Adicionado suporte Sentry.",
+                "nl": "Sentry-ondersteuning toegevoegd.",
+                "fr": "Ajout du support Sentry.",
+                "it": "Aggiunto supporto Sentry.",
+                "es": "Se agregó soporte de Centinela.",
+                "pl": "Dodano obsługę Wartownika.",
+                "zh-cn": "增加了哨兵支持。"
+            },
             "1.0.2": {
                 "en": "Added debug logging for 'callAtMidnight()' and 'updateTodayYesterday()'",
                 "de": "Debug-Logging für 'callAtMidnight ()' und 'updateTodayYesterday ()' hinzugefügt",
@@ -74,126 +86,6 @@
                 "es": "Agregar opción para eliminar script.js.Script_Name, actualizar documentación",
                 "pl": "Dodaj opcję, aby usunąć skrypt.js.Script_Name, zaktualizuj dokumentację",
                 "zh-cn": "添加选项以删除script.js.Script_Name，更新文档"
-            },
-            "0.4.8": {
-                "en": "Fixed npm issue",
-                "de": "npm Problem behoben",
-                "ru": "Исправлена ​​проблема с npm",
-                "pt": "Fixed npm issue",
-                "nl": "NPM-probleem opgelost",
-                "fr": "Problème de npm fixe",
-                "it": "Risolto problema npm",
-                "es": "Problema solucionado de npm",
-                "pl": "Naprawiono problem npm",
-                "zh-cn": "修复npm问题"
-            },
-            "0.4.7": {
-                "en": "Fixed translations, disabled 'supportCustoms', improved admin settings",
-                "de": "Übersetzungs-Issue behoben, 'supportCustoms' deaktiviert, verbesserte Admin-Einstellungen",
-                "ru": "Исправлен перевод, с ограниченными возможностями supportCustoms', улучшенные настройки администратора ",
-                "pt": "Fixo traduções, disabled 'supportCustoms', a melhoria de configurações do administrador",
-                "nl": "Vaste vertalingen, gehandicapten 'supportCustoms', verbeterde admin instellingen",
-                "fr": "Correction de traductions, handicapées \"supportCustoms', l'amélioration des paramètres administrateur",
-                "it": "Fissa, traduzioni, disabili 'supportCustoms', il miglioramento delle impostazioni di amministrazione",
-                "es": "Fijo traducciones, discapacitados 'supportCustoms', la mejora de configuración de administrador",
-                "pl": "Poprawiono tłumaczenie, niepełnosprawnych supportCustoms', ulepszone ustawienia administratora ",
-                "zh-cn": "固定的翻译、残疾'supportCustoms'，改进管理的设置"
-            },
-            "0.4.6": {
-                "en": "Added error handling for invalid regex provided by user, a few other fixes",
-                "de": "Fehlerbehandlung für ungültigen regulären Ausdruck vom Benutzer bereitgestellt, einige andere Korrekturen hinzugefügt",
-                "ru": "Добавлена ​​обработка ошибок для неверного регулярного выражения, предоставленного пользователем, несколько других исправлений",
-                "pt": "Adicionado tratamento de erros para regex inválido fornecido pelo usuário, algumas outras correções",
-                "nl": "Foutafhandeling toegevoegd voor ongeldige regex geleverd door gebruiker, een paar andere oplossingen",
-                "fr": "Ajout de la gestion des erreurs pour les expressions rationnelles invalides fournies par l'utilisateur, quelques autres correctifs",
-                "it": "Aggiunta la gestione degli errori per regex non valido fornita dall'utente, alcune altre correzioni",
-                "es": "Se agregó manejo de errores para expresiones regulares no válidas proporcionadas por el usuario, algunas otras correcciones",
-                "pl": "Dodano obsługę błędów nieprawidłowych wyrażeń regularnych dostarczonych przez użytkownika, kilka innych poprawek",
-                "zh-cn": "添加了对用户提供的无效正则表达式的错误处理，以及其他一些修复程序"
-            },
-            "0.4.5": {
-                "en": "Fixed issue with merge option and other filter settings, Allow wildcard * for 'Whitelist AND' and 'Whitelist OR' to indicate matching all",
-                "de": "Problem mit Merge und anderen Filtereinstellungen behoben. Platzhalter * für 'Whitelist AND' und 'Whitelist OR' zulassen",
-                "ru": "Исправлена ​​проблема с опцией слияния и другими настройками фильтра. Разрешить подстановочный знак * для «Белого списка И» и «Белого списка ИЛИ», чтобы указать совпадение всех",
-                "pt": "Corrigido o problema com a opção de mesclagem e outras configurações de filtro. Permitir curinga * para 'Lista de permissões AND' e 'Lista de permissões OR' para indicar a correspondência de todas",
-                "nl": "Probleem opgelost met merge-optie en andere filterinstellingen, Wildcard * toestaan ​​voor 'Witte lijst EN' en 'Witte lijst OR' om aan te geven dat ze allemaal overeenkomen",
-                "fr": "Correction d'un problème avec l'option de fusion et d'autres paramètres de filtre, Autoriser le caractère générique * pour 'Liste blanche ET' et 'Liste blanche OU' pour indiquer la correspondance de tous",
-                "it": "Risolto il problema con l'opzione di unione e altre impostazioni del filtro, Consenti carattere jolly * per \"Lista bianca AND\" e \"Lista bianca OR\" per indicare la corrispondenza di tutti",
-                "es": "Se corrigió el problema con la opción de combinación y otras configuraciones de filtro, Permitir comodín * para 'Lista blanca Y' y 'Lista blanca OR' para indicar que coinciden todos",
-                "pl": "Naprawiono problem z opcją scalania i innymi ustawieniami filtrów, Zezwalaj na symbole wieloznaczne * dla „Białej listy ORAZ” i „Białej listy LUB”, aby wskazać dopasowanie wszystkich",
-                "zh-cn": "解决了合并选项和其他过滤器设置的问题，“白名单AND”和“白名单OR”允许使用通配符*表示所有匹配项"
-            },
-            "0.4.4": {
-                "en": "Translations added, adapter instructions added, optimized admin interface",
-                "de": "Übersetzungen hinzugefügt, Adapter-Anleitung erstellt, optimiertes Admin-Interface",
-                "ru": "Перевод добавил, инструкции адаптер добавил, оптимизированный интерфейс администратора ",
-                "pt": "Traduções adicionadas, adaptador de instruções adicionado, otimizado interface de administração",
-                "nl": "Vertalingen toegevoegd, adapter instructies toegevoegd, geoptimaliseerd admin interface",
-                "fr": "Traductions ajoutées, adaptateur d'ajouter des instructions, optimisation de l'interface d'administration",
-                "it": "Traduzioni aggiunto, scheda di istruzioni aggiunto, ottimizzato l'interfaccia di amministrazione",
-                "es": "Traducciones añadido, adaptador de instrucciones añadido, optimizado la interfaz de administración",
-                "pl": "Tłumaczenie dodał, instrukcje, zasilacz dodał, zoptymalizowany interfejs administratora ",
-                "zh-cn": "翻译加入、接指令加入，优化管理界面"
-            },
-            "0.4.3": {
-                "en": "Fix multiple regex/string config values separated by comma.",
-                "de": "Problem mit mehreren durch Komma getrennte Regex/String-Konfigurationswerten behoben.",
-                "ru": "Исправьте несколько значений конфигурации регулярных выражений / строк, разделенных запятой.",
-                "pt": "Corrija vários valores de configuração de regex / string separados por vírgula.",
-                "nl": "Herstel meerdere regex / string-configuratiewaarden gescheiden door komma's.",
-                "fr": "Correction de plusieurs valeurs de configuration regex / string séparées par une virgule.",
-                "it": "Correggi più valori di configurazione regex / string separati da virgola.",
-                "es": "Fijar múltiples valores de configuración de expresiones regulares / cadenas separadas por comas.",
-                "pl": "Napraw wiele wartości konfiguracji wyrażeń regularnych / ciągów oddzielonych przecinkami.",
-                "zh-cn": "修复多个用逗号分隔的正则表达式/字符串配置值。"
-            },
-            "0.4.2": {
-                "en": "Fix issue #12, fix issue with visualization.tableX.json and .selection.",
-                "de": "Issue #12 behoben, Problem mit visualization.tableX.json und .selection behoben.",
-                "ru": "Исправьте проблему # 12, исправьте проблему с visualization.tableX.json и .selection.",
-                "pt": "Corrija o problema nº 12, corrija o problema com visualization.tableX.json e .selection.",
-                "nl": "Probleem # 12 oplossen, probleem oplossen met visualization.tableX.json en .selection.",
-                "fr": "Correction du problème n ° 12, correction du problème avec visualization.tableX.json et .selection.",
-                "it": "Risolvi il problema n. 12, risolve il problema con visualization.tableX.json e .selection.",
-                "es": "Solucione el problema # 12, solucione el problema con visualization.tableX.json y .selection.",
-                "pl": "Napraw problem nr 12, napraw problem z visualization.tableX.json i .selection.",
-                "zh-cn": "修复问题＃12，修复了visualization.tableX.json和.selection的问题。"
-            },
-            "0.4.1": {
-                "en": "1. Fix 'Yesterday' for date, 2. Fix multiple filters, 3. Add description to settings page",
-                "de": "1. 'Gestern' für Datum korrigiert, 2. Mehrere Filter korrigiert, 3. Beschreibung zu Adapter-Einstellungen hinzugefügt",
-                "ru": "1. Исправить «Вчера» для даты, 2. Исправить несколько фильтров, 3. Добавить описание на страницу настроек",
-                "pt": "1. Corrija 'Ontem' para a data, 2. Corrija vários filtros, 3. Adicione uma descrição à página de configurações",
-                "nl": "1. Fix 'Yesterday' voor datum, 2. Fix meerdere filters, 3. Voeg beschrijving toe aan instellingenpagina",
-                "fr": "1. Fixez «Hier» pour la date, 2. Corrigez plusieurs filtres, 3. Ajoutez une description à la page des paramètres",
-                "it": "1. Correggi 'Ieri' per data, 2. Correggi più filtri, 3. Aggiungi descrizione alla pagina delle impostazioni",
-                "es": "1. Arreglar 'Ayer' para la fecha, 2. Arreglar múltiples filtros, 3. Agregar descripción a la página de configuración",
-                "pl": "1. Napraw „Wczoraj” dla daty, 2. Napraw wiele filtrów, 3. Dodaj opis do strony ustawień",
-                "zh-cn": "1.修正“昨天”作为日期，2.修正多个过滤器，3.将描述添加到设置页面"
-            },
-            "0.4.0": {
-                "en": "Add new option 'maxLength' to limit the length of each log message",
-                "de": "Neue Option 'maxLength', um die Länge jedes Logs zu begrenzen",
-                "ru": "Добавьте новую опцию 'maxLength', чтобы ограничить длину каждого сообщения журнала",
-                "pt": "Adicione nova opção 'maxLength' para limitar o tamanho de cada mensagem de log",
-                "nl": "Voeg een nieuwe optie 'maxLength' toe om de lengte van elk logbericht te beperken",
-                "fr": "Ajouter une nouvelle option «maxLength» pour limiter la longueur de chaque message de journal",
-                "it": "Aggiungi la nuova opzione 'maxLength' per limitare la lunghezza di ciascun messaggio di registro",
-                "es": "Agregue la nueva opción 'maxLength' para limitar la longitud de cada mensaje de registro",
-                "pl": "Dodaj nową opcję „maxLength”, aby ograniczyć długość każdego komunikatu dziennika",
-                "zh-cn": "添加新选项“ maxLength”以限制每个日志消息的长度"
-            },
-            "0.3.0": {
-                "en": "initial public release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版"
             }
         },
         "title": "Log Parser",
@@ -248,7 +140,12 @@
                 "js-controller": ">=1.4.2"
             }
         ],
-        "logTransporter": true
+        "logTransporter": true,
+        "plugins": {
+            "sentry": {
+                "dsn": "https://5a01dc9b29b846218064c49700c7a302@sentry.iobroker.net/94"
+            }
+        }
     },
     "native": {
         "removePid": true,

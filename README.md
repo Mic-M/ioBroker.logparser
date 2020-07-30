@@ -32,6 +32,9 @@ Resulting JSON can then be used in VIS for visualization. States for emptying (c
 
 ## Changelog
 
+### 1.0.3
+* (Mic-M) Added [Sentry](https://github.com/ioBroker/plugin-sentry)
+
 ### 1.0.2
 * (Mic-M) Added debug logging for callAtMidnight() and updateTodayYesterday()
 
