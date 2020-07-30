@@ -20,6 +20,9 @@ Resulting JSON can then be used in VIS for visualization. States for emptying (c
 ![States](docs/en/img/states.png)
 
 
+**Please note:** This adapter uses Sentry libraries to automatically report exceptions and code errors anonymously to the adapter developer(s). For further details and information on how to disable this error reporting see [Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry). Sentry reporting is used starting with js-controller 3.0.
+
+
 ## Instructions
 
 * **[English Instructions](docs/en/logparser.md)**
