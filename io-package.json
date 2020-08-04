@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "logparser",
-        "version": "1.0.3",
+        "version": "1.0.4",
         "news": {
+            "1.0.4": {
+                "en": "Fixed 'Today/Yesterday' updating issue - https://forum.iobroker.net/post/469757",
+                "de": "Aktualisierungs-Issue von 'Heute/Gestern' behoben - https://forum.iobroker.net/post/469757",
+                "ru": "Исправлена проблема обновления «Сегодня / Вчера» - https://forum.iobroker.net/post/469757",
+                "pt": "Corrigido o problema de atualização 'Hoje / Ontem' - https://forum.iobroker.net/post/469757",
+                "nl": "Opgelost 'Vandaag / Gisteren' updateprobleem - https://forum.iobroker.net/post/469757",
+                "fr": "Correction du problème de mise à jour 'Aujourd'hui / Hier' - https://forum.iobroker.net/post/469757",
+                "it": "Risolto il problema di aggiornamento \"Oggi / Ieri\" - https://forum.iobroker.net/post/469757",
+                "es": "Se corrigió el problema de actualización 'Hoy / Ayer' - https://forum.iobroker.net/post/469757",
+                "pl": "Naprawiono problem z aktualizacją „Dzisiaj / Wczoraj” - https://forum.iobroker.net/post/469757",
+                "zh-cn": "修复了``今天/昨天''更新问题-https://forum.iobroker.net/post/469757"
+            },
             "1.0.3": {
                 "en": "Added Sentry support.",
                 "de": "Sentry-Unterstützung hinzugefügt.",

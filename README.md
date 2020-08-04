@@ -35,6 +35,9 @@ Resulting JSON can then be used in VIS for visualization. States for emptying (c
 
 ## Changelog
 
+### 1.0.4
+* (Mic-M) Fixed 'Today/Yesterday' updating issue - https://forum.iobroker.net/post/469757. Thanks to (Kuddel) for reporting and (Glasfaser) for further debugging.
+
 ### 1.0.3
 * (Mic-M) Added [Sentry](https://github.com/ioBroker/plugin-sentry)
 

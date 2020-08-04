@@ -158,6 +158,8 @@ function callAtMidnight(func) {
  */
 function updateTodayYesterday() {
     for (const lpFilterName of g_activeFilters) {
+        
+        // First: Update global variable g_allLogs
         const lpLogObjects = g_allLogs[lpFilterName];
         let counter = 0;
         for (let i = 0; i < lpLogObjects.length; i++) {
@@ -166,6 +168,11 @@ function updateTodayYesterday() {
             const f = helper.objArrayGetObjByVal(adapter.config.parserRules, 'name', lpFilterName); // the filter object
             g_allLogs[lpFilterName][i].date = helper.tsToDateString(lpLogObject.ts, f.dateformat, adapter.config.txtToday, adapter.config.txtYesterday);
         }
+        
+        // Second: Update all JSON States
+        const visTableNums = getConfigVisTableNums();
+        updateJsonStates(lpFilterName, {updateFilters:true, tableNum:visTableNums});
+
         adapter.log.debug(`updateTodayYesterday() : Filter '${lpFilterName}', updated ${counter} logs.`);
     }
 }
@@ -202,14 +209,8 @@ function stateChanges(statePath, obj) {
         } else if (fromEnd1 == 'forceUpdate' && obj.val && !obj.ack) {
 
             for (const filterName of g_activeFilters) {
-                const visTableNums = [];
-                if (adapter.config.visTables > 0) {
-                    for(let i = 0; i < adapter.config.visTables; i++) {
-                        visTableNums.push(i);
-                    }
-                }
+                const visTableNums = getConfigVisTableNums();
                 updateJsonStates(filterName, {updateFilters:true, tableNum:visTableNums});
-                // Looks like it throws an error per issue #12: https://github.com/Mic-M/ioBroker.logparser/issues/12
                 adapter.setState(statePath, {val:false, ack:true}); // Acknowledge the positive response
             }
             adapter.setState('lastTimeUpdated', {val:Date.now(), ack: true});
@@ -796,6 +797,21 @@ function prepareAdapterObjects() {
 
     return finalStates;
 
+}
+
+/**
+ * Get Adapter config visTables as array.
+ * 
+ * @return {array}  - if visTables = "3" -> [0, 1, 2], if visTables = "0" or empty -> []
+ */
+function getConfigVisTableNums() {
+    const visTableNums = [];
+    if (adapter.config.visTables && parseInt(adapter.config.visTables) > 0) {
+        for(let i = 0; i < parseInt(adapter.config.visTables); i++) {
+            visTableNums.push(i);
+        }
+    }
+    return visTableNums;
 }
 
 
