@@ -68,7 +68,7 @@ This is just to provide you an overview of the adapter options.
 ## Changelog
 
 ### 1.1.0
-* (Mic-M) Fixed issue [#15](https://github.com/Mic-M/ioBroker.logparser/issues/15) regarding regex for tab "Parser Rules", column "Blacklist
+* (Mic-M) Fixed issue [#15](https://github.com/Mic-M/ioBroker.logparser/issues/15) regarding regex for tab "Parser Rules", column "Blacklist"
 * (Mic-M) Enhancement [#16](https://github.com/Mic-M/ioBroker.logparser/issues/16) - add specific CSS classes to any element of the JSON log per adapter option.
 * (Mic-M) Major improvement: Implemented entire documentation into adapter itself to significantly improve usability.
 * (Mic-M) A few improvements under the hood.

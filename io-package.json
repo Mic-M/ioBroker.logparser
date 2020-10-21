@@ -1,8 +1,22 @@
 {
     "common": {
         "name": "logparser",
-        "version": "1.0.4",
+        "version": "1.1.0",
         "news": {
+            "1.1.0": {
+                "Fixed issue #15 regarding regex for tab 'Parser Rules', column 'Blacklist', Enhancement #16 implemented to add specific CSS classes to any element of the JSON log per adapter option, Major improvement: Implemented entire documentation into adapter itself to significantly improve usability. A few improvements under the hood.": {
+                    "en": "Fixed issue #15 regarding regex for tab 'Parser Rules', column 'Blacklist', Enhancement #16 implemented to add specific CSS classes to any element of the JSON log per adapter option, Major improvement: Implemented entire documentation into adapter itself to significantly improve usability. A few improvements under the hood.",
+                    "de": "Fixed issue #15 regarding regex for tab 'Parser Rules', column 'Blacklist', Enhancement #16 implemented to add specific CSS classes to any element of the JSON log per adapter option, Major improvement: Implemented entire documentation into adapter itself to significantly improve usability. A few improvements under the hood.",
+                    "ru": "Исправлена проблема № 15, касающаяся регулярного выражения для вкладки «Правила парсера», столбца «Черный список». Улучшение № 16, реализованное для добавления определенных классов CSS к любому элементу журнала JSON для каждого параметра адаптера. Значительное улучшение: полная документация добавлена в сам адаптер для значительного улучшения. удобство использования. Несколько улучшений под капотом.",
+                    "pt": "Corrigido o problema nº 15 com relação ao regex para a guia 'Parser Rules', coluna 'Blacklist', Aprimoramento nº 16 implementado para adicionar classes CSS específicas a qualquer elemento do log JSON por opção de adaptador, Melhoria principal: Implementação de documentação inteira no próprio adaptador para melhorar significativamente usabilidade. Algumas melhorias sob o capô.",
+                    "nl": "Probleem # 15 opgelost met betrekking tot regex voor tabblad 'Parser-regels', kolom 'Blacklist', Verbetering # 16 geïmplementeerd om specifieke CSS-klassen toe te voegen aan elk element van het JSON-logboek per adapteroptie, Grote verbetering: Volledige documentatie geïmplementeerd in adapter zelf om aanzienlijk te verbeteren bruikbaarheid. Een paar verbeteringen onder de motorkap.",
+                    "fr": "Correction du problème n ° 15 concernant l'expression régulière pour l'onglet `` Règles d'analyse '', colonne `` Liste noire '', Amélioration n ° 16 implémentée pour ajouter des classes CSS spécifiques à n'importe quel élément du journal JSON par option d'adaptateur, Amélioration majeure: Implémentation de toute la documentation dans l'adaptateur lui-même pour améliorer considérablement utilisabilité. Quelques améliorations sous le capot.",
+                    "it": "Risolto il problema # 15 relativo all'espressione regolare per la scheda \"Parser Rules\", colonna \"Blacklist\", Miglioramento # 16 implementato per aggiungere classi CSS specifiche a qualsiasi elemento del registro JSON per opzione adattatore, Miglioramento importante: implementata l'intera documentazione nell'adattatore stesso per migliorare significativamente usabilità. Alcuni miglioramenti sotto il cofano.",
+                    "es": "Se solucionó el problema n. ° 15 con respecto a la expresión regular de la pestaña 'Reglas del analizador', columna 'Lista negra', Mejora n. ° 16 implementada para agregar clases CSS específicas a cualquier elemento del registro JSON por opción de adaptador, Mejora importante: se implementó toda la documentación en el adaptador para mejorar significativamente usabilidad. Algunas mejoras bajo el capó.",
+                    "pl": "Naprawiono problem nr 15 dotyczący wyrażenia regularnego dla zakładki „Reguły parsera”, kolumna „Czarna lista”, Ulepszenie nr 16 zaimplementowane w celu dodania określonych klas CSS do dowolnego elementu dziennika JSON dla opcji adaptera, Główne ulepszenie: Zaimplementowano całą dokumentację do samego adaptera, aby znacznie poprawić użyteczność. Kilka ulepszeń pod maską.",
+                    "zh-cn": "修复了关于选项卡“解析器规则”，“黑名单”列的正则表达式的问题15，已实现增强功能16，以将特定CSS类添加到每个适配器选项的JSON日志的任何元素中，主要改进：在适配器本身中实现了整个文档，从而显着改进可用性。引擎盖下的一些改进。"
+                }
+            },
             "1.0.4": {
                 "en": "Fixed 'Today/Yesterday' updating issue - https://forum.iobroker.net/post/469757",
                 "de": "Aktualisierungs-Issue von 'Heute/Gestern' behoben - https://forum.iobroker.net/post/469757",
