@@ -1,10 +1,86 @@
-/* You can delete those if you want. I just found them very helpful */
-* {
-    box-sizing: border-box
-}
-.m {
-    /* Don't cut off dropdowns! */
-    overflow: initial;
-}
+/* ------------------- CSS style provided by ioBroker Adapter Creator ------------------- */
+* { box-sizing: border-box; }
+.m { overflow: initial; /* Don't cut off dropdowns! */ }
+/* -------------------------------------------------------------------------------------- */
 
-/* Add your styles here */
+/* Required to avoid y-scrollbar. */
+.modal { max-height:85% !important; }
+.m .page {height: auto !important; min-height:75% !important; }
+
+/* span */
+.m span { font-size: 1.0em !important }  /* span is set to 0.9em for some unknown reason, we set back to 1.0em  */
+.m .dialog-config-buttons span { font-size: 0.9em !important }  /* leave span at 0.9em for the save/cancel etc. buttons  */
+
+/* Header section "Log Parser" */
+#header-area {margin-top: 5px; margin-bottom: 1px; background-color:#174475;}
+/* #header-area {margin-top: 5px; margin-bottom: 1px; background-color:transparent;} */
+#header-area #header-logo-title .logo {float:left; margin-right: 10px;}
+#header-area #header-logo-title p {line-height: normal !important; margin: 0 !important; padding: 8px 0 0 8px;}
+#header-area #header-logo-title p>span.h-title {font-size: 2em !important; color:white; }
+#header-area #header-logo-title p span.h-sub-title {font-size: 13px !important; color:white; font-style: italic; }
+
+
+/* Tabs menu */
+#tab-area { padding-left:0;padding-right:0; margin-top: 0px; margin-bottom: 1px; background-color:#bbdef9; box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) }
+.m .tabs { background-color: transparent; }
+.m .tabs .tab a { color: rgba(13, 134, 231, 0.7); } /* Color */
+.m .tabs .tab a { padding: 0 5px; } /* space of x px at beginning and end of text  */
+.m .tabs .active { border-bottom: 2px solid #0d47a1; font-weight: bold;}
+.m .tabs .tab a.active, .m .tabs .tab a:hover { color:#0d47a1; }
+.m .tabs .tab a:hover { border-bottom: 2px solid #46a0e9 !important; }
+.m .row .col.m1 { width: 14%; } 
+
+/* Table header */
+table.table-values th.header { background-color:#64BfF6; font-size:90%; text-align:center; line-height: 1em; padding:6px 2px;}
+/* .table-values th {line-height: 1em; word-break:break-all; height: 2em; background-color:#2196F3; font-size:90%; } */
+
+
+/* Title of each section */
+p.title { font-weight: bold; background-color: #174475; }
+
+
+
+
+/* Table: Add button */
+.table-button-add { margin: 0.3em 0 1em 0; }
+
+/* Intro */
+.intro, .intro span  {font-size: 1.0em;}
+
+/* Filter Info */
+.docuLinks, .docuLinks span  {font-size: 1.0em;}
+
+
+/* ****** collapsible sections ****** */
+/* collapsible: general ****** */
+.collapsible-header { background-color: #c8e4fa69 !important; padding-top:0px !important; padding-bottom:0px !important;}
+.collapsible-header h5 { font-weight: bold; font-size:1.1em; margin-top:0.7em; }
+.collapsible-header i { line-height:initial;margin-bottom:4px; vertical-align: middle;}
+.collapsible-header span.expandHelpTxt {color:white; display:inline-block; padding-top:8px; font-style:italic}
+.collapsible-body ol li {font-size: 1.1em;}
+.collapsible-body ol li:not(:last-child) { margin-bottom: .6em; }
+.collapsible-body p { font-size: 1.1em; }
+.collapsible-body code { font-size: 1.1em !important }
+.collapsible-body td:nth-child(1) { font-weight:normal; color: #0d47a1; width: 200px; } /* Format first column */
+.collapsible-body table {font-size: 1.0em;}
+.collapsible-body th {background-color: #c8e4fa69;}
+
+/* collapsible: Config Table Header/Documentation ****** */
+.collapsible-header.config-section    { background-color: #174475 !important; }
+.collapsible-header.config-section i.material-icons { color:#fff; } /* icon color */
+.collapsible-header.config-section h5 { color:#fff; }
+.collapsible-header.config-section { display: flex; justify-content: space-between; } /* for right alignment of question mark icon */
+.collapsible-header.config-section i.material-icons { padding-right: 0; margin-right: 0;}
+
+/* collapsible: Documentation ****** */
+.collapsible-body.instructions td { line-height: 1.7em; }
+
+
+
+/* add space at top/bottom */
+.spaceTop3em {margin-top: 3em; }
+.spaceBottom3em {margin-top: 3em; }
+
+
+/* Translation required */
+p.translation-required { font-style:italic; color:#21448f; font-size:14px !important; line-height: 14px !important;}

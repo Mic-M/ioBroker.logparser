@@ -1,12 +1,12 @@
 'use strict';
 /**
- *     ioBroker Log Parser Adapter
+ * ioBroker Log Parser Adapter
  *
- *     https://github.com/Mic-M/ioBroker.logparser
+ * @github  https://github.com/Mic-M/ioBroker.logparser
+ * @forum   https://forum.iobroker.net/topic/37793/log-parser-adapter-splash-page
+ * @author  Mic-M <https://github.com/Mic-M/ioBroker.logparser>
+ * @license MIT
  * 
- *     © 2020 Mic-M <iob.micm@gmail.com>
- * 
- *     License: MIT
  */
 
 
@@ -15,7 +15,7 @@
  */
 let adapter; // The adapter instance object. In this case we do not add "g_" to the variable name for ease of use for anyone.
 const g_ioBrokerUtils = require('@iobroker/adapter-core'); // The adapter-core module
-const g_path = require('path'); const helper = require(g_path.join(__dirname, 'lib', 'mic-functions.js'));// Helper Functions
+const helper = require('./lib/helper.js');// Helper Functions
 const g_forbiddenCharsA = /[\][*,;'"`<>\\?]/g;    // Several chars but allows spaces
 const g_forbiddenCharsB = /[\][*,;'"`<>\\\s?]/g; // Several chars and no spaces allowed
 const g_globalBlacklist = [];  // the global blacklist (per admin settings. either type RegExp or string)
@@ -214,7 +214,7 @@ function stateChanges(statePath, obj) {
                 adapter.setState(statePath, {val:false, ack:true}); // Acknowledge the positive response
             }
             adapter.setState('lastTimeUpdated', {val:Date.now(), ack: true});
-            
+
         // Visualization: Changed selection
         } else if (fromEnd3 == 'visualization' && fromEnd1 == 'selection' && obj.val && !obj.ack) {
 
@@ -509,8 +509,13 @@ function addNewLogToAllLogsVar(filterName, logObject, callback) {
     }
     logObjJson.ts = newLogObject.ts; // Always add timestamp as last key (which will also end up in the last column of JSON table)
 
-    // Add CSS to newLogObject.severity, like <span class='logWarn'>warn</span>
-    logObjJson.severity = "<span class='log" + newLogObject.severity.charAt(0).toUpperCase() + newLogObject.severity.slice(1) + "'>" + newLogObject.severity + '</span>';
+    // Add CSS, like <span class='logWarn logSeverity'>warn</span>
+    const severityUcase = newLogObject.severity.charAt(0).toUpperCase() + newLogObject.severity.slice(1);
+    if (adapter.config.cssDate)     logObjJson.date     = `<span class='log${severityUcase} logDate'>${newLogObject.date}</span>`;
+    if (adapter.config.cssSeverity) logObjJson.severity = `<span class='log${severityUcase} logSeverity'>${newLogObject.severity}</span>`;
+    if (adapter.config.cssMessage)  logObjJson.message  = `<span class='log${severityUcase} logMessage'>${newLogObject.message}</span>`;
+    if (adapter.config.cssFrom)     logObjJson.from     = `<span class='log${severityUcase} logFrom'>${newLogObject.from}</span>`;
+
 
     // Finally: add newLogObject to g_allLogs
     g_allLogs[filterName].unshift(logObjJson);  // add element at beginning
@@ -548,7 +553,7 @@ function prepareNewLogObject(logObject) {
     let msg = (helper.isLikeEmpty(logObject.message)) ? '' : logObject.message;  // set empty string if no message 
     msg = msg.replace(/\s+/g, ' '); // Remove multiple white-spaces, tabs and new line from log message
 
-    // Never handle logs of this adapter to make sure not having endless loops.
+    // Never handle logs of this LogParser adapter to make sure not having endless loops.
     if (logObject.from == adapter.namespace) msg = '';
 
     // Check if globally blacklisted

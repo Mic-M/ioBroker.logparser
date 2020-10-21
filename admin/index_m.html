@@ -2,87 +2,26 @@
 
 <head>
 
-    <!-- Load ioBroker scripts and styles-->
+    <!-- Load ioBroker files. Dir '../../' is 'iobroker/node_modules/iobroker.admin/www'  -->
     <link rel="stylesheet" type="text/css" href="../../css/adapter.css" />
-    <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
-
-    <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script> <!-- iobroker/node_modules/iobroker.admin/www/lib/js/ -->
     <script type="text/javascript" src="../../socket.io/socket.io.js"></script>
-
-    <script type="text/javascript" src="../../js/translate.js"></script>
-    <script type="text/javascript" src="../../lib/js/materialize.js"></script>
-    <script type="text/javascript" src="../../js/adapter-settings.js"></script>
-
-    <!-- Load our own files -->
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript" src="../../js/translate.js"></script> <!-- iobroker/node_modules/iobroker.admin/www/js/ -->
+    <script type="text/javascript" src="../../lib/js/materialize.js"></script> <!-- iobroker/node_modules/iobroker.admin/www/lib/js/ -->
+    <link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
+    <script type="text/javascript" src="../../js/adapter-settings.js"></script> <!-- iobroker/node_modules/iobroker.admin/www/js/ -->
     <script type="text/javascript" src="words.js"></script>
 
-    <script type="text/javascript">
+    <!-- For embedding markdown files - https://github.com/zerodevx/zero-md -->
+    <script src="zero-md/webcomponents-loader.min.js"></script> <!-- Lightweight client-side loader that feature-detects and load polyfills only when necessary -->
+    <script type="module" src="zero-md/zero-md.min.js.js"></script> <!-- Load the element definition -->
 
-        // This will be called by the admin adapter when the settings page loads
-        let globalBlacklist = [];   // For table "globalBlacklist"
-        let parserRules = [];   // For table "parserRules"
-        function load(settings, onChange) {
-            // example: select elements with id=key and class=value and insert value
-            if (!settings) return;
-            $('.value').each(function () {
-                var $key = $(this);
-                var id = $key.attr('id');
-                if ($key.attr('type') === 'checkbox') {
-                    // do not call onChange direct, because onChange could expect some arguments
-                    $key.prop('checked', settings[id])
-                        .on('change', () => onChange())
-                        ;
-                } else {
-                    // do not call onChange direct, because onChange could expect some arguments
-                    $key.val(settings[id])
-                        .on('change', () => onChange())
-                        .on('keyup', () => onChange())
-                        ;
-                }
-            });
-            globalBlacklist = settings.globalBlacklist || [];   // For table "globalBlacklist"
-            parserRules = settings.parserRules || [];   // For table "parserRules"
-            onChange(false);
-            values2table('globalBlacklist', globalBlacklist, onChange);   // For table "globalBlacklist"
-            values2table('parserRules', parserRules, onChange);   // For table "parserRules"
-            // reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
-            if (M) M.updateTextFields();
-        }
+    <!-- Our style.css -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    
+    <!-- Our index_m.js -->
+    <script type="text/javascript" src="index_m.js"></script>
 
-        // This will be called by the admin adapter when the user presses the save button
-        function save(callback) {
-            // example: select elements with class=value and build settings object
-            var obj = {};
-            $('.value').each(function () {
-                var $this = $(this);
-                if ($this.attr('type') === 'checkbox') {
-                    obj[$this.attr('id')] = $this.prop('checked');
-                } else {
-                    obj[$this.attr('id')] = $this.val();
-                }
-            });
-            obj.globalBlacklist = table2values('globalBlacklist');    // For table "globalBlacklist"
-            obj.parserRules = table2values('parserRules');    // For table "parserRules"
-            callback(obj);
-        }
-
-    </script>
-
-    <style>
-        /* Title of each section */
-        .title { font-weight: bold; }
-        /* Info text of each section */
-        /* .info { margin-left: 1em; } */
-        /* Table header */
-        .table-values th {line-height: 1em; word-break:break-all; height: 2em; background-color:#2196F3; font-size:90%; }
-        /* Table: Add button */
-        .table-button-add { margin: 0.3em 0 1em 0; }
-        /* Intro */
-        .intro, .intro span  {font-size: 1.0em;}
-        /* Filter Info */
-        .docuLinks, .docuLinks span  {font-size: 1.0em;}
-    </style>
 
 </head>
 
@@ -90,12 +29,25 @@
 
     <div class="m adapter-container">
 
+        <!-- ============= HEADER WITH LOGO AND BUTTONS ============= -->
+        <div id="header-area" class="row" >
+            <div id="header-logo-title" class="col s6" >
+                <img class="logo" src="logparser.png" >
+                <p>
+                    <span class="h-title">Log Parser<br />
+                    <span class="h-sub-title"><span class="translate">Version</span> <span id="adapter-version"></span></span>
+                </p>
+            </div>
+        </div>
+
+        <!-- ============= MAIN SECTION ============= -->
         <div class="row">
 
             <!-- Define all Tabs -->
-            <div class="col s12">
+            <div class="col s12" id="tab-area">
                 <ul class="tabs">
                     <!-- see description: https://materializecss.com/grid.html -->
+                    <li class="tab col s4 l2"><a href="#tab-start" class="translate">Start</a></li>
                     <li class="tab col s4 l2"><a href="#tab-filter" class="translate">Parser Rules (Filter)</a></li>
                     <li class="tab col s4 l2"><a href="#tab-further" class="translate">Further Settings</a></li>
                     <li class="tab col s4 l2"><a href="#tab-visualization" class="translate">Visualization</a></li>
@@ -107,39 +59,48 @@
             <!-- Content of the tabs from here -->
 
             <!-----------------------------------------------------------
-                Tab1: Parser Rules
+                Tab1: Start
               ----------------------------------------------------------->
-            <div id="tab-filter" class="col s12 page">            
+              <div id="tab-start" class="col s12 page">            
 
+                <!-- Section "Start" -->
                 <div class="row">
-                    <div class="col s12 m4 l2">
-                        <img alt="Adapter Logo" src="logparser.png" class="logo">
+
+                    <div class="col s12">
+                        <h5>Start</h5>
+                        <div>
+                            <p style="font-size: 1.3em"><span class="translate">ParserRules.Welcome</span>: <a href="https://forum.iobroker.net/topic/37793/log-parser-adapter-splash-page" target="_blank">ioBroker Forum: Log Parser</a>.</p>
+                            <br>
+                            <p class="translate" style="font-size: 1.3em;">Adapter Instructions:</p>
+                        </div>
+                        <!-- Importing Markdown -->
+                        <zero-md id="md-start" manual-render src="doc-md/start_en.md"></zero-md>
                     </div>
                 </div>
+ 
+            </div> <!-- end of tab 1-->
 
-                <!-- Section "Introduction" -->
-                <div class="row">
-                    <div class="col s12 intro">
-                        <h5 class="translate">Adapter: Log Parser</h5>
-                        <p><span class="translate">IntroTxt1</span>
-                           <span class="translate">IntroTxt2</span>
-                        </p>
-                        <p><span class="translate">Adapter Instructions</span>: 
-                            <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/en/logparser.md#table-for-the-filter-rules" target="_blank"><span class="translate">English</span></a>
-                            | <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/de/logparser.md#tabelle-f%C3%BCr-die-filter-regeln" target="_blank"><span class="translate">German</span></a>
-                        </p>
-                    </div>
-                </div>
 
-                <!-- Section "Filter Rules" -->
+            <!-----------------------------------------------------------
+                Tab 2: Parser Rules
+              ----------------------------------------------------------->
+            <div id="tab-filter" class="col s12 page spaceTop3em">            
+
                 <div class="row">
                     <div class="col s12">
-                        <p class="translate title">Filter/Parser Rules</p>
-                        <p class="translate info">For each set filter (rule), states are created under 'logparser.[instance].filters'.</p>
-                        <p class="info docuLinks"><span class="translate">Detailed filter instructions</span>: 
-                            <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/en/logparser.md#table-for-the-filter-rules" target="_blank"><span class="translate">English</span></a>
-                            | <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/de/logparser.md#tabelle-f%C3%BCr-die-filter-regeln" target="_blank"><span class="translate">German</span></a>
-                        </p>
+
+                        <ul class="collapsible">
+                            <li>
+                                <div class="collapsible-header config-section">
+                                    <h5 class="translate">Filter/Parser Rules</h5>
+                                    <span><span class="translate expandHelpTxt">expandHelpTxt</span> <i class="material-icons">help_outline</i></span>
+                                </div>
+                                <div class="collapsible-body">
+                                    <!-- Importing Markdown -->
+                                    <zero-md id="md-table-parser-rules" manual-render src="doc-md/table-parser-rules_en.md"></zero-md>
+                                </div>
+                            </li>
+                        </ul>
                         <!-- Start Options Table-->
                         <div class="col s12" id="parserRules">
                             <a class="btn-floating waves-effect waves-light blue table-button-add"><i class="material-icons">add</i></a>
@@ -147,7 +108,7 @@
                                 <table class="table-values">
                                     <thead>
                                         <tr>
-                                            <th style="width: 30px;" data-style="width: 30px"  class="header translate" data-name="active" data-type="checkbox">Active</th>
+                                            <th style="width: 30px" class="header" data-name="active" data-type="checkbox"><i class="material-icons left">check_box</i></th>
                                             <th class="header translate" data-name="name">Name</th>
                                             <th class="header translate" data-name="whitelistAnd">Whitelist AND</th>
                                             <th class="header translate" data-name="whitelistOr">Whitelist OR</th>
@@ -171,13 +132,14 @@
                 </div>
 
 
-            </div> <!-- end of tab 1-->
+            </div> <!-- end of tab 2-->
 
             <!-----------------------------------------------------------
-                Tab 2: Further Settings
+                Tab 3: Further Settings
               ----------------------------------------------------------->
-            <div id="tab-further" class="col s12 page">            
+            <div id="tab-further" class="col s12 page spaceTop3em">            
 
+               
                 <!-- Section "Remove PID" -->                
                 <div class="row">
                     <div class="col s12">
@@ -234,12 +196,12 @@
                 </div>  
 
 
-            </div> <!-- end of tab 2-->
+            </div> <!-- end of tab 3-->
 
             <!-----------------------------------------------------------
-                Tab 3: Visualization
+                Tab 4: Visualization
               ----------------------------------------------------------->
-            <div id="tab-visualization" class="col s12 page">            
+            <div id="tab-visualization" class="col s12 page spaceTop3em">            
 
                 <!-- Section "Number of JSON tables used in VIS" -->
                 <div class="row">
@@ -294,6 +256,43 @@
                     </div>
                 </div>
 
+                <!-- Section "Add CSS to JSON Log" -->
+                <div class="row">
+                    <div class="col s12">
+                        <p class="translate title">Add CSS to JSON Log</p>
+                        <p class="info">
+                            <span class="translate">cssJSON_1</span>
+                            <br><br>
+                            <span class="translate">cssJSON_2</span>
+                            <br> 
+                            <br><img src="img/css_before.png" alt="before">
+                            <br><br>
+                            <span class="translate">cssJSON_3</span>
+                            <br>
+                            <br><img src="img/css_after.png" alt="after">
+                            <br> <br>
+                            <span class="translate">cssJSON_4</span>
+                            <br><br>
+                            <span class="translate">cssJSON_5</span>
+                        </p>
+                        <div class="input-field col s12 m6">
+                            <p class="translate" style="font-weight: bold;">Hier nun die entsprechenden Optionen:</p>
+                            <input type="checkbox" class="value" id="cssDate" />
+                            <label for="cssDate" style="margin-right:30px">Date</label>
+
+                            <input type="checkbox" class="value" id="cssSeverity" />
+                            <label for="cssSeverity" style="margin-right:30px">Severity</label>
+
+                            <input type="checkbox" class="value" id="cssFrom" />
+                            <label for="cssFrom" style="margin-right:30px">From</label>
+
+                            <input type="checkbox" class="value" id="cssMessage" />
+                            <label for="cssMessage" style="margin-right:30px">Message</label>
+                        </div>
+                    </div>
+                </div>
+
+
                 <!-- Section "Sort Descending" -->
                 <div class="row">
                     <div class="col s12">
@@ -306,21 +305,29 @@
                     </div>
                 </div>
 
-            </div> <!-- end of tab 3-->            
+            </div> <!-- end of tab 4-->            
 
             <!-----------------------------------------------------------
-                Tab 4: Blacklist
+                Tab 5: Blacklist
               ----------------------------------------------------------->            
-            <div id="tab-blacklist" class="col s12 page">            
+            <div id="tab-blacklist" class="col s12 page spaceTop3em">            
 
                 <div class="row">
                     <div class="col s12">
-                        <!-- <p class="translate title">Global Blacklist</p> -->
-                        <p class="info docuLinks"><span class="translate">Blacklist Instructions</span>: 
-                            <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/en/logparser.md#tab-global-blacklist" target="_blank"><span class="translate">English</span></a>
-                            | <a href="https://github.com/Mic-M/ioBroker.logparser/blob/master/docs/de/logparser.md#registerkarte-globale-blacklist" target="_blank"><span class="translate">German</span></a>
-                        </p>
-                       
+
+                        <ul class="collapsible">
+                            <li>
+                                <div class="collapsible-header config-section">
+                                    <h5 class="translate">Global Blacklist</h5>
+                                    <span><span class="translate expandHelpTxt">expandHelpTxt</span> <i class="material-icons">help_outline</i></span>
+                                </div>
+                                <div class="collapsible-body">
+                                    <!-- Importing Markdown -->
+                                    <zero-md id="table-global-blacklist" manual-render src="doc-md/table-global-blacklist_de.md"></zero-md>
+                                </div>
+                            </li>
+                        </ul>
+
                         <!-- Start Options Table-->
                         <div class="col s12" id="globalBlacklist">
                             <a class="btn-floating waves-effect waves-light blue table-button-add"><i class="material-icons">add</i></a>
@@ -328,10 +335,10 @@
                                 <table class="table-values">
                                     <thead>
                                         <tr>
-                                            <th class="header translate" data-name="active" data-type="checkbox">Active</th>
+                                            <th style="width: 30px" class="header" data-name="active" data-type="checkbox"><i class="material-icons left">check_box</i></th>
                                             <th class="header translate" data-name="item">Blacklist Expressions</th>
                                             <th class="header translate" data-name="comment">Comment</th>
-                                            <th class="header" data-buttons="up down copy delete"></th>
+                                            <th style="width: 160px" class="header" data-buttons="up down copy delete"></th>
                                         </tr>
                                     </thead>
                                 </table>
@@ -341,12 +348,12 @@
                     </div>
                 </div>
 
-            </div> <!-- end of tab 4-->
+            </div> <!-- end of tab 5-->
 
             <!-----------------------------------------------------------
-                Tab 5: Expert Settings
+                Tab 6: Expert Settings
               -----------------------------------------------------------> 
-            <div id="tab-expert" class="col s12 page">            
+            <div id="tab-expert" class="col s12 page spaceTop3em">            
 
                 <!-- Section "Update Interval" -->
                 <div class="row">
@@ -374,7 +381,7 @@
                     </div>
                 </div>
                 
-            </div> <!-- end of tab 5-->
+            </div> <!-- end of tab 6-->
 
         </div> <!-- class "row" -->
 

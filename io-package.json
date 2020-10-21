@@ -170,6 +170,10 @@
         "visTables": 1,
         "updateInterval": 10,
         "maxLogs": 100,
+        "cssDate": false,
+        "cssSeverity": true,
+        "cssFrom": false,
+        "cssMessage": false,
         "globalBlacklist": [
             {
                 "item": "<==Disconnect system.user.admin from ::ffff:",

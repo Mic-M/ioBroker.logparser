@@ -1,0 +1,4 @@
+If one of these phrases/terms is contained in a log line, then the log entry is ignored by this adapter, regardless of what is set in the parser rules (filter). Both string and regex are allowed. If string: it is checked for partial match, i.e. if you enter e.g. "echo", then every log line containing "echo" will be filtered out, also e.g. "Command sent to echo in kitchen".
+Please place regex between `/` and `/`, so that the adapter recognizes if it is a regexp.
+
+In the column "Comment" you can comment/explain the respective entry as you like, for example so that you can later understand why you have set this blacklist entry.
